@@ -627,6 +627,32 @@ ul.plain li + li {
   margin: 1rem 0;
 }
 
+/* ---- community ---- */
+
+.community-split {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: minmax(0, 1fr) 350px;
+  align-items: start;
+}
+
+.discord-widget iframe {
+  display: block;
+  width: 100%;
+  max-width: 350px;
+  height: 500px;
+  border: 0;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  background: var(--surface);
+}
+
+@media (max-width: 900px) {
+  .community-split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 /* ---- footer ---- */
 
 .site-footer {
