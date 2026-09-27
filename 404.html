@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found — DiscordPHP</title>
+  <meta name="robots" content="noindex">
+  <script>
+    // GitHub Pages serves this page for a missing path at any depth, so links are resolved from
+    // the site's root: the domain's root, or /<repository>/ on github.io.
+    (function () {
+      var parts = window.location.pathname.split('/');
+      var root = /\.github\.io$/.test(window.location.hostname) && parts[1] ? '/' + parts[1] + '/' : '/';
+      document.write('<base href="' + root + '">');
+    })();
+  </script>
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script>try { const t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch {}</script>
+  <script type="module" src="assets/js/site.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">DP</span>DiscordPHP</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Site">
+        <a href="./">Home</a>
+        <a href="libraries.html">Libraries</a>
+        <a href="guides.html">Guides</a>
+        <a href="uml/">UML</a>
+        <a href="community.html">Community</a>
+        <a href="https://github.com/discord-php">GitHub</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Switch theme">☾</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <div class="page-head">
+        <h1>Page not found</h1>
+        <p>There is nothing at this address. The documentation lives on its own site. You may be looking for one of these pages:</p>
+      </div>
+      <div class="grid">
+        <a class="card" href="https://discord-php.github.io/DiscordPHP/guide/">
+          <h3>The guide</h3>
+          <p>Learn DiscordPHP from the first bot onwards.</p>
+        </a>
+        <a class="card" href="https://discord-php.github.io/DiscordPHP/namespaces/discord.html">
+          <h3>Class reference</h3>
+          <p>Every class, method and property.</p>
+        </a>
+        <a class="card" href="uml/">
+          <h3>UML diagrams</h3>
+          <p>How DiscordPHP is put together, and every route it sends.</p>
+        </a>
+        <a class="card" href="https://discord.gg/dphp">
+          <h3>Discord server</h3>
+          <p>Ask for help, or tell us about the broken link.</p>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="fineprint">DiscordPHP is an unofficial library, not affiliated with or endorsed by Discord Inc. It is released under the MIT License.</p>
+    </div>
+  </footer>
+</body>
+</html>

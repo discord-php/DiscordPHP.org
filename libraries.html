@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Libraries — DiscordPHP</title>
+  <meta name="description" content="DiscordPHP and the libraries around it: the HTTP client, voice, collections, the chat bridge, tools and integrations.">
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script>try { const t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch {}</script>
+  <script type="module" src="assets/js/site.js"></script>
+  <script type="module" src="assets/js/versions.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">DP</span>DiscordPHP</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Site">
+        <a href="./">Home</a>
+        <a href="libraries.html" aria-current="page">Libraries</a>
+        <a href="guides.html">Guides</a>
+        <a href="uml/">UML</a>
+        <a href="community.html">Community</a>
+        <a href="https://github.com/discord-php">GitHub</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Switch theme">☾</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <div class="page-head">
+        <h1>Libraries</h1>
+        <p>DiscordPHP is split into packages you can use on their own. Install any of them with Composer. The version shown is the latest stable release on Packagist.</p>
+      </div>
+
+      <section id="core">
+        <h2>DiscordPHP and its parts</h2>
+        <p class="section-intro">Installing DiscordPHP brings the other three with it. Voice connections also need PHP 8.3, <code>ext-ffi</code> and <code>libdave</code>.</p>
+        <div class="grid">
+          <article class="card">
+            <h3>DiscordPHP <span class="tag ok" data-version="team-reflex/discord-php" hidden></span></h3>
+            <p class="package">team-reflex/discord-php</p>
+            <p>The library itself: the gateway client, a cached model of guilds, channels, members and messages, slash commands, components, OAuth2 sessions and webhook events.</p>
+            <div class="links">
+              <a href="https://github.com/discord-php/DiscordPHP">GitHub</a>
+              <a href="https://packagist.org/packages/team-reflex/discord-php">Packagist</a>
+              <a href="https://discord-php.github.io/DiscordPHP/guide/">Guide</a>
+              <a href="https://discord-php.github.io/DiscordPHP/namespaces/discord.html">Reference</a>
+            </div>
+          </article>
+          <article class="card">
+            <h3>DiscordPHP-Http <span class="tag ok" data-version="discord-php/http" hidden></span></h3>
+            <p class="package">discord-php/http</p>
+            <p>The asynchronous REST client. It keeps a queue per rate-limit bucket, retries after a 429, and runs on ReactPHP or Guzzle. It works without the rest of DiscordPHP too.</p>
+            <div class="links">
+              <a href="https://github.com/discord-php/DiscordPHP-Http">GitHub</a>
+              <a href="https://packagist.org/packages/discord-php/http">Packagist</a>
+              <a href="https://discord-php.github.io/DiscordPHP-Http/">Reference</a>
+            </div>
+          </article>
+          <article class="card">
+            <h3>DiscordPHP-Voice <span class="tag ok" data-version="discord-php-helpers/voice" hidden></span></h3>
+            <p class="package">discord-php-helpers/voice</p>
+            <p>Voice connections: playing and recording audio, with Discord's DAVE end-to-end encryption. It needs <code>ext-ffi</code> and <code>libdave</code>.</p>
+            <div class="links">
+              <a href="https://github.com/discord-php/DiscordPHP-Voice">GitHub</a>
+              <a href="https://packagist.org/packages/discord-php-helpers/voice">Packagist</a>
+              <a href="https://discord-php.github.io/DiscordPHP-Voice/">Reference</a>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Collection <span class="tag ok" data-version="discord-php-helpers/collection" hidden></span></h3>
+            <p class="package">discord-php-helpers/collection</p>
+            <p>The collection class behind every repository, inspired by Laravel's collections. Bring your own by implementing <code>ExCollectionInterface</code>.</p>
+            <div class="links">
+              <a href="https://github.com/discord-php/Collection">GitHub</a>
+              <a href="https://packagist.org/packages/discord-php-helpers/collection">Packagist</a>
+              <a href="https://discord-php.github.io/Collection/">Reference</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="bridge">
+        <h2>The chat bridge</h2>
+        <p class="section-intro">Relay chat between Discord and other networks, and drive them with one set of commands. The core does not know which network it bridges to: each network plugs in as a connector package.</p>
+        <div class="grid">
+          <article class="card">
+            <h3>DiscordPHP-Bridge</h3>
+            <p class="package">vzgcoders/discordphp-bridge</p>
+            <p>The core: routing, persistence, a command catalogue served on every network, Components v2 panels and rate limiting.</p>
+            <div class="links">
+              <a href="https://github.com/discord-php/DiscordPHP-Bridge">GitHub</a>
+              <a href="https://packagist.org/packages/vzgcoders/discordphp-bridge">Packagist</a>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Twitch connector</h3>
+            <p class="package">vzgcoders/discordphp-bridge-twitch</p>
+            <p>A two-way chat bridge to Twitch, and the whole Helix API as commands.</p>
+            <div class="links">
+              <a href="https://github.com/Valgorithms/DiscordPHP-Bridge-Twitch">GitHub</a>
+              <a href="https://packagist.org/packages/vzgcoders/discordphp-bridge-twitch">Packagist</a>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Telegram connector</h3>
+            <p class="package">vzgcoders/discordphp-bridge-telegram</p>
+            <p>A two-way chat bridge to Telegram, with edits, media and Components v2 panels.</p>
+            <div class="links">
+              <a href="https://github.com/Valgorithms/DiscordPHP-Bridge-Telegram">GitHub</a>
+              <a href="https://packagist.org/packages/vzgcoders/discordphp-bridge-telegram">Packagist</a>
+            </div>
+          </article>
+          <article class="card">
+            <h3>DiscordPHP-BridgeBot</h3>
+            <p class="package">vzgcoders/discordphp-bridgebot</p>
+            <p>A ready-to-run bot that puts the core and both connectors together. Start here to host a bridge.</p>
+            <div class="links">
+              <a href="https://github.com/Valgorithms/DiscordPHP-BridgeBot">GitHub</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="integrations">
+        <h2>Integrations</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>Laracord</h3>
+            <p class="package">laracord/laracord</p>
+            <p>Build DiscordPHP bots with Laravel: service container bindings, configuration helpers and a more Laravel-native way of working. Laracord is maintained independently of DiscordPHP.</p>
+            <div class="links">
+              <a href="https://laracord.com/">Website</a>
+              <a href="https://github.com/laracord/laracord">GitHub</a>
+              <a href="https://packagist.org/packages/laracord/laracord">Packagist</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="experimental">
+        <h2>Experimental</h2>
+        <p class="section-intro">Work towards a PHP implementation of MLS, the group key protocol Discord's DAVE encryption is built on. Neither package is ready for production use.</p>
+        <div class="grid">
+          <article class="card">
+            <h3>RFC9420 <span class="tag warn">in development</span></h3>
+            <p class="package">discord-php-helpers/rfc9420</p>
+            <p>Messaging Layer Security (RFC 9420) in PHP.</p>
+            <div class="links">
+              <a href="https://github.com/discord-php/RFC9420">GitHub</a>
+              <a href="https://packagist.org/packages/discord-php-helpers/rfc9420">Packagist</a>
+            </div>
+          </article>
+          <article class="card">
+            <h3>MLS <span class="tag warn">scaffold</span></h3>
+            <p class="package">discord-php/mls</p>
+            <p>MLS crypto adapters (HPKE, AEAD and signatures) on libsodium and OpenSSL. HPKE does not implement RFC 9180 yet.</p>
+            <div class="links">
+              <a href="https://github.com/discord-php/MLS">GitHub</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="tools">
+        <h2>Tools and example bots</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>phpdoc-tool <span class="tag ok" data-version="discord-php/phpdoc-tool" data-source="github:discord-php/phpdoc-tool" hidden></span></h3>
+            <p class="package">discord-php/phpdoc-tool</p>
+            <p>phpDocumentor, patched to read and print the <code>?T|null</code> types these libraries document their API with. It builds the class references linked from this site.</p>
+            <div class="links">
+              <a href="https://github.com/discord-php/phpdoc-tool">GitHub</a>
+            </div>
+          </article>
+          <article class="card">
+            <h3>D.PHP</h3>
+            <p class="package">discord-php/d.php</p>
+            <p>DiscordPHP's test bot, and a working example of a complete bot.</p>
+            <div class="links">
+              <a href="https://github.com/discord-php/D.PHP">GitHub</a>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Tutelar</h3>
+            <p class="package">vzgcoders/discordphp-tutelar</p>
+            <p>A community-management bot: event logging, onboarding and roles, per-guild settings, and a ticket system for reports to moderators.</p>
+            <div class="links">
+              <a href="https://github.com/discord-php/DiscordPHP-Tutelar">GitHub</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="archived">
+        <h2>Archived</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>DiscordPHP-Slash <span class="tag warn">archived</span></h3>
+            <p class="package">discord-php/slash</p>
+            <p>A standalone HTTP server for slash commands, from before DiscordPHP supported them. DiscordPHP handles slash commands itself now.</p>
+            <div class="links">
+              <a href="https://github.com/discord-php/DiscordPHP-Slash">GitHub</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div>
+        <h4>DiscordPHP</h4>
+        <ul>
+          <li><a href="https://github.com/discord-php/DiscordPHP">GitHub</a></li>
+          <li><a href="https://packagist.org/packages/team-reflex/discord-php">Packagist</a></li>
+          <li><a href="https://github.com/discord-php/DiscordPHP/releases">Releases</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Docs</h4>
+        <ul>
+          <li><a href="https://discord-php.github.io/DiscordPHP/guide/">Guide</a></li>
+          <li><a href="https://discord-php.github.io/DiscordPHP/namespaces/discord.html">Class reference</a></li>
+          <li><a href="https://github.com/discord-php/DiscordPHP/wiki">Wiki</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Community</h4>
+        <ul>
+          <li><a href="https://discord.gg/dphp">Discord server</a></li>
+          <li><a href="https://x.com/dphplibrary">X (@dphplibrary)</a></li>
+          <li><a href="mailto:support@discordphp.org">support@discordphp.org</a></li>
+        </ul>
+      </div>
+      <p class="fineprint">DiscordPHP is an unofficial library, not affiliated with or endorsed by Discord Inc. It is released under the MIT License.</p>
+    </div>
+  </footer>
+</body>
+</html>

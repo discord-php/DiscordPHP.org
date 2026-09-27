@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>REST route map — DiscordPHP</title>
+  <meta name="description" content="Every route in Discord's REST API, grouped by resource, with the DiscordPHP classes and methods that send it, as UML class diagrams and a searchable table.">
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../assets/css/site.css">
+  <script>try { const t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch {}</script>
+  <script type="module" src="../assets/js/site.js"></script>
+  <script type="module" src="../assets/js/routes.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../"><span class="brand-mark" aria-hidden="true">DP</span>DiscordPHP</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Site">
+        <a href="../">Home</a>
+        <a href="../libraries.html">Libraries</a>
+        <a href="../guides.html">Guides</a>
+        <a href="./" aria-current="page">UML</a>
+        <a href="../community.html">Community</a>
+        <a href="https://github.com/discord-php">GitHub</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Switch theme">☾</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <div class="page-head">
+        <p class="crumbs"><a href="./">UML diagrams</a> / REST routes</p>
+        <h1>REST route map</h1>
+        <p>Every operation in Discord's <a href="https://github.com/discord/discord-api-spec">OpenAPI description</a>, grouped by resource. Each group has a class diagram of the DiscordPHP classes that send its routes, with one line per method and route. Routes DiscordPHP does not send yet are gathered in a box of their own. The map follows the latest DiscordPHP release: it is rebuilt when a new version comes out, and every day to catch changes in Discord's description.</p>
+      </div>
+
+      <div class="stats" id="route-stats" aria-live="polite"></div>
+      <p class="source" id="route-source"></p>
+
+      <div class="toolbar">
+        <label class="visually-hidden" for="route-filter">Filter routes</label>
+        <input type="search" id="route-filter" placeholder="Filter by route, method, class or constant, e.g. messages or Member::" autocomplete="off">
+        <label><input type="checkbox" id="route-missing"> Only routes not sent</label>
+        <span class="count" id="route-count" aria-live="polite"></span>
+      </div>
+
+      <div id="route-map">
+        <p class="note">Loading the route map…</p>
+      </div>
+
+      <section>
+        <h2>Reading the diagrams</h2>
+        <p class="section-intro">A class box lists the methods that send a request, each followed by the route it sends, with <code>:id</code> standing for a path parameter. A method appears once per route it can send. A line with a filled diamond means the class on that end holds the other as a repository, and the label is the property name, as in <code>$guild-&gt;members</code>. Repositories reach their routes through <code>freshen()</code> (list), <code>fetch()</code> (get one), <code>save()</code> (create or update) and <code>delete()</code>.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div>
+        <h4>DiscordPHP</h4>
+        <ul>
+          <li><a href="https://github.com/discord-php/DiscordPHP">GitHub</a></li>
+          <li><a href="https://packagist.org/packages/team-reflex/discord-php">Packagist</a></li>
+          <li><a href="https://github.com/discord-php/DiscordPHP/releases">Releases</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Docs</h4>
+        <ul>
+          <li><a href="https://discord-php.github.io/DiscordPHP/guide/">Guide</a></li>
+          <li><a href="https://discord-php.github.io/DiscordPHP/namespaces/discord.html">Class reference</a></li>
+          <li><a href="https://github.com/discord-php/DiscordPHP/wiki">Wiki</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Community</h4>
+        <ul>
+          <li><a href="https://discord.gg/dphp">Discord server</a></li>
+          <li><a href="https://x.com/dphplibrary">X (@dphplibrary)</a></li>
+          <li><a href="mailto:support@discordphp.org">support@discordphp.org</a></li>
+        </ul>
+      </div>
+      <p class="fineprint">DiscordPHP is an unofficial library, not affiliated with or endorsed by Discord Inc. It is released under the MIT License.</p>
+    </div>
+  </footer>
+</body>
+</html>
