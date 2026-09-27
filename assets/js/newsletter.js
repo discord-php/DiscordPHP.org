@@ -6,6 +6,9 @@
 
 const DATA = 'data/newsletter.json';
 
+/** The bot that writes the editions. Every edition links to its source code. */
+const SOURCE = 'https://github.com/Valgorithms/DiscordPHP-Newsletter';
+
 function escapeHtml(text) {
   return text.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 }
@@ -89,7 +92,7 @@ function renderEdition(article, edition) {
     ${edition.intro ? `<div class="edition-intro">${block(edition.intro)}</div>` : ''}
     ${sections}
     ${edition.signoff ? `<div class="edition-signoff">${block(edition.signoff)}</div>` : ''}
-    <p class="edition-permalink"><a href="#${encodeURIComponent(edition.key)}">Permalink</a></p>`;
+    <p class="edition-permalink"><a href="#${encodeURIComponent(edition.key)}">Permalink</a> <span aria-hidden="true">·</span> <a href="${SOURCE}">Source code</a></p>`;
   document.title = `${edition.headline} — DiscordPHP Newsletter`;
 }
 
