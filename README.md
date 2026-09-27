@@ -12,12 +12,13 @@ branch.
 
 | Path | What it is |
 | --- | --- |
-| `index.html`, `libraries.html`, `guides.html`, `community.html`, `404.html` | The pages |
+| `index.html`, `libraries.html`, `guides.html`, `community.html`, `newsletter.html`, `404.html` | The pages |
 | `uml/index.html` | Hand-written diagrams: the main classes, a REST request, a gateway event |
 | `uml/routes.html`, `uml/events.html` | The generated maps, drawn in the browser from `data/routes.json` |
 | `assets/` | One stylesheet and a few ES modules. Diagrams are drawn with [Mermaid](https://mermaid.js.org/) from jsDelivr. |
 | `data/routes.json` | The route and event maps (generated) |
 | `data/versions.json` | The latest release of each package on the libraries page (generated) |
+| `data/newsletter.json` | The published newsletter editions, which `newsletter.html` renders (written by the newsletter bot) |
 | `tools/routes-uml.php` | Generates `data/routes.json` |
 | `tools/versions.php` | Generates `data/versions.json` |
 | `tools/check-diagrams.php` | Draws every diagram through [mermaid.ink](https://mermaid.ink) and fails on any Mermaid rejects |
@@ -56,6 +57,21 @@ The build tools follow the DiscordPHP family's php-cs-fixer rules:
 composer install
 composer cs
 ```
+
+## The newsletter
+
+`newsletter.html` shows the daily newsletter from the DiscordPHP-Newsletter bot. The bot writes each edition with a
+locally hosted model and DMs it to its owner for approval. Once an edition is approved, the bot commits it to
+`data/newsletter.json` on `main`, and that push publishes the site as usual. Each entry looks like:
+
+```json
+{ "key": "2026-09-27", "date": "2026-09-27", "headline": "…", "intro": "…",
+  "sections": [{ "title": "…", "body": "…" }], "signoff": "…", "published_at": "2026-09-27T18:04:00-04:00" }
+```
+
+Bodies are Discord-flavoured markdown. `assets/js/newsletter.js` escapes everything, then applies bold, italics,
+inline code, bullet lists, `https` links and `owner/repo#123` references, so an edition can never add HTML to the page.
+Each edition has a permalink, `newsletter.html#<key>`.
 
 ## Publishing
 

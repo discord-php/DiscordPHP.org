@@ -698,3 +698,93 @@ ul.plain li + li {
   clip: rect(0 0 0 0);
   white-space: nowrap;
 }
+
+/* ---- newsletter ---- */
+
+.newsletter {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 280px);
+  align-items: start;
+  padding-top: 1rem;
+}
+
+@media (max-width: 860px) {
+  .newsletter {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.edition {
+  gap: 0.25rem;
+  padding: 1.6rem 1.75rem;
+}
+
+.card.edition p,
+.edition li {
+  color: var(--text);
+}
+
+.edition .edition-date {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.edition-headline {
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  line-height: 1.25;
+  margin: 0.1rem 0 0.6rem;
+}
+
+.edition section {
+  padding: 0.9rem 0 0;
+}
+
+.edition h3 {
+  font-size: 1.15rem;
+  margin: 0 0 0.35rem;
+}
+
+.edition h4 {
+  font-size: 1rem;
+  margin: 0.6rem 0 0.25rem;
+}
+
+.card.edition p {
+  margin: 0 0 0.6rem;
+}
+
+.edition ul {
+  margin: 0 0 0.6rem;
+  padding-left: 1.3rem;
+}
+
+.edition code {
+  font-family: var(--mono);
+  font-size: 0.9em;
+  background: var(--code-bg);
+  padding: 0.05rem 0.3rem;
+  border-radius: 5px;
+}
+
+.card.edition .edition-signoff p {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.card.edition .edition-permalink {
+  margin: 0.8rem 0 0;
+  font-size: 0.9rem;
+}
+
+.edition-archive .links-list a[aria-current="page"] {
+  font-weight: 700;
+}
+
+.edition-archive .links-list {
+  columns: 1;
+}
+
+.edition-archive .links-list li span {
+  white-space: nowrap;
+}
