@@ -75,37 +75,21 @@ domain survives every publish.
 
 ### Rebuilding when DiscordPHP is released
 
-For the maps to update as soon as a release is published, DiscordPHP needs this workflow, as
-`.github/workflows/site.yml`:
+For the maps to update as soon as a release is published, DiscordPHP runs
+`.github/workflows/site.yml` on each release. It sends this repository a `discordphp-release` dispatch
+carrying the release's tag:
 
-```yaml
-name: Update discordphp.org
-
-# Asks DiscordPHP.org to rebuild its route and event maps for the new release.
-
-on:
-  release:
-    types: [published]
-
-permissions: {}
-
-jobs:
-  dispatch:
-    if: ${{ !github.event.release.prerelease }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Ask DiscordPHP.org to rebuild
-        env:
-          GH_TOKEN: ${{ secrets.SITE_DISPATCH_TOKEN }}
-          TAG: ${{ github.event.release.tag_name }}
-        run: gh api repos/discord-php/DiscordPHP.org/dispatches -f event_type=discordphp-release -f "client_payload[tag]=$TAG"
+```sh
+gh api repos/discord-php/DiscordPHP.org/dispatches -f event_type=discordphp-release -f "client_payload[tag]=$TAG"
 ```
 
-It also needs a repository secret, `SITE_DISPATCH_TOKEN`. That is a fine-grained personal access token with
-`discord-php` as its resource owner, access to `DiscordPHP.org` only, and the **Contents: Read and write**
-permission, which is what sending a dispatch requires. A workflow's own `GITHUB_TOKEN` cannot start
-workflows in another repository. Without the secret, the daily run still picks each release up within a
-day.
+Sending it needs DiscordPHP's repository secret `SITE_DISPATCH_TOKEN`. That is a fine-grained personal
+access token with `discord-php` as its resource owner, access to `DiscordPHP.org` only, and the
+**Contents: Read and write** permission, which is what a dispatch requires. A workflow's own
+`GITHUB_TOKEN` cannot start workflows in another repository. Until the secret exists, DiscordPHP's
+workflow skips the dispatch and the daily run here picks each release up within a day.
+
+The same command, run by hand with a token, rebuilds the site for any tag.
 
 ## License
 
