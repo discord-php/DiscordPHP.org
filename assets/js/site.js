@@ -36,23 +36,44 @@ function applyStoredTheme() {
 
 function wireThemeToggle() {
   const button = document.querySelector('.theme-toggle');
-  if (!button) {
-    return;
-  }
   const label = () => {
+    if (!button) {
+      return;
+    }
     const next = currentTheme() === 'dark' ? 'light' : 'dark';
     button.textContent = next === 'dark' ? '☾' : '☀';
     button.setAttribute('aria-label', `Switch to ${next} theme`);
     button.title = `Switch to ${next} theme`;
   };
+  const changed = () => {
+    label();
+    rerenderDiagrams();
+    syncDiscordWidgets();
+  };
   label();
-  button.addEventListener('click', () => {
+  button?.addEventListener('click', () => {
     const next = currentTheme() === 'dark' ? 'light' : 'dark';
     document.documentElement.dataset.theme = next;
     storage.set('theme', next);
-    label();
-    rerenderDiagrams();
+    changed();
   });
+  // A visitor who has not picked a theme follows the system's, so redraw when that switches.
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+    if (!document.documentElement.dataset.theme) {
+      changed();
+    }
+  });
+}
+
+/** Points each Discord server widget at the site's theme, which Discord reads from `theme=`. */
+function syncDiscordWidgets() {
+  for (const frame of document.querySelectorAll('iframe[data-discord-widget]')) {
+    const url = new URL(frame.dataset.src);
+    url.searchParams.set('theme', currentTheme());
+    if (frame.src !== url.href) {
+      frame.src = url.href;
+    }
+  }
 }
 
 function wireNavToggle() {
@@ -165,5 +186,6 @@ applyStoredTheme();
 document.addEventListener('DOMContentLoaded', () => {
   wireThemeToggle();
   wireNavToggle();
+  syncDiscordWidgets();
   renderVisibleDiagrams();
 });
