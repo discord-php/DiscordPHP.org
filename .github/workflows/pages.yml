@@ -94,7 +94,7 @@ jobs:
       - name: Assemble the site
         run: |
           mkdir _site
-          cp -r index.html libraries.html guides.html community.html 404.html favicon.ico .nojekyll assets uml data _site/
+          cp -r index.html libraries.html guides.html community.html newsletter.html 404.html favicon.ico .nojekyll assets uml data _site/
           if [ -f CNAME ]; then cp CNAME _site/; fi
 
       - name: Publish
