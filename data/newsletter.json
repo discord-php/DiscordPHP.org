@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-09-27-3",
+            "date": "2026-09-27",
+            "headline": "Core releases and bridge improvements",
+            "intro": "It has been a productive Sunday focused heavily on stabilizing our core tools and expanding how we connect different platforms. I spent a significant portion of my time reviewing community pull requests regarding autocomplete handling, testing tooling, and emoji logic. After sending several requests back for refinement, I was able to merge some important updates, most notably magic property support in `discordphp/discordphp#1497`. This work directly contributed to the release of two new versions, `v10.61.0` and `v10.62.0`, which include improved documentation for the `init` event and better exception handlers for scheduled events.",
+            "sections": [
+                {
+                    "title": "Expanding the ecosystem",
+                    "body": "Beyond the core library, I focused on making our integrations more robust. I released `twitchphp/twitchphp#v3.4.0`, which brings much-needed improvements to connection handling and retry logic. To make this even more useful for creators, I added features to the Twitch bridges that can announce when streams go live or end, and I implemented a system to DM owners if a chat connection remains down. I also spent some time on the official website, adding a Discord server widget to the Community page and ensuring the site automatically rebuilds its maps on each release.\n\nOn the administrative side, I completed a series of updates to the Valgorithms server. This included refining the onboarding process, configuring new channels, and managing access and invitations to ensure everything is running smoothly for the community. I also took a moment to make the `discordphp/discordphp-newsletter` repository public and performed some minor maintenance on my other personal projects. It was a busy day of shipping code and tidying up our digital spaces, with just a quick 22-minute break to play some *Brawlhalla*."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-09-27T22:03:19+00:00"
+        },
+        {
             "key": "2026-09-27-2",
             "date": "2026-09-27",
             "headline": "Deep Dives and Website Updates",
