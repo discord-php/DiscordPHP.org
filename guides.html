@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guides and reference — DiscordPHP</title>
+  <meta name="description" content="Where to learn DiscordPHP: the guide, the class references for every package, voice guides, upgrade notes, examples and Discord's own documentation.">
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script>try { const t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch {}</script>
+  <script type="module" src="assets/js/site.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">DP</span>DiscordPHP</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Site">
+        <a href="./">Home</a>
+        <a href="libraries.html">Libraries</a>
+        <a href="guides.html" aria-current="page">Guides</a>
+        <a href="uml/">UML</a>
+        <a href="community.html">Community</a>
+        <a href="https://github.com/discord-php">GitHub</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Switch theme">☾</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <div class="page-head">
+        <h1>Guides and reference</h1>
+        <p>DiscordPHP runs on <a href="https://reactphp.org/">ReactPHP</a>: nearly every call returns a promise, and your bot lives inside an event loop. If <a href="https://reactphp.org/promise/">promises</a> and the <a href="https://reactphp.org/event-loop/">event loop</a> are new to you, read about them first. Everything below builds on them.</p>
+      </div>
+
+      <section id="guide">
+        <h2>The DiscordPHP guide</h2>
+        <p class="section-intro">Start with <a href="https://discord-php.github.io/DiscordPHP/guide/">the guide's introduction</a>, which covers requirements, installation and tips, then work through the topics.</p>
+        <div class="grid">
+          <a class="card" href="https://discord-php.github.io/DiscordPHP/guide/basics.html">
+            <h3>Basics</h3>
+            <p>Creating the client, its options, and running it.</p>
+          </a>
+          <a class="card" href="https://discord-php.github.io/DiscordPHP/guide/events/index.html">
+            <h3>Events</h3>
+            <p>Listening for gateway events, the intents each one needs, and what your listener receives.</p>
+          </a>
+          <a class="card" href="https://discord-php.github.io/DiscordPHP/guide/repositories.html">
+            <h3>Repositories</h3>
+            <p>Reading from the cache, fetching from Discord, and saving and deleting parts.</p>
+          </a>
+          <a class="card" href="https://discord-php.github.io/DiscordPHP/guide/parts/index.html">
+            <h3>Parts</h3>
+            <p>Guilds, channels, members, messages and users, and what you can do with each.</p>
+          </a>
+          <a class="card" href="https://discord-php.github.io/DiscordPHP/guide/message_builder.html">
+            <h3>Message builder</h3>
+            <p>Composing messages with embeds, files, mentions and components.</p>
+          </a>
+          <a class="card" href="https://discord-php.github.io/DiscordPHP/guide/components.html">
+            <h3>Message components</h3>
+            <p>Buttons, select menus and text inputs, and handling their clicks.</p>
+          </a>
+          <a class="card" href="https://discord-php.github.io/DiscordPHP/guide/interactions.html">
+            <h3>Interactions</h3>
+            <p>Slash commands, context menus and modals: registering them and responding.</p>
+          </a>
+          <a class="card" href="https://discord-php.github.io/DiscordPHP/guide/permissions.html">
+            <h3>Permissions</h3>
+            <p>Reading and changing role and channel permissions.</p>
+          </a>
+          <a class="card" href="https://discord-php.github.io/DiscordPHP/guide/collection.html">
+            <h3>Collection</h3>
+            <p>Filtering, finding and mapping over repositories and other collections.</p>
+          </a>
+          <a class="card" href="https://discord-php.github.io/DiscordPHP/guide/faq.html">
+            <h3>FAQ</h3>
+            <p>Answers to the questions people ask most often in the Discord server.</p>
+          </a>
+        </div>
+      </section>
+
+      <section id="reference">
+        <h2>Class references</h2>
+        <p class="section-intro">Every class, method and property, generated from the source's documentation.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">Package</th><th scope="col">Reference</th><th scope="col">Also</th></tr></thead>
+            <tbody>
+              <tr><td>DiscordPHP</td><td><a href="https://discord-php.github.io/DiscordPHP/namespaces/discord.html">discord-php.github.io/DiscordPHP</a></td><td><a href="https://discord-php.github.io/DiscordPHP/reports/deprecated.html">Deprecated API</a></td></tr>
+              <tr><td>DiscordPHP-Http</td><td><a href="https://discord-php.github.io/DiscordPHP-Http/">discord-php.github.io/DiscordPHP-Http</a></td><td>—</td></tr>
+              <tr><td>DiscordPHP-Voice</td><td><a href="https://discord-php.github.io/DiscordPHP-Voice/">discord-php.github.io/DiscordPHP-Voice</a></td><td>—</td></tr>
+              <tr><td>Collection</td><td><a href="https://discord-php.github.io/Collection/">discord-php.github.io/Collection</a></td><td>—</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>The <a href="uml/">UML diagrams</a> on this site show how the classes fit together, and which class sends each of Discord's routes.</p>
+      </section>
+
+      <section id="voice">
+        <h2>Voice</h2>
+        <p class="section-intro">DiscordPHP-Voice keeps its own guides, with diagrams, next to its code.</p>
+        <ul class="links-list">
+          <li><a href="https://github.com/discord-php/DiscordPHP-Voice#readme">Getting started</a> <span>— requirements, <code>libdave</code> setup, playing and recording</span></li>
+          <li><a href="https://github.com/discord-php/DiscordPHP-Voice/blob/main/docs/DAVE.md">The DAVE protocol</a> <span>— end-to-end encryption, the MLS lifecycle and its opcodes</span></li>
+          <li><a href="https://github.com/discord-php/DiscordPHP-Voice/blob/main/docs/AUDIO_PIPELINE.md">The audio pipeline</a> <span>— how audio flows out and in, and the playback states</span></li>
+          <li><a href="https://github.com/discord-php/DiscordPHP-Voice/blob/main/docs/PROTOCOL.md">Protocol reference</a> <span>— voice gateway opcodes and close codes</span></li>
+          <li><a href="https://github.com/discord-php/DiscordPHP-Voice/blob/main/docs/TROUBLESHOOTING.md">Troubleshooting</a> <span>— missing libraries, permissions and playback problems</span></li>
+        </ul>
+      </section>
+
+      <section id="more">
+        <h2>More from the project</h2>
+        <ul class="links-list">
+          <li><a href="https://github.com/discord-php/DiscordPHP/tree/master/examples">Examples</a> <span>— small bots you can run</span></li>
+          <li><a href="https://github.com/discord-php/DiscordPHP/wiki">Wiki</a> <span>— community-written notes and how-tos</span></li>
+          <li><a href="https://github.com/discord-php/DiscordPHP/blob/master/CHANGELOG.md">Changelog</a> <span>— what changed in each release</span></li>
+          <li><a href="https://github.com/discord-php/DiscordPHP/releases">Releases</a> <span>— release notes on GitHub</span></li>
+          <li><a href="https://github.com/discord-php/DiscordPHP/blob/master/V7_CONVERSION.md">Upgrading to v7</a> <span>— and <a href="https://github.com/discord-php/DiscordPHP/blob/master/V6_CONVERSION.md">to v6</a></span></li>
+          <li><a href="https://discord-php.github.io/DiscordPHP/">One-page docs</a> <span>— the earlier docs site, which still covers guild join requests and webhook events</span></li>
+          <li><a href="https://github.com/discord-php/DiscordPHP/blob/master/CONTRIBUTING.md">Contributing</a> <span>— how to send a change</span></li>
+        </ul>
+      </section>
+
+      <section id="discord">
+        <h2>Discord's documentation</h2>
+        <ul class="links-list">
+          <li><a href="https://docs.discord.com/developers/intro">Developer documentation</a> <span>— the API DiscordPHP wraps</span></li>
+          <li><a href="https://discord.com/developers/applications">Developer portal</a> <span>— create an application and a bot token</span></li>
+          <li><a href="https://docs.discord.com/developers/events/gateway">Gateway</a> <span>— intents, connecting and sharding</span></li>
+          <li><a href="https://docs.discord.com/developers/topics/rate-limits">Rate limits</a> <span>— what DiscordPHP-Http's buckets follow</span></li>
+          <li><a href="https://github.com/discord/discord-api-spec">OpenAPI description</a> <span>— the spec the route map is built from</span></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div>
+        <h4>DiscordPHP</h4>
+        <ul>
+          <li><a href="https://github.com/discord-php/DiscordPHP">GitHub</a></li>
+          <li><a href="https://packagist.org/packages/team-reflex/discord-php">Packagist</a></li>
+          <li><a href="https://github.com/discord-php/DiscordPHP/releases">Releases</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Docs</h4>
+        <ul>
+          <li><a href="https://discord-php.github.io/DiscordPHP/guide/">Guide</a></li>
+          <li><a href="https://discord-php.github.io/DiscordPHP/namespaces/discord.html">Class reference</a></li>
+          <li><a href="https://github.com/discord-php/DiscordPHP/wiki">Wiki</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Community</h4>
+        <ul>
+          <li><a href="https://discord.gg/dphp">Discord server</a></li>
+          <li><a href="https://x.com/dphplibrary">X (@dphplibrary)</a></li>
+          <li><a href="mailto:support@discordphp.org">support@discordphp.org</a></li>
+        </ul>
+      </div>
+      <p class="fineprint">DiscordPHP is an unofficial library, not affiliated with or endorsed by Discord Inc. It is released under the MIT License.</p>
+    </div>
+  </footer>
+</body>
+</html>

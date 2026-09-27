@@ -1,0 +1,28 @@
+{
+    "name": "discord-php/discordphp.org",
+    "description": "The DiscordPHP.org website: the libraries, guides and community, and UML maps of the routes and events DiscordPHP handles.",
+    "type": "project",
+    "license": "MIT",
+    "homepage": "https://discordphp.org",
+    "require": {
+        "php": "^8.1"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.64"
+    },
+    "scripts": {
+        "cs": "php-cs-fixer fix",
+        "check-diagrams": "@php tools/check-diagrams.php data/routes.json uml/index.html",
+        "versions": "@php tools/versions.php data libraries.html",
+        "serve": [
+            "Composer\\Config::disableProcessTimeout",
+            "@php -S localhost:8080"
+        ]
+    },
+    "scripts-descriptions": {
+        "cs": "Formats the build tools with php-cs-fixer.",
+        "check-diagrams": "Draws every diagram through mermaid.ink and fails on any Mermaid cannot parse.",
+        "versions": "Looks up the latest release of each package on the libraries page.",
+        "serve": "Serves the site at http://localhost:8080."
+    }
+}

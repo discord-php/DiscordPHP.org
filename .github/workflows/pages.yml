@@ -1,0 +1,106 @@
+name: Pages
+
+# Builds the site and publishes it to the gh-pages branch.
+#
+# The route and event maps are generated from a DiscordPHP release and the preview of Discord's
+# OpenAPI description, so the site is rebuilt:
+# - when DiscordPHP publishes a release: its workflow sends a `discordphp-release` dispatch with the
+#   tag (see the README for that workflow and the token it needs),
+# - every day, for the latest release, to pick up changes in Discord's description, and so a release
+#   is still picked up if the dispatch did not arrive,
+# - on every push to main, and by hand, optionally for any DiscordPHP branch, tag or commit.
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '47 6 * * *'
+  repository_dispatch:
+    types: [discordphp-release]
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'DiscordPHP branch, tag or commit to map (default: the latest release)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build and publish
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout the site
+        uses: actions/checkout@v4
+
+      - name: Choose the DiscordPHP version
+        id: ref
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DISPATCHED: ${{ github.event.client_payload.tag }}
+          REQUESTED: ${{ github.event.inputs.ref }}
+        run: |
+          ref="${DISPATCHED:-$REQUESTED}"
+          if [ -z "$ref" ]; then
+            ref="$(gh release view --repo discord-php/DiscordPHP --json tagName --jq .tagName)"
+          fi
+          # A ref names a branch, tag or commit; anything else is refused before it reaches git.
+          if ! printf '%s' "$ref" | grep -Eq '^[A-Za-z0-9][A-Za-z0-9._/-]{0,99}$'; then
+            echo "::error::Not a branch, tag or commit: $ref"
+            exit 1
+          fi
+          echo "Mapping DiscordPHP $ref"
+          echo "ref=$ref" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout DiscordPHP
+        uses: actions/checkout@v4
+        with:
+          repository: discord-php/DiscordPHP
+          ref: ${{ steps.ref.outputs.ref }}
+          path: DiscordPHP
+          fetch-depth: 0
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          tools: composer
+
+      - name: Install DiscordPHP's dependencies
+        working-directory: DiscordPHP
+        run: composer install --no-interaction --no-progress
+
+      - name: Download Discord's OpenAPI description
+        run: curl -fsSL --retry 3 -o openapi_preview.json https://raw.githubusercontent.com/discord/discord-api-spec/main/specs/openapi_preview.json
+
+      - name: Generate the route and event maps
+        run: php tools/routes-uml.php DiscordPHP openapi_preview.json data
+
+      - name: Look up package versions
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: php tools/versions.php data libraries.html
+
+      - name: Check that every diagram draws
+        run: php tools/check-diagrams.php data/routes.json uml/index.html
+
+      - name: Assemble the site
+        run: |
+          mkdir _site
+          cp -r index.html libraries.html guides.html community.html 404.html favicon.ico .nojekyll assets uml data _site/
+          if [ -f CNAME ]; then cp CNAME _site/; fi
+
+      - name: Publish
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: _site
+          clean: true
+          commit-message: 'Deploy ${{ github.sha }} with DiscordPHP ${{ steps.ref.outputs.ref }}'

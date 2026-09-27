@@ -1,0 +1,9 @@
+/vendor/
+/composer.lock
+/.php-cs-fixer.cache
+/.claude/
+
+# Made by the Pages workflow
+/_site/
+/DiscordPHP/
+/openapi_preview.json

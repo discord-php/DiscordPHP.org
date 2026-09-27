@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gateway event map — DiscordPHP</title>
+  <meta name="description" content="Every Discord gateway dispatch event DiscordPHP handles, grouped by what it is about, with the handler class behind each one.">
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../assets/css/site.css">
+  <script>try { const t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch {}</script>
+  <script type="module" src="../assets/js/site.js"></script>
+  <script type="module" src="../assets/js/events.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../"><span class="brand-mark" aria-hidden="true">DP</span>DiscordPHP</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Site">
+        <a href="../">Home</a>
+        <a href="../libraries.html">Libraries</a>
+        <a href="../guides.html">Guides</a>
+        <a href="./" aria-current="page">UML</a>
+        <a href="../community.html">Community</a>
+        <a href="https://github.com/discord-php">GitHub</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Switch theme">☾</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <div class="page-head">
+        <p class="crumbs"><a href="./">UML diagrams</a> / Gateway events</p>
+        <h1>Gateway event map</h1>
+        <p>Every dispatch event DiscordPHP handles, and the class that handles it. The handler updates the cache, then DiscordPHP emits the event under the same name, so <code>Event::MESSAGE_CREATE</code> is what you pass to <code>$discord-&gt;on()</code>. <a href="./#gateway">The gateway sequence diagram</a> shows the whole path.</p>
+      </div>
+
+      <p class="source" id="event-source"></p>
+
+      <div class="toolbar">
+        <label class="visually-hidden" for="event-filter">Filter events</label>
+        <input type="search" id="event-filter" placeholder="Filter by event or handler, e.g. REACTION" autocomplete="off">
+        <span class="count" id="event-count" aria-live="polite"></span>
+      </div>
+
+      <div id="event-map">
+        <p class="note">Loading the event map…</p>
+      </div>
+
+      <section>
+        <h2>Events that are not dispatches</h2>
+        <p class="section-intro"><code>READY</code>, <code>RESUMED</code> and <code>GUILD_MEMBERS_CHUNK</code> are handled inside <code>Discord</code> itself. Listen for <code>init</code> to run code once the client has loaded its guilds. Some events never reach the gateway: Discord posts them to your application's <a href="https://docs.discord.com/developers/events/webhook-events">Webhook Events URL</a> instead. DiscordPHP receives those through <code>$discord-&gt;getWebhookEvents()</code> and emits them the same way as gateway events.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div>
+        <h4>DiscordPHP</h4>
+        <ul>
+          <li><a href="https://github.com/discord-php/DiscordPHP">GitHub</a></li>
+          <li><a href="https://packagist.org/packages/team-reflex/discord-php">Packagist</a></li>
+          <li><a href="https://github.com/discord-php/DiscordPHP/releases">Releases</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Docs</h4>
+        <ul>
+          <li><a href="https://discord-php.github.io/DiscordPHP/guide/">Guide</a></li>
+          <li><a href="https://discord-php.github.io/DiscordPHP/namespaces/discord.html">Class reference</a></li>
+          <li><a href="https://github.com/discord-php/DiscordPHP/wiki">Wiki</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Community</h4>
+        <ul>
+          <li><a href="https://discord.gg/dphp">Discord server</a></li>
+          <li><a href="https://x.com/dphplibrary">X (@dphplibrary)</a></li>
+          <li><a href="mailto:support@discordphp.org">support@discordphp.org</a></li>
+        </ul>
+      </div>
+      <p class="fineprint">DiscordPHP is an unofficial library, not affiliated with or endorsed by Discord Inc. It is released under the MIT License.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DiscordPHP — Discord bots and apps in PHP</title>
+  <meta name="description" content="DiscordPHP is an asynchronous PHP library for Discord's REST, gateway and voice APIs. Libraries, guides, UML route maps and community links.">
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script>try { const t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch {}</script>
+  <script type="module" src="assets/js/site.js"></script>
+  <script type="module" src="assets/js/home.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">DP</span>DiscordPHP</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Site">
+        <a href="./" aria-current="page">Home</a>
+        <a href="libraries.html">Libraries</a>
+        <a href="guides.html">Guides</a>
+        <a href="uml/">UML</a>
+        <a href="community.html">Community</a>
+        <a href="https://github.com/discord-php">GitHub</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Switch theme">☾</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div class="wrap">
+        <h1>Discord bots and apps,<br>written in PHP.</h1>
+        <p class="lead">DiscordPHP wraps Discord's REST, gateway and voice APIs for PHP. It runs on ReactPHP, keeps a live cache of the guilds, channels and members your bot can see, and handles slash commands, components, OAuth2 and voice.</p>
+        <div class="buttons">
+          <a class="button primary" href="https://discord-php.github.io/DiscordPHP/guide/">Read the guide</a>
+          <a class="button" href="https://github.com/discord-php/DiscordPHP">DiscordPHP on GitHub</a>
+          <a class="button" href="https://discord.gg/dphp">Join the Discord server</a>
+        </div>
+        <div class="stats" id="stats" aria-live="polite">
+          <div class="stat"><strong data-stat="sent">—</strong><span>of <span data-stat="operations">—</span> REST operations sent</span></div>
+          <div class="stat"><strong data-stat="events">—</strong><span>gateway events handled</span></div>
+          <div class="stat"><strong data-stat="groups">—</strong><span>route diagrams</span></div>
+          <div class="stat"><strong data-stat="release">—</strong><span>the release the maps show</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <section>
+        <h2>Quick start</h2>
+        <p class="section-intro">DiscordPHP needs PHP 8.1.2 or newer with <code>ext-json</code> and <code>ext-zlib</code>, and runs from the command line, not a web server. On Windows, point <code>openssl.cafile</code> in <code>php.ini</code> at a <a href="https://curl.se/docs/caextract.html">CA certificate bundle</a> first.</p>
+        <pre><code>composer require team-reflex/discord-php</code></pre>
+        <pre><code>&lt;?php
+
+include __DIR__.'/vendor/autoload.php';
+
+use Discord\Discord;
+use Discord\Parts\Channel\Message;
+use Discord\WebSockets\Event;
+use Discord\WebSockets\Intents;
+
+$discord = new Discord([
+    'token' =&gt; 'bot-token',
+    'intents' =&gt; Intents::getDefaultIntents(),
+    // | Intents::MESSAGE_CONTENT, (privileged: see https://dis.gd/mcfaq)
+]);
+
+$discord-&gt;on('init', function (Discord $discord) {
+    $discord-&gt;logger-&gt;info('Bot is ready!');
+
+    $discord-&gt;on(Event::MESSAGE_CREATE, function (Message $message, Discord $discord) {
+        $discord-&gt;logger-&gt;info("{$message-&gt;author-&gt;username}: {$message-&gt;content}");
+    });
+});
+
+$discord-&gt;run();</code></pre>
+        <p>More in the <a href="https://github.com/discord-php/DiscordPHP/tree/master/examples">examples folder</a>.</p>
+      </section>
+
+      <section>
+        <h2>Explore</h2>
+        <div class="grid">
+          <a class="card" href="libraries.html">
+            <h3>Libraries</h3>
+            <p>DiscordPHP and the packages around it: the HTTP client, voice, collections, the chat bridge, tools and integrations.</p>
+          </a>
+          <a class="card" href="guides.html">
+            <h3>Guides and reference</h3>
+            <p>The DiscordPHP guide, the class reference for every package, the wiki, and the examples.</p>
+          </a>
+          <a class="card" href="uml/">
+            <h3>UML diagrams</h3>
+            <p>How DiscordPHP is put together, how a request and an event travel through it, and every REST route mapped to the code that sends it.</p>
+          </a>
+          <a class="card" href="community.html">
+            <h3>Community</h3>
+            <p>The Discord server, X, GitHub, support email, and how to sponsor the project.</p>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div>
+        <h4>DiscordPHP</h4>
+        <ul>
+          <li><a href="https://github.com/discord-php/DiscordPHP">GitHub</a></li>
+          <li><a href="https://packagist.org/packages/team-reflex/discord-php">Packagist</a></li>
+          <li><a href="https://github.com/discord-php/DiscordPHP/releases">Releases</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Docs</h4>
+        <ul>
+          <li><a href="https://discord-php.github.io/DiscordPHP/guide/">Guide</a></li>
+          <li><a href="https://discord-php.github.io/DiscordPHP/namespaces/discord.html">Class reference</a></li>
+          <li><a href="https://github.com/discord-php/DiscordPHP/wiki">Wiki</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Community</h4>
+        <ul>
+          <li><a href="https://discord.gg/dphp">Discord server</a></li>
+          <li><a href="https://x.com/dphplibrary">X (@dphplibrary)</a></li>
+          <li><a href="mailto:support@discordphp.org">support@discordphp.org</a></li>
+        </ul>
+      </div>
+      <p class="fineprint">DiscordPHP is an unofficial library, not affiliated with or endorsed by Discord Inc. It is released under the MIT License.</p>
+    </div>
+  </footer>
+</body>
+</html>

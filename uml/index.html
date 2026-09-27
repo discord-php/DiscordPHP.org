@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UML diagrams — DiscordPHP</title>
+  <meta name="description" content="How DiscordPHP is put together: its main classes, the path of a REST request and of a gateway event, and every Discord route mapped to the code that sends it.">
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../assets/css/site.css">
+  <script>try { const t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch {}</script>
+  <script type="module" src="../assets/js/site.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../"><span class="brand-mark" aria-hidden="true">DP</span>DiscordPHP</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Site">
+        <a href="../">Home</a>
+        <a href="../libraries.html">Libraries</a>
+        <a href="../guides.html">Guides</a>
+        <a href="./" aria-current="page">UML</a>
+        <a href="../community.html">Community</a>
+        <a href="https://github.com/discord-php">GitHub</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Switch theme">☾</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <div class="page-head">
+        <h1>UML diagrams</h1>
+        <p>Three diagrams of how DiscordPHP is put together and how requests and events move through it. After them come two generated maps: every Discord REST route with the DiscordPHP code that sends it, and every gateway event with the class that handles it.</p>
+      </div>
+
+      <div class="grid">
+        <a class="card" href="routes.html">
+          <h3>REST routes</h3>
+          <p>Every operation in Discord's OpenAPI description, grouped by resource, with the classes and methods that send it. Routes DiscordPHP does not send yet are listed too.</p>
+        </a>
+        <a class="card" href="events.html">
+          <h3>Gateway events</h3>
+          <p>Every dispatch event DiscordPHP handles, the handler class behind it, and what your listener is called with.</p>
+        </a>
+      </div>
+
+      <section id="architecture">
+        <h2>The main classes</h2>
+        <p class="section-intro"><code>Discord</code> owns one HTTP client, one part factory and the gateway connection. Parts such as <code>Guild</code> and <code>Channel</code> hold repositories of their children, and every repository is a cached collection that reads and writes through the same HTTP client.</p>
+        <div class="diagram">
+<pre class="mermaid">classDiagram
+    direction TB
+    class Discord {
+        +GuildRepository guilds
+        +UserRepository users
+        +PrivateChannelRepository private_channels
+        +Application application
+        +on(event, listener)
+        +run()
+        +getHttpClient() Http
+        +getFactory() Factory
+        +joinVoiceChannel(Channel channel) PromiseInterface
+    }
+    class Http {
+        +CONCURRENT_REQUESTS = 5
+        +get(url, content) PromiseInterface
+        +post(url, content) PromiseInterface
+        +queueRequest(method, Endpoint url, content) PromiseInterface
+    }
+    class Bucket {
+        +enqueue(Request request)
+        +checkQueue()
+    }
+    class DriverInterface {
+        &lt;&lt;interface&gt;&gt;
+        +runRequest(Request request) PromiseInterface
+    }
+    class React
+    class Guzzle
+    class Endpoint {
+        +bind(args) Endpoint
+        +bindAssoc(args) Endpoint
+    }
+    class Factory {
+        +part(class, data, created) Part
+        +repository(class, data) AbstractRepository
+    }
+    class Handlers {
+        +getHandler(event) array
+    }
+    class Event {
+        &lt;&lt;abstract&gt;&gt;
+        +handle(data)
+    }
+    class WebSocket
+    class Part {
+        &lt;&lt;abstract&gt;&gt;
+        +bool created
+        +fill(attributes)
+    }
+    class AbstractRepository {
+        &lt;&lt;abstract&gt;&gt;
+        +freshen() PromiseInterface
+        +fetch(id, fresh) PromiseInterface
+        +save(Part part) PromiseInterface
+        +delete(part) PromiseInterface
+        +cacheGet(id) PromiseInterface
+    }
+    class Collection
+    class CacheWrapper
+    class Manager
+    class VoiceClient
+    Discord *-- Http
+    Discord *-- Factory
+    Discord *-- Handlers
+    Discord o-- WebSocket : gateway
+    Discord o-- Manager : voice
+    Discord *-- AbstractRepository : guilds, users, …
+    Http "1" *-- "many" Bucket : one per route
+    Http --> DriverInterface
+    DriverInterface &lt;|.. React
+    DriverInterface &lt;|.. Guzzle
+    Http ..&gt; Endpoint
+    Handlers ..&gt; Event : event name to class
+    Factory ..&gt; Part : builds
+    Factory ..&gt; AbstractRepository : builds
+    Part *-- AbstractRepository : child repositories
+    AbstractRepository --|&gt; Collection
+    AbstractRepository *-- CacheWrapper
+    AbstractRepository o-- "many" Part : items
+    Manager "1" *-- "many" VoiceClient : one per guild</pre>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Class</th><th>Package</th><th>Full name</th></tr></thead>
+            <tbody>
+              <tr><td>Discord, Factory, Handlers, Event, Part, AbstractRepository, CacheWrapper</td><td><a href="https://github.com/discord-php/DiscordPHP">team-reflex/discord-php</a></td><td><code>Discord\Discord</code>, <code>Discord\Factory\Factory</code>, <code>Discord\WebSockets\Handlers</code>, <code>Discord\WebSockets\Event</code>, <code>Discord\Parts\Part</code>, <code>Discord\Repository\AbstractRepository</code>, <code>Discord\Helpers\CacheWrapper</code></td></tr>
+              <tr><td>Http, Bucket, DriverInterface, React, Guzzle, Endpoint</td><td><a href="https://github.com/discord-php/DiscordPHP-Http">discord-php/http</a></td><td><code>Discord\Http\Http</code>, <code>Discord\Http\Bucket</code>, <code>Discord\Http\DriverInterface</code>, <code>Discord\Http\Drivers\React</code>, <code>Discord\Http\Drivers\Guzzle</code>, <code>Discord\Http\Endpoint</code></td></tr>
+              <tr><td>Collection</td><td><a href="https://github.com/discord-php/Collection">discord-php-helpers/collection</a></td><td><code>Discord\Helpers\Collection</code></td></tr>
+              <tr><td>Manager, VoiceClient</td><td><a href="https://github.com/discord-php/DiscordPHP-Voice">discord-php-helpers/voice</a></td><td><code>Discord\Voice\Manager</code>, <code>Discord\Voice\VoiceClient</code></td></tr>
+              <tr><td>WebSocket</td><td><a href="https://github.com/ratchetphp/Pawl">ratchet/pawl</a></td><td><code>Ratchet\Client\WebSocket</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="request">
+        <h2>A REST request</h2>
+        <p class="section-intro">Every request, whether it comes from a repository, a part or <code>$discord-&gt;getHttpClient()</code> directly, joins the queue of its route's bucket. The bucket waits while Discord says the route is exhausted, and the client keeps at most five requests in flight. Interaction callbacks are not bound by the global limit, so they skip the queue.</p>
+        <div class="diagram">
+<pre class="mermaid">sequenceDiagram
+    autonumber
+    participant App as Your code
+    participant Repo as Part or repository
+    participant Http as Http
+    participant Bucket as Bucket, one per route
+    participant Driver as Driver, React or Guzzle
+    participant API as Discord REST API
+    App->>Repo: $guild->channels->save($channel)
+    Repo->>Http: post(Endpoint, attributes)
+    Http->>Bucket: queueRequest() puts the request in its route's bucket
+    Bucket->>Bucket: wait while X-RateLimit-Remaining is 0
+    Bucket->>Http: hand the request over
+    Note over Http: at most 5 in flight, interaction callbacks skip the queue
+    Http->>Driver: runRequest(Request)
+    Driver->>API: HTTPS request
+    API-->>Driver: response and X-RateLimit headers
+    alt 429 Too Many Requests
+        Driver-->>Http: 429 with retry_after
+        Http-->>Bucket: RateLimit, global or for this route
+        Bucket->>Bucket: queue the request again and retry after retry_after
+    else 502 or 525
+        Http->>Driver: send it again
+    else 2xx
+        Driver-->>Http: response
+        Http-->>Bucket: remember limit, remaining and reset-after
+        Http-->>Repo: decoded JSON
+        Repo->>Repo: Factory builds or fills the Part, then cache->set()
+        Repo-->>App: the promise resolves with the Part
+    else any other status
+        Http-->>App: the promise rejects, with NotFoundException, NoPermissionsException, …
+    end</pre>
+        </div>
+      </section>
+
+      <section id="gateway">
+        <h2>A gateway event</h2>
+        <p class="section-intro">The gateway sends compressed frames over one WebSocket. <code>Discord</code> inflates each one, decodes the payload and routes dispatches through <code>Handlers</code> to an <code>Event</code> class. That class updates the cache and returns the part your listener receives. Events that arrive before <code>init</code> are held back until the guilds have loaded.</p>
+        <div class="diagram">
+<pre class="mermaid">sequenceDiagram
+    autonumber
+    participant GW as Discord gateway
+    participant WS as WebSocket
+    participant D as Discord
+    participant H as Handlers
+    participant E as Event handler, e.g. MessageCreate
+    participant C as Repositories and cache
+    participant L as Your listeners
+    GW->>WS: frame, zlib-stream or plain JSON
+    WS->>D: handleWsMessage(Message)
+    D->>D: buffer until the frame ends in 00 00 FF FF, then inflate
+    D->>D: processWsMessage(), emit('raw'), remember the sequence number
+    alt op 0, DISPATCH
+        D->>H: getHandler(t)
+        H-->>D: handler class and alternative event names
+        opt before init, except GUILD_CREATE and GUILD_DELETE
+            D->>D: hold the packet until init
+        end
+        D->>E: handle(d)
+        E->>C: cacheGet(), build Parts, update the caches
+        E-->>D: the new Part, and the old one for updates
+        D->>L: emit(t, [new, discord, old])
+        opt MESSAGE_CREATE that mentions the bot
+            D->>L: emit('mention')
+        end
+    else op 1, 7, 9, 10 or 11
+        D->>D: heartbeat, reconnect, invalid session, hello or heartbeat ACK
+    end</pre>
+        </div>
+        <p>Listen for any event in the list with <code>$discord-&gt;on(Event::MESSAGE_CREATE, fn (Message $message, Discord $discord) =&gt; …)</code>. The <a href="events.html">gateway events map</a> lists them all.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div>
+        <h4>DiscordPHP</h4>
+        <ul>
+          <li><a href="https://github.com/discord-php/DiscordPHP">GitHub</a></li>
+          <li><a href="https://packagist.org/packages/team-reflex/discord-php">Packagist</a></li>
+          <li><a href="https://github.com/discord-php/DiscordPHP/releases">Releases</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Docs</h4>
+        <ul>
+          <li><a href="https://discord-php.github.io/DiscordPHP/guide/">Guide</a></li>
+          <li><a href="https://discord-php.github.io/DiscordPHP/namespaces/discord.html">Class reference</a></li>
+          <li><a href="https://github.com/discord-php/DiscordPHP/wiki">Wiki</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Community</h4>
+        <ul>
+          <li><a href="https://discord.gg/dphp">Discord server</a></li>
+          <li><a href="https://x.com/dphplibrary">X (@dphplibrary)</a></li>
+          <li><a href="mailto:support@discordphp.org">support@discordphp.org</a></li>
+        </ul>
+      </div>
+      <p class="fineprint">DiscordPHP is an unofficial library, not affiliated with or endorsed by Discord Inc. It is released under the MIT License.</p>
+    </div>
+  </footer>
+</body>
+</html>

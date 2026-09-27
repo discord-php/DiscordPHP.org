@@ -1,0 +1,25 @@
+{
+    "generated": "2026-09-27T12:52:57Z",
+    "packages": {
+        "discord-php-helpers/collection": {
+            "version": "v8.4.0",
+            "time": "2026-03-07T21:43:41+00:00"
+        },
+        "discord-php-helpers/voice": {
+            "version": "v8.2.0",
+            "time": "2026-09-27T01:05:46+00:00"
+        },
+        "discord-php/http": {
+            "version": "v10.9.8",
+            "time": "2026-09-24T11:48:20+00:00"
+        },
+        "discord-php/phpdoc-tool": {
+            "version": "v1.0.1",
+            "time": "2026-09-14T18:30:59Z"
+        },
+        "team-reflex/discord-php": {
+            "version": "v10.60.0",
+            "time": "2026-09-27T02:45:17+00:00"
+        }
+    }
+}
