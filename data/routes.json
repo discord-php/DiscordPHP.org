@@ -1,7 +1,7 @@
 {
-    "generated": "2026-09-27T18:15:27Z",
-    "discordphp": "bd9060384fa9697d6cbf122bab383fc96426f272",
-    "release": "v10.60.0",
+    "generated": "2026-09-27T18:26:20Z",
+    "discordphp": "edac081193a8d754a229ed3af591df451e72d565",
+    "release": "v10.61.0",
     "spec": {
         "title": "Discord HTTP API (Preview)",
         "version": "10"
@@ -12,7 +12,7 @@
         "not sent": 8,
         "deprecated": 3,
         "groups": 23,
-        "events": 87
+        "events": 90
     },
     "groups": [
         {
@@ -5390,6 +5390,24 @@
             "fqcn": "Discord\\WebSockets\\Events\\GuildScheduledEventDelete"
         },
         {
+            "event": "GUILD_SCHEDULED_EVENT_EXCEPTION_CREATE",
+            "category": "Scheduled events",
+            "handler": "GuildScheduledEventExceptionCreate",
+            "fqcn": "Discord\\WebSockets\\Events\\GuildScheduledEventExceptionCreate"
+        },
+        {
+            "event": "GUILD_SCHEDULED_EVENT_EXCEPTION_DELETE",
+            "category": "Scheduled events",
+            "handler": "GuildScheduledEventExceptionDelete",
+            "fqcn": "Discord\\WebSockets\\Events\\GuildScheduledEventExceptionDelete"
+        },
+        {
+            "event": "GUILD_SCHEDULED_EVENT_EXCEPTION_UPDATE",
+            "category": "Scheduled events",
+            "handler": "GuildScheduledEventExceptionUpdate",
+            "fqcn": "Discord\\WebSockets\\Events\\GuildScheduledEventExceptionUpdate"
+        },
+        {
             "event": "GUILD_SCHEDULED_EVENT_UPDATE",
             "category": "Scheduled events",
             "handler": "GuildScheduledEventUpdate",
@@ -5844,11 +5862,14 @@
             "events": [
                 "GUILD_SCHEDULED_EVENT_CREATE",
                 "GUILD_SCHEDULED_EVENT_DELETE",
+                "GUILD_SCHEDULED_EVENT_EXCEPTION_CREATE",
+                "GUILD_SCHEDULED_EVENT_EXCEPTION_DELETE",
+                "GUILD_SCHEDULED_EVENT_EXCEPTION_UPDATE",
                 "GUILD_SCHEDULED_EVENT_UPDATE",
                 "GUILD_SCHEDULED_EVENT_USER_ADD",
                 "GUILD_SCHEDULED_EVENT_USER_REMOVE"
             ],
-            "mermaid": "flowchart LR\n    gateway((\"Gateway\"))\n    gateway --> e0[\"GUILD_SCHEDULED_EVENT_CREATE\"] --> h0[\"GuildScheduledEventCreate\"]\n    gateway --> e1[\"GUILD_SCHEDULED_EVENT_DELETE\"] --> h1[\"GuildScheduledEventDelete\"]\n    gateway --> e2[\"GUILD_SCHEDULED_EVENT_UPDATE\"] --> h2[\"GuildScheduledEventUpdate\"]\n    gateway --> e3[\"GUILD_SCHEDULED_EVENT_USER_ADD\"] --> h3[\"GuildScheduledEventUserAdd\"]\n    gateway --> e4[\"GUILD_SCHEDULED_EVENT_USER_REMOVE\"] --> h4[\"GuildScheduledEventUserRemove\"]"
+            "mermaid": "flowchart LR\n    gateway((\"Gateway\"))\n    gateway --> e0[\"GUILD_SCHEDULED_EVENT_CREATE\"] --> h0[\"GuildScheduledEventCreate\"]\n    gateway --> e1[\"GUILD_SCHEDULED_EVENT_DELETE\"] --> h1[\"GuildScheduledEventDelete\"]\n    gateway --> e2[\"GUILD_SCHEDULED_EVENT_EXCEPTION_CREATE\"] --> h2[\"GuildScheduledEventExceptionCreate\"]\n    gateway --> e3[\"GUILD_SCHEDULED_EVENT_EXCEPTION_DELETE\"] --> h3[\"GuildScheduledEventExceptionDelete\"]\n    gateway --> e4[\"GUILD_SCHEDULED_EVENT_EXCEPTION_UPDATE\"] --> h4[\"GuildScheduledEventExceptionUpdate\"]\n    gateway --> e5[\"GUILD_SCHEDULED_EVENT_UPDATE\"] --> h5[\"GuildScheduledEventUpdate\"]\n    gateway --> e6[\"GUILD_SCHEDULED_EVENT_USER_ADD\"] --> h6[\"GuildScheduledEventUserAdd\"]\n    gateway --> e7[\"GUILD_SCHEDULED_EVENT_USER_REMOVE\"] --> h7[\"GuildScheduledEventUserRemove\"]"
         },
         {
             "name": "Social SDK",

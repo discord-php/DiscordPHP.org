@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Newsletter — DiscordPHP</title>
+  <meta name="description" content="Daily recaps from DiscordPHP's lead maintainer: what shipped, what was reviewed, and what happened in the community.">
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script>try { const t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch {}</script>
+  <script type="module" src="assets/js/site.js"></script>
+  <script type="module" src="assets/js/newsletter.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">DP</span>DiscordPHP</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Site">
+        <a href="./">Home</a>
+        <a href="libraries.html">Libraries</a>
+        <a href="guides.html">Guides</a>
+        <a href="uml/">UML</a>
+        <a href="community.html">Community</a>
+        <a href="newsletter.html" aria-current="page">Newsletter</a>
+        <a href="https://github.com/discord-php">GitHub</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Switch theme">☾</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <div class="page-head">
+        <h1>Newsletter</h1>
+        <p>A daily recap from DiscordPHP's lead maintainer: what shipped, what was reviewed, and what happened in the community. Each edition is drafted by a locally hosted model from the day's activity, and read and approved before it is published.</p>
+      </div>
+
+      <div class="newsletter" data-newsletter>
+        <article class="card edition" aria-live="polite">
+          <p class="note">Loading the latest edition…</p>
+        </article>
+        <aside class="edition-archive" aria-label="Past editions">
+          <h2 class="section-title">Archive</h2>
+          <ol class="links-list" data-archive></ol>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div>
+        <h4>DiscordPHP</h4>
+        <ul>
+          <li><a href="https://github.com/discord-php/DiscordPHP">GitHub</a></li>
+          <li><a href="https://packagist.org/packages/team-reflex/discord-php">Packagist</a></li>
+          <li><a href="https://github.com/discord-php/DiscordPHP/releases">Releases</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Docs</h4>
+        <ul>
+          <li><a href="https://discord-php.github.io/DiscordPHP/guide/">Guide</a></li>
+          <li><a href="https://discord-php.github.io/DiscordPHP/namespaces/discord.html">Class reference</a></li>
+          <li><a href="https://github.com/discord-php/DiscordPHP/wiki">Wiki</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Community</h4>
+        <ul>
+          <li><a href="https://discord.gg/dphp">Discord server</a></li>
+          <li><a href="https://x.com/dphplibrary">X (@dphplibrary)</a></li>
+          <li><a href="mailto:support@discordphp.org">support@discordphp.org</a></li>
+        </ul>
+      </div>
+      <p class="fineprint">DiscordPHP is an unofficial library, not affiliated with or endorsed by Discord Inc. It is released under the MIT License.</p>
+    </div>
+  </footer>
+</body>
+</html>
