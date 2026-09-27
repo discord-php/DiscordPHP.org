@@ -1,0 +1,18 @@
+{
+    "editions": [
+        {
+            "key": "2026-09-27-2",
+            "date": "2026-09-27",
+            "headline": "Deep Dives and Website Updates",
+            "intro": "Happy Sunday! I am so excited to be sending out my very first newsletter today. It feels great to finally have a dedicated space to share what I've been working on with all of you.\n\nI've spent most of my morning diving deep into code reviews and making some progress on our web projects. It has been a busy morning of reviewing and managing code, particularly within `discord-php/DiscordPHP`. I spent a significant amount of time conducting extensive reviews, including requesting changes on `discord-php/DiscordPHP#1414` regarding the command handler register overhaul and `discord-php/DiscordPHP#1416` for the autocomplete callback matched option value.",
+            "sections": [
+                {
+                    "title": "Web and Community Updates",
+                    "body": "I also managed several merges within `discord-php/DiscordPHP` to keep things moving forward, such as rebuilding maps on the official website and updating the documentation. Beyond the code reviews, I've been focusing on our web presence. On `discord-php/DiscordPHP.org`, I added a Discord server widget to the Community page and added descriptions for the release dispatch process. I also performed some maintenance on `valzargaming/valgorithms.com` by creating a newsletter branch.\n\nTo help keep our community organized, I also created a new channel within the Valgorithms Discord server. You can join us and head directly to the new #newsletter channel [here](https://discord.gg/4DYs7T9RE). The newsletter repository is also located [here](https://github.com/Valgorithms/DiscordPHP-Newsletter/), but it is still private."
+                }
+            ],
+            "signoff": "See you all tomorrow!",
+            "published_at": "2026-09-27T18:14:55+00:00"
+        }
+    ]
+}
