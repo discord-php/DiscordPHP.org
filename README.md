@@ -60,7 +60,8 @@ composer cs
 
 ## The newsletter
 
-`newsletter.html` shows the daily newsletter from the DiscordPHP-Newsletter bot. The bot writes each edition with a
+`newsletter.html` shows the daily newsletter from the
+[DiscordPHP-Newsletter](https://github.com/Valgorithms/DiscordPHP-Newsletter) bot, whose source code the page links to. The bot writes each edition with a
 locally hosted model and DMs it to its owner for approval. Once an edition is approved, the bot commits it to
 `data/newsletter.json` on `main`, and that push publishes the site as usual. Each entry looks like:
 
