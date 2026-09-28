@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-09-28",
+            "date": "2026-09-28",
+            "headline": "Major updates to DiscordPHP core and ecosystem releases",
+            "intro": "It has been a massive day of progress for the DiscordPHP core. I have pushed out three new releases—`v10.64.0`, `v10.64.1`, and `v10.65.0`—which bring some foundational changes to how the library operates. The biggest shift involves a major refactor of our namespaces to align them with their corresponding API routes, as seen in `discordphp/discordphp#1507`. This reorganization, alongside the implementation of REST operations and updates to the `Factory` class, makes the entire library more intuitive and better structured for the long term. DiscordPHP now covers every route.\n\nWe also managed to squeeze in several important quality-of-life improvements and safety checks. I've merged updates to improve autocomplete callbacks, added validation for embed field lengths, and implemented new regression tests for invites to ensure everything stays stable as we grow.",
+            "sections": [
+                {
+                    "title": "Ecosystem growth and maintenance",
+                    "body": "Beyond the core library, I spent a significant amount of time tending to our wider ecosystem and documentation. The DiscordPHP.org website has been updated with new class diagrams and route maps to help you navigate the library more easily. I also worked on the `DiscordPHP-Bridge` to move the live announcer over to the Twitch connector, and I released `v8.3.0` for the `DiscordPHP-Voice` extension, which now includes support for a voice session repository.\n\nA large portion of my day was also dedicated to reviewing community contributions. I went through many pull requests, merging several helpful ones while closing others that were either outdated or caused fatal errors. All pending issues and PRs were either closed or merged. It is a constant balancing act to ensure that every piece of code added to the project meets our standards and provides clear benefits to everyone using it."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-09-28T22:04:18+00:00"
+        },
+        {
             "key": "2026-09-27-3",
             "date": "2026-09-27",
             "headline": "Core releases and bridge improvements",
