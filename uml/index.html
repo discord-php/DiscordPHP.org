@@ -50,6 +50,7 @@
         <h2>The main classes</h2>
         <p class="section-intro"><code>Discord</code> owns one HTTP client, one part factory and the gateway connection. Parts such as <code>Guild</code> and <code>Channel</code> hold repositories of their children, and every repository is a cached collection that reads and writes through the same HTTP client.</p>
         <div class="diagram">
+<!-- architecture-uml: diagram -->
 <pre class="mermaid">classDiagram
     direction TB
     class Discord {
@@ -62,13 +63,13 @@
         +getHttpClient() Http
         +getFactory() Factory
         +getGateway() PromiseInterface
-        +joinVoiceChannel(Channel channel) PromiseInterface
+        +joinVoiceChannel(Channel channel, mute, deaf) PromiseInterface
     }
     class Http {
         +CONCURRENT_REQUESTS = 5
-        +get(url, content) PromiseInterface
-        +post(url, content) PromiseInterface
-        +queueRequest(method, Endpoint url, content) PromiseInterface
+        +get(url, content, headers) PromiseInterface
+        +post(url, content, headers) PromiseInterface
+        +queueRequest(method, Endpoint url, content, headers) PromiseInterface
     }
     class Bucket {
         +enqueue(Request request)
@@ -81,7 +82,7 @@
     class React
     class Guzzle
     class Endpoint {
-        +bind(args) Endpoint
+        +bind(endpoint, ...args) Endpoint
         +bindAssoc(args) Endpoint
     }
     class Factory {
@@ -93,7 +94,7 @@
     }
     class Event {
         &lt;&lt;abstract&gt;&gt;
-        +handle(data)
+        +handle(data) Generator
     }
     class WebSocket
     class Part {
@@ -101,16 +102,16 @@
         +bool created
         +fill(attributes)
     }
-    class AbstractRepository {
-        &lt;&lt;abstract&gt;&gt;
-        +freshen() PromiseInterface
-        +fetch(id, fresh) PromiseInterface
-        +save(Part part) PromiseInterface
-        +delete(part) PromiseInterface
-        +cacheGet(id) PromiseInterface
-    }
     class Widget {
         +getImage(style) PromiseInterface
+    }
+    class AbstractRepository {
+        &lt;&lt;abstract&gt;&gt;
+        +freshen(queryparams) PromiseInterface
+        +fetch(id, fresh) PromiseInterface
+        +save(Part part, reason) PromiseInterface
+        +delete(part, reason) PromiseInterface
+        +cacheGet(offset) PromiseInterface
     }
     class Collection
     class CacheWrapper
@@ -123,30 +124,33 @@
     Discord o-- Manager : voice
     Discord *-- AbstractRepository : guilds, users, …
     Http "1" *-- "many" Bucket : one per route
-    Http --> DriverInterface
+    Http --&gt; DriverInterface
     DriverInterface &lt;|.. React
     DriverInterface &lt;|.. Guzzle
     Http ..&gt; Endpoint
     Handlers ..&gt; Event : event name to class
     Factory ..&gt; Part : builds
+    Factory ..&gt; AbstractRepository : builds
     Part &lt;|-- Widget
     Widget ..&gt; DriverInterface : PNG, not JSON
-    Factory ..&gt; AbstractRepository : builds
     Part *-- AbstractRepository : child repositories
     AbstractRepository --|&gt; Collection
     AbstractRepository *-- CacheWrapper
     AbstractRepository o-- "many" Part : items
     Manager "1" *-- "many" VoiceClient : one per guild</pre>
+<!-- /architecture-uml -->
         </div>
         <div class="table-wrap">
           <table>
             <thead><tr><th>Class</th><th>Package</th><th>Full name</th></tr></thead>
             <tbody>
+              <!-- architecture-uml: packages -->
               <tr><td>Discord, Factory, Handlers, Event, Part, Widget, AbstractRepository, CacheWrapper</td><td><a href="https://github.com/discord-php/DiscordPHP">team-reflex/discord-php</a></td><td><code>Discord\Discord</code>, <code>Discord\Factory\Factory</code>, <code>Discord\WebSockets\Handlers</code>, <code>Discord\WebSockets\Event</code>, <code>Discord\Parts\Part</code>, <code>Discord\Parts\Guild\Widget</code>, <code>Discord\Repository\AbstractRepository</code>, <code>Discord\Helpers\CacheWrapper</code></td></tr>
               <tr><td>Http, Bucket, DriverInterface, React, Guzzle, Endpoint</td><td><a href="https://github.com/discord-php/DiscordPHP-Http">discord-php/http</a></td><td><code>Discord\Http\Http</code>, <code>Discord\Http\Bucket</code>, <code>Discord\Http\DriverInterface</code>, <code>Discord\Http\Drivers\React</code>, <code>Discord\Http\Drivers\Guzzle</code>, <code>Discord\Http\Endpoint</code></td></tr>
+              <tr><td>WebSocket</td><td><a href="https://github.com/ratchetphp/Pawl">ratchet/pawl</a></td><td><code>Ratchet\Client\WebSocket</code></td></tr>
               <tr><td>Collection</td><td><a href="https://github.com/discord-php/Collection">discord-php-helpers/collection</a></td><td><code>Discord\Helpers\Collection</code></td></tr>
               <tr><td>Manager, VoiceClient</td><td><a href="https://github.com/discord-php/DiscordPHP-Voice">discord-php-helpers/voice</a></td><td><code>Discord\Voice\Manager</code>, <code>Discord\Voice\VoiceClient</code></td></tr>
-              <tr><td>WebSocket</td><td><a href="https://github.com/ratchetphp/Pawl">ratchet/pawl</a></td><td><code>Ratchet\Client\WebSocket</code></td></tr>
+              <!-- /architecture-uml -->
             </tbody>
           </table>
         </div>
