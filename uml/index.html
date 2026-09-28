@@ -61,6 +61,7 @@
         +run()
         +getHttpClient() Http
         +getFactory() Factory
+        +getGateway() PromiseInterface
         +joinVoiceChannel(Channel channel) PromiseInterface
     }
     class Http {
@@ -108,6 +109,9 @@
         +delete(part) PromiseInterface
         +cacheGet(id) PromiseInterface
     }
+    class Widget {
+        +getImage(style) PromiseInterface
+    }
     class Collection
     class CacheWrapper
     class Manager
@@ -125,6 +129,8 @@
     Http ..&gt; Endpoint
     Handlers ..&gt; Event : event name to class
     Factory ..&gt; Part : builds
+    Part &lt;|-- Widget
+    Widget ..&gt; DriverInterface : PNG, not JSON
     Factory ..&gt; AbstractRepository : builds
     Part *-- AbstractRepository : child repositories
     AbstractRepository --|&gt; Collection
@@ -136,7 +142,7 @@
           <table>
             <thead><tr><th>Class</th><th>Package</th><th>Full name</th></tr></thead>
             <tbody>
-              <tr><td>Discord, Factory, Handlers, Event, Part, AbstractRepository, CacheWrapper</td><td><a href="https://github.com/discord-php/DiscordPHP">team-reflex/discord-php</a></td><td><code>Discord\Discord</code>, <code>Discord\Factory\Factory</code>, <code>Discord\WebSockets\Handlers</code>, <code>Discord\WebSockets\Event</code>, <code>Discord\Parts\Part</code>, <code>Discord\Repository\AbstractRepository</code>, <code>Discord\Helpers\CacheWrapper</code></td></tr>
+              <tr><td>Discord, Factory, Handlers, Event, Part, Widget, AbstractRepository, CacheWrapper</td><td><a href="https://github.com/discord-php/DiscordPHP">team-reflex/discord-php</a></td><td><code>Discord\Discord</code>, <code>Discord\Factory\Factory</code>, <code>Discord\WebSockets\Handlers</code>, <code>Discord\WebSockets\Event</code>, <code>Discord\Parts\Part</code>, <code>Discord\Parts\Guild\Widget</code>, <code>Discord\Repository\AbstractRepository</code>, <code>Discord\Helpers\CacheWrapper</code></td></tr>
               <tr><td>Http, Bucket, DriverInterface, React, Guzzle, Endpoint</td><td><a href="https://github.com/discord-php/DiscordPHP-Http">discord-php/http</a></td><td><code>Discord\Http\Http</code>, <code>Discord\Http\Bucket</code>, <code>Discord\Http\DriverInterface</code>, <code>Discord\Http\Drivers\React</code>, <code>Discord\Http\Drivers\Guzzle</code>, <code>Discord\Http\Endpoint</code></td></tr>
               <tr><td>Collection</td><td><a href="https://github.com/discord-php/Collection">discord-php-helpers/collection</a></td><td><code>Discord\Helpers\Collection</code></td></tr>
               <tr><td>Manager, VoiceClient</td><td><a href="https://github.com/discord-php/DiscordPHP-Voice">discord-php-helpers/voice</a></td><td><code>Discord\Voice\Manager</code>, <code>Discord\Voice\VoiceClient</code></td></tr>
@@ -148,7 +154,7 @@
 
       <section id="request">
         <h2>A REST request</h2>
-        <p class="section-intro">Every request, whether it comes from a repository, a part or <code>$discord-&gt;getHttpClient()</code> directly, joins the queue of its route's bucket. The bucket waits while Discord says the route is exhausted, and the client keeps at most five requests in flight. Interaction callbacks are not bound by the global limit, so they skip the queue.</p>
+        <p class="section-intro">Every request, whether it comes from a repository, a part or <code>$discord-&gt;getHttpClient()</code> directly, joins the queue of its route's bucket. The bucket waits while Discord says the route is exhausted, and the client keeps at most five requests in flight. Interaction callbacks are not bound by the global limit, so they skip the queue. The one request that bypasses <code>Http</code> is <code>Widget::getImage()</code>. Its response is a PNG rather than JSON, so it hands its request straight to the driver, outside the buckets.</p>
         <div class="diagram">
 <pre class="mermaid">sequenceDiagram
     autonumber
