@@ -1,5 +1,5 @@
 {
-    "generated": "2026-09-27T22:03:52Z",
+    "generated": "2026-09-28T12:55:02Z",
     "packages": {
         "discord-php-helpers/collection": {
             "version": "v8.4.0",
@@ -18,8 +18,8 @@
             "time": "2026-09-14T18:30:59Z"
         },
         "team-reflex/discord-php": {
-            "version": "v10.62.0",
-            "time": "2026-09-27T19:16:35+00:00"
+            "version": "v10.64.0",
+            "time": "2026-09-28T12:38:36+00:00"
         }
     }
 }
