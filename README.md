@@ -13,13 +13,15 @@ branch.
 | Path | What it is |
 | --- | --- |
 | `index.html`, `libraries.html`, `guides.html`, `community.html`, `newsletter.html`, `404.html` | The pages |
-| `uml/index.html` | Hand-written diagrams: the main classes, a REST request, a gateway event |
+| `uml/index.html` | The main classes (generated), a REST request and a gateway event (hand-written, checked against DiscordPHP) |
+| `uml/architecture.json` | Which classes and members the class diagram shows, and which classes the sequence diagrams' participants are |
 | `uml/routes.html`, `uml/events.html` | The generated maps, drawn in the browser from `data/routes.json` |
 | `assets/` | One stylesheet and a few ES modules. Diagrams are drawn with [Mermaid](https://mermaid.js.org/) from jsDelivr. |
 | `data/routes.json` | The route and event maps (generated) |
 | `data/versions.json` | The latest release of each package on the libraries page (generated) |
 | `data/newsletter.json` | The published newsletter editions, which `newsletter.html` renders (written by the newsletter bot) |
 | `tools/routes-uml.php` | Generates `data/routes.json` |
+| `tools/architecture-uml.php` | Draws the class diagram and its package table on `uml/index.html`, and checks the UML pages' other diagrams and prose against DiscordPHP |
 | `tools/versions.php` | Generates `data/versions.json` |
 | `tools/check-diagrams.php` | Draws every diagram through [mermaid.ink](https://mermaid.ink) and fails on any Mermaid rejects |
 
@@ -49,6 +51,38 @@ php tools/check-diagrams.php data/routes.json uml/index.html
 A fourth argument reads the source from another tree of the repository, such as a worktree at another
 tag, while still using the first checkout's `vendor/`.
 
+### The class diagram
+
+The class diagram on `uml/index.html`, and the package table under it, are drawn from DiscordPHP's code
+by `tools/architecture-uml.php`, between the `<!-- architecture-uml: … -->` markers. Don't edit them by
+hand. `uml/architecture.json` says what to show:
+
+- **Classes and members.** List a class and the members to show: `name()` for a method, `$name` for a
+  property (declared, or a `@property` in the class docblock) and `NAME` for a constant. Parameters and
+  types come from the code, so they always match the release.
+- **Relations.** Written in Mermaid's arrows. An inheritance arrow (`<|--`, `<|..`) must be true in the
+  code.
+
+The two sequence diagrams stay hand-written, because what happens in what order can't be read from the
+code. The tool checks them against it instead:
+
+- every call in a message, such as `post(...)`, must be a method of a class of the participant that sends
+  or receives it (`sequences` in the spec lists each participant's classes),
+- `op` numbers must be the values of the `Op` constants they are named after,
+- names such as `MESSAGE_CREATE` must be gateway events DiscordPHP knows,
+- `Class::member` and `$discord->method()` in any UML page's prose must exist.
+
+If anything is missing, it lists each problem and leaves the page alone, so the build fails instead of
+publishing a diagram that no longer matches the release. Run it after changing the spec, or to check a
+draft against another DiscordPHP version:
+
+```sh
+composer uml   # tools/architecture-uml.php ../DiscordPHP uml/architecture.json uml/index.html uml/events.html uml/routes.html
+```
+
+`--source=<tree>` reads the code from another tree of the repository, as the fourth argument of
+`routes-uml.php` does.
+
 ### Code style
 
 The build tools follow the DiscordPHP family's php-cs-fixer rules:
@@ -76,8 +110,9 @@ Each edition has a permalink, `newsletter.html#<key>`.
 
 ## Publishing
 
-`.github/workflows/pages.yml` generates the maps, checks that every diagram draws, and publishes the site
-to the `gh-pages` branch. It maps the latest DiscordPHP release, and runs:
+`.github/workflows/pages.yml` generates the maps and the class diagram, checks the hand-written diagrams
+against DiscordPHP and that every diagram draws, and publishes the site to the `gh-pages` branch. It maps
+the latest DiscordPHP release, and runs:
 
 - when DiscordPHP publishes a release, through a `discordphp-release` dispatch (below),
 - every day, to pick up changes to Discord's OpenAPI description, and any release whose dispatch did not
@@ -85,6 +120,9 @@ to the `gh-pages` branch. It maps the latest DiscordPHP release, and runs:
 - on every push to `main`,
 - by hand, from the Actions tab. You can give a DiscordPHP branch, tag or commit to map instead of the
   latest release.
+
+A pull request runs the same build without publishing, so a diagram that no longer matches DiscordPHP
+fails before it is merged.
 
 GitHub Pages serves the `gh-pages` branch. For the custom domain, add a `CNAME` file containing
 `discordphp.org` to the root of this repository. The workflow copies it into each deployment, so the

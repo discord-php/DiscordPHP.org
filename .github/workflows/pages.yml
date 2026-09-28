@@ -9,10 +9,14 @@ name: Pages
 # - every day, for the latest release, to pick up changes in Discord's description, and so a release
 #   is still picked up if the dispatch did not arrive,
 # - on every push to main, and by hand, optionally for any DiscordPHP branch, tag or commit.
+#
+# A pull request runs the same build, so a diagram that no longer matches DiscordPHP fails there, but
+# publishes nothing.
 
 on:
   push:
     branches: [main]
+  pull_request:
   schedule:
     - cron: '47 6 * * *'
   repository_dispatch:
@@ -28,8 +32,9 @@ permissions:
   contents: write
 
 concurrency:
-  group: pages
-  cancel-in-progress: false
+  # Publishing runs one at a time; each pull request only replaces its own older run.
+  group: ${{ github.event_name == 'pull_request' && format('pages-pr-{0}', github.event.pull_request.number) || 'pages' }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   build:
@@ -83,6 +88,9 @@ jobs:
       - name: Generate the route and event maps
         run: php tools/routes-uml.php DiscordPHP openapi_preview.json data
 
+      - name: Draw the class diagram and check the hand-written ones
+        run: php tools/architecture-uml.php DiscordPHP uml/architecture.json uml/index.html uml/events.html uml/routes.html
+
       - name: Look up package versions
         env:
           GITHUB_TOKEN: ${{ github.token }}
@@ -98,6 +106,7 @@ jobs:
           if [ -f CNAME ]; then cp CNAME _site/; fi
 
       - name: Publish
+        if: github.event_name != 'pull_request'
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
