@@ -1,7 +1,7 @@
 {
-    "generated": "2026-09-28T14:52:25Z",
-    "discordphp": "09baca56397741f34a2c0fb23935a62006e5e1ff",
-    "release": "v10.65.0",
+    "generated": "2026-09-28T21:24:09Z",
+    "discordphp": "60eb4669162f46c727a457316b2c244fe89832c8",
+    "release": "v10.66.0",
     "spec": {
         "title": "Discord HTTP API (Preview)",
         "version": "10"
@@ -376,7 +376,7 @@
                     "sentBy": [
                         {
                             "class": "Application",
-                            "fqcn": "Discord\\Parts\\OAuth\\Application",
+                            "fqcn": "Discord\\Parts\\Application\\Application",
                             "member": "fetch()"
                         }
                     ]
@@ -395,7 +395,7 @@
                     "sentBy": [
                         {
                             "class": "Application",
-                            "fqcn": "Discord\\Parts\\OAuth\\Application",
+                            "fqcn": "Discord\\Parts\\Application\\Application",
                             "member": "update()"
                         }
                     ]
@@ -419,7 +419,7 @@
                         },
                         {
                             "class": "Application",
-                            "fqcn": "Discord\\Parts\\OAuth\\Application",
+                            "fqcn": "Discord\\Parts\\Application\\Application",
                             "member": "getActivityInstance()"
                         }
                     ]
@@ -439,7 +439,7 @@
                     "sentBy": [
                         {
                             "class": "Application",
-                            "fqcn": "Discord\\Parts\\OAuth\\Application",
+                            "fqcn": "Discord\\Parts\\Application\\Application",
                             "member": "uploadAttachment()"
                         }
                     ]
@@ -667,7 +667,7 @@
                     "sentBy": [
                         {
                             "class": "Application",
-                            "fqcn": "Discord\\Parts\\OAuth\\Application",
+                            "fqcn": "Discord\\Parts\\Application\\Application",
                             "member": "getApplicationRoleConnectionMetadataRecords()"
                         }
                     ]
@@ -686,13 +686,13 @@
                     "sentBy": [
                         {
                             "class": "Application",
-                            "fqcn": "Discord\\Parts\\OAuth\\Application",
+                            "fqcn": "Discord\\Parts\\Application\\Application",
                             "member": "updateApplicationRoleConnectionMetadataRecords()"
                         }
                     ]
                 }
             ],
-            "mermaid": "classDiagram\n    direction LR\n    class ActivityInstanceRepository {\n        +fetch() GET applications/:application_id/activity-instances/:instance_id\n    }\n    class Application {\n        +fetch() GET applications/:application_id\n        +update() PATCH applications/:application_id\n        +getActivityInstance() GET applications/:application_id/activity-instances/:instance_id\n        +uploadAttachment() POST applications/:application_id/attachment\n        +getApplicationRoleConnectionMetadataRecords() GET applications/:application_id/role-connections/metadata\n        +updateApplicationRoleConnectionMetadataRecords() PUT applications/:application_id/role-connections/metadata\n    }\n    class Client {\n        +getCurrentApplication() GET applications/@me\n        +updateCurrentApplication() PATCH applications/@me\n    }\n    class EmojiRepository {\n        +freshen() GET applications/:application_id/emojis\n        +save() POST applications/:application_id/emojis\n        +fetch() GET applications/:application_id/emojis/:emoji_id\n        +save() PATCH applications/:application_id/emojis/:emoji_id\n        +delete() DELETE applications/:application_id/emojis/:emoji_id\n    }\n    class EntitlementRepository {\n        +freshen() GET applications/:application_id/entitlements\n        +getEntitlements() GET applications/:application_id/entitlements\n        +createTestEntitlement() POST applications/:application_id/entitlements\n        +save() POST applications/:application_id/entitlements\n        +fetch() GET applications/:application_id/entitlements/:entitlement_id\n        +delete() DELETE applications/:application_id/entitlements/:entitlement_id\n        +deleteTestEntitlement() DELETE applications/:application_id/entitlements/:entitlement_id\n        +consume() POST applications/:application_id/entitlements/:entitlement_id/consume\n    }\n    Application *-- EntitlementRepository : entitlements\n    Application *-- ActivityInstanceRepository : activity_instances\n    Client *-- EmojiRepository : emojis"
+            "mermaid": "classDiagram\n    direction LR\n    class ActivityInstanceRepository {\n        +fetch() GET applications/:application_id/activity-instances/:instance_id\n    }\n    class Application {\n        +fetch() GET applications/:application_id\n        +update() PATCH applications/:application_id\n        +getActivityInstance() GET applications/:application_id/activity-instances/:instance_id\n        +uploadAttachment() POST applications/:application_id/attachment\n        +getApplicationRoleConnectionMetadataRecords() GET applications/:application_id/role-connections/metadata\n        +updateApplicationRoleConnectionMetadataRecords() PUT applications/:application_id/role-connections/metadata\n    }\n    class Client {\n        +getCurrentApplication() GET applications/@me\n        +updateCurrentApplication() PATCH applications/@me\n    }\n    class EmojiRepository {\n        +freshen() GET applications/:application_id/emojis\n        +save() POST applications/:application_id/emojis\n        +fetch() GET applications/:application_id/emojis/:emoji_id\n        +save() PATCH applications/:application_id/emojis/:emoji_id\n        +delete() DELETE applications/:application_id/emojis/:emoji_id\n    }\n    class EntitlementRepository {\n        +freshen() GET applications/:application_id/entitlements\n        +getEntitlements() GET applications/:application_id/entitlements\n        +createTestEntitlement() POST applications/:application_id/entitlements\n        +save() POST applications/:application_id/entitlements\n        +fetch() GET applications/:application_id/entitlements/:entitlement_id\n        +delete() DELETE applications/:application_id/entitlements/:entitlement_id\n        +deleteTestEntitlement() DELETE applications/:application_id/entitlements/:entitlement_id\n        +consume() POST applications/:application_id/entitlements/:entitlement_id/consume\n    }\n    Client *-- EmojiRepository : emojis\n    Application *-- EntitlementRepository : entitlements\n    Application *-- ActivityInstanceRepository : activity_instances"
         },
         {
             "name": "Channels: messages",
@@ -835,7 +835,7 @@
                         },
                         {
                             "class": "Reaction",
-                            "fqcn": "Discord\\Parts\\Channel\\Reaction",
+                            "fqcn": "Discord\\Parts\\Channel\\Message\\Reaction",
                             "member": "fetch()"
                         }
                     ]
@@ -854,7 +854,7 @@
                     "sentBy": [
                         {
                             "class": "Message",
-                            "fqcn": "Discord\\Parts\\Channel\\Message",
+                            "fqcn": "Discord\\Parts\\Channel\\Message\\Message",
                             "member": "_edit()"
                         },
                         {
@@ -883,7 +883,7 @@
                         },
                         {
                             "class": "Message",
-                            "fqcn": "Discord\\Parts\\Channel\\Message",
+                            "fqcn": "Discord\\Parts\\Channel\\Message\\Message",
                             "member": "delete()"
                         },
                         {
@@ -907,7 +907,7 @@
                     "sentBy": [
                         {
                             "class": "Message",
-                            "fqcn": "Discord\\Parts\\Channel\\Message",
+                            "fqcn": "Discord\\Parts\\Channel\\Message\\Message",
                             "member": "crosspost()"
                         }
                     ]
@@ -926,7 +926,7 @@
                     "sentBy": [
                         {
                             "class": "Message",
-                            "fqcn": "Discord\\Parts\\Channel\\Message",
+                            "fqcn": "Discord\\Parts\\Channel\\Message\\Message",
                             "member": "deleteAllReactions()"
                         }
                     ]
@@ -945,7 +945,7 @@
                     "sentBy": [
                         {
                             "class": "Reaction",
-                            "fqcn": "Discord\\Parts\\Channel\\Reaction",
+                            "fqcn": "Discord\\Parts\\Channel\\Message\\Reaction",
                             "member": "getUsers()"
                         },
                         {
@@ -969,7 +969,7 @@
                     "sentBy": [
                         {
                             "class": "Message",
-                            "fqcn": "Discord\\Parts\\Channel\\Message",
+                            "fqcn": "Discord\\Parts\\Channel\\Message\\Message",
                             "member": "deleteEmojiReactions()"
                         },
                         {
@@ -993,7 +993,7 @@
                     "sentBy": [
                         {
                             "class": "Message",
-                            "fqcn": "Discord\\Parts\\Channel\\Message",
+                            "fqcn": "Discord\\Parts\\Channel\\Message\\Message",
                             "member": "react()"
                         }
                     ]
@@ -1012,7 +1012,7 @@
                     "sentBy": [
                         {
                             "class": "Message",
-                            "fqcn": "Discord\\Parts\\Channel\\Message",
+                            "fqcn": "Discord\\Parts\\Channel\\Message\\Message",
                             "member": "deleteOwnReaction()"
                         }
                     ]
@@ -1031,7 +1031,7 @@
                     "sentBy": [
                         {
                             "class": "Message",
-                            "fqcn": "Discord\\Parts\\Channel\\Message",
+                            "fqcn": "Discord\\Parts\\Channel\\Message\\Message",
                             "member": "deleteUserReaction()"
                         },
                         {
@@ -1055,7 +1055,7 @@
                     "sentBy": [
                         {
                             "class": "Message",
-                            "fqcn": "Discord\\Parts\\Channel\\Message",
+                            "fqcn": "Discord\\Parts\\Channel\\Message\\Message",
                             "member": "startThread()"
                         }
                     ]
@@ -1113,7 +1113,7 @@
                     "sentBy": [
                         {
                             "class": "PollAnswer",
-                            "fqcn": "Discord\\Parts\\Channel\\Poll\\PollAnswer",
+                            "fqcn": "Discord\\Parts\\Channel\\Message\\Poll\\PollAnswer",
                             "member": "getVoters()"
                         },
                         {
@@ -1137,7 +1137,7 @@
                     "sentBy": [
                         {
                             "class": "Poll",
-                            "fqcn": "Discord\\Parts\\Channel\\Poll",
+                            "fqcn": "Discord\\Parts\\Channel\\Message\\Poll\\Poll",
                             "member": "expire()"
                         }
                     ]
@@ -1227,22 +1227,22 @@
                         },
                         {
                             "class": "Thread",
-                            "fqcn": "Discord\\Parts\\Thread\\Thread",
+                            "fqcn": "Discord\\Parts\\Channel\\Thread\\Thread",
                             "member": "archive()"
                         },
                         {
                             "class": "Thread",
-                            "fqcn": "Discord\\Parts\\Thread\\Thread",
+                            "fqcn": "Discord\\Parts\\Channel\\Thread\\Thread",
                             "member": "rename()"
                         },
                         {
                             "class": "Thread",
-                            "fqcn": "Discord\\Parts\\Thread\\Thread",
+                            "fqcn": "Discord\\Parts\\Channel\\Thread\\Thread",
                             "member": "setAutoArchiveDuration()"
                         },
                         {
                             "class": "Thread",
-                            "fqcn": "Discord\\Parts\\Thread\\Thread",
+                            "fqcn": "Discord\\Parts\\Channel\\Thread\\Thread",
                             "member": "unarchive()"
                         },
                         {
@@ -1530,7 +1530,7 @@
                     "sentBy": [
                         {
                             "class": "Thread",
-                            "fqcn": "Discord\\Parts\\Thread\\Thread",
+                            "fqcn": "Discord\\Parts\\Channel\\Thread\\Thread",
                             "member": "join()"
                         }
                     ]
@@ -1549,7 +1549,7 @@
                     "sentBy": [
                         {
                             "class": "Thread",
-                            "fqcn": "Discord\\Parts\\Thread\\Thread",
+                            "fqcn": "Discord\\Parts\\Channel\\Thread\\Thread",
                             "member": "leave()"
                         }
                     ]
@@ -1587,7 +1587,7 @@
                     "sentBy": [
                         {
                             "class": "Thread",
-                            "fqcn": "Discord\\Parts\\Thread\\Thread",
+                            "fqcn": "Discord\\Parts\\Channel\\Thread\\Thread",
                             "member": "addMember()"
                         }
                     ]
@@ -1606,12 +1606,12 @@
                     "sentBy": [
                         {
                             "class": "Member",
-                            "fqcn": "Discord\\Parts\\Thread\\Member",
+                            "fqcn": "Discord\\Parts\\Channel\\Thread\\Member",
                             "member": "remove()"
                         },
                         {
                             "class": "Thread",
-                            "fqcn": "Discord\\Parts\\Thread\\Thread",
+                            "fqcn": "Discord\\Parts\\Channel\\Thread\\Thread",
                             "member": "removeMember()"
                         }
                     ]
@@ -1692,7 +1692,7 @@
                     "sentBy": [
                         {
                             "class": "Thread",
-                            "fqcn": "Discord\\Parts\\Thread\\Thread",
+                            "fqcn": "Discord\\Parts\\Channel\\Thread\\Thread",
                             "member": "search()"
                         }
                     ]
@@ -2480,7 +2480,7 @@
                     "sentBy": [
                         {
                             "class": "ScheduledEvent",
-                            "fqcn": "Discord\\Parts\\Guild\\ScheduledEvent",
+                            "fqcn": "Discord\\Parts\\Guild\\ScheduledEvent\\ScheduledEvent",
                             "member": "createException()"
                         }
                     ]
@@ -2499,7 +2499,7 @@
                     "sentBy": [
                         {
                             "class": "ScheduledEvent",
-                            "fqcn": "Discord\\Parts\\Guild\\ScheduledEvent",
+                            "fqcn": "Discord\\Parts\\Guild\\ScheduledEvent\\ScheduledEvent",
                             "member": "updateException()"
                         }
                     ]
@@ -2518,7 +2518,7 @@
                     "sentBy": [
                         {
                             "class": "ScheduledEvent",
-                            "fqcn": "Discord\\Parts\\Guild\\ScheduledEvent",
+                            "fqcn": "Discord\\Parts\\Guild\\ScheduledEvent\\ScheduledEvent",
                             "member": "deleteException()"
                         }
                     ]
@@ -2537,7 +2537,7 @@
                     "sentBy": [
                         {
                             "class": "ScheduledEvent",
-                            "fqcn": "Discord\\Parts\\Guild\\ScheduledEvent",
+                            "fqcn": "Discord\\Parts\\Guild\\ScheduledEvent\\ScheduledEvent",
                             "member": "getUsers()"
                         }
                     ]
@@ -2719,7 +2719,7 @@
                     "sentBy": [
                         {
                             "class": "Member",
-                            "fqcn": "Discord\\Parts\\User\\Member",
+                            "fqcn": "Discord\\Parts\\Guild\\Member\\Member",
                             "member": "setNickname()"
                         },
                         {
@@ -2830,27 +2830,27 @@
                         },
                         {
                             "class": "Member",
-                            "fqcn": "Discord\\Parts\\User\\Member",
+                            "fqcn": "Discord\\Parts\\Guild\\Member\\Member",
                             "member": "moveMember()"
                         },
                         {
                             "class": "Member",
-                            "fqcn": "Discord\\Parts\\User\\Member",
+                            "fqcn": "Discord\\Parts\\Guild\\Member\\Member",
                             "member": "setBypassesVerification()"
                         },
                         {
                             "class": "Member",
-                            "fqcn": "Discord\\Parts\\User\\Member",
+                            "fqcn": "Discord\\Parts\\Guild\\Member\\Member",
                             "member": "setNickname()"
                         },
                         {
                             "class": "Member",
-                            "fqcn": "Discord\\Parts\\User\\Member",
+                            "fqcn": "Discord\\Parts\\Guild\\Member\\Member",
                             "member": "setRoles()"
                         },
                         {
                             "class": "Member",
-                            "fqcn": "Discord\\Parts\\User\\Member",
+                            "fqcn": "Discord\\Parts\\Guild\\Member\\Member",
                             "member": "timeoutMember()"
                         },
                         {
@@ -2893,7 +2893,7 @@
                     "sentBy": [
                         {
                             "class": "Member",
-                            "fqcn": "Discord\\Parts\\User\\Member",
+                            "fqcn": "Discord\\Parts\\Guild\\Member\\Member",
                             "member": "addRole()"
                         }
                     ]
@@ -2912,7 +2912,7 @@
                     "sentBy": [
                         {
                             "class": "Member",
-                            "fqcn": "Discord\\Parts\\User\\Member",
+                            "fqcn": "Discord\\Parts\\Guild\\Member\\Member",
                             "member": "removeRole()"
                         }
                     ]
@@ -3729,7 +3729,7 @@
                     "sentBy": [
                         {
                             "class": "Invite",
-                            "fqcn": "Discord\\Parts\\Channel\\Invite",
+                            "fqcn": "Discord\\Parts\\Invite\\Invite",
                             "member": "getTargetUsers()"
                         }
                     ]
@@ -3748,7 +3748,7 @@
                     "sentBy": [
                         {
                             "class": "Invite",
-                            "fqcn": "Discord\\Parts\\Channel\\Invite",
+                            "fqcn": "Discord\\Parts\\Invite\\Invite",
                             "member": "updateTargetUsersFromContent()"
                         }
                     ]
@@ -3767,7 +3767,7 @@
                     "sentBy": [
                         {
                             "class": "Invite",
-                            "fqcn": "Discord\\Parts\\Channel\\Invite",
+                            "fqcn": "Discord\\Parts\\Invite\\Invite",
                             "member": "BulkAddTargetUsers()"
                         }
                     ]
@@ -3786,7 +3786,7 @@
                     "sentBy": [
                         {
                             "class": "Invite",
-                            "fqcn": "Discord\\Parts\\Channel\\Invite",
+                            "fqcn": "Discord\\Parts\\Invite\\Invite",
                             "member": "BulkDeleteTargetUsers()"
                         }
                     ]
@@ -3805,7 +3805,7 @@
                     "sentBy": [
                         {
                             "class": "Invite",
-                            "fqcn": "Discord\\Parts\\Channel\\Invite",
+                            "fqcn": "Discord\\Parts\\Invite\\Invite",
                             "member": "getTargetUsersJobStatus()"
                         }
                     ]
@@ -3825,7 +3825,7 @@
                     "sentBy": [
                         {
                             "class": "Invite",
-                            "fqcn": "Discord\\Parts\\Channel\\Invite",
+                            "fqcn": "Discord\\Parts\\Invite\\Invite",
                             "member": "addTargetUser()"
                         }
                     ]
@@ -3845,7 +3845,7 @@
                     "sentBy": [
                         {
                             "class": "Invite",
-                            "fqcn": "Discord\\Parts\\Channel\\Invite",
+                            "fqcn": "Discord\\Parts\\Invite\\Invite",
                             "member": "removeTargetUser()"
                         }
                     ]
@@ -4939,7 +4939,7 @@
                     "sentBy": [
                         {
                             "class": "Webhook",
-                            "fqcn": "Discord\\Parts\\Channel\\Webhook",
+                            "fqcn": "Discord\\Parts\\Webhook\\Webhook",
                             "member": "fetchByToken()"
                         }
                     ]
@@ -4966,7 +4966,7 @@
                         },
                         {
                             "class": "Webhook",
-                            "fqcn": "Discord\\Parts\\Channel\\Webhook",
+                            "fqcn": "Discord\\Parts\\Webhook\\Webhook",
                             "member": "execute()"
                         }
                     ]
@@ -4988,7 +4988,7 @@
                     "sentBy": [
                         {
                             "class": "Webhook",
-                            "fqcn": "Discord\\Parts\\Channel\\Webhook",
+                            "fqcn": "Discord\\Parts\\Webhook\\Webhook",
                             "member": "updateByToken()"
                         }
                     ]
@@ -5010,7 +5010,7 @@
                     "sentBy": [
                         {
                             "class": "Webhook",
-                            "fqcn": "Discord\\Parts\\Channel\\Webhook",
+                            "fqcn": "Discord\\Parts\\Webhook\\Webhook",
                             "member": "deleteByToken()"
                         }
                     ]
@@ -5030,7 +5030,7 @@
                     "sentBy": [
                         {
                             "class": "Webhook",
-                            "fqcn": "Discord\\Parts\\Channel\\Webhook",
+                            "fqcn": "Discord\\Parts\\Webhook\\Webhook",
                             "member": "executeGitHub()"
                         }
                     ]
@@ -5142,7 +5142,7 @@
                         },
                         {
                             "class": "Webhook",
-                            "fqcn": "Discord\\Parts\\Channel\\Webhook",
+                            "fqcn": "Discord\\Parts\\Webhook\\Webhook",
                             "member": "updateMessage()"
                         },
                         {
@@ -5193,7 +5193,7 @@
                     "sentBy": [
                         {
                             "class": "Webhook",
-                            "fqcn": "Discord\\Parts\\Channel\\Webhook",
+                            "fqcn": "Discord\\Parts\\Webhook\\Webhook",
                             "member": "executeSlack()"
                         }
                     ]
