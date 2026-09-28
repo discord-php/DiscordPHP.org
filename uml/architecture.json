@@ -1,0 +1,80 @@
+{
+    "about": "What tools/architecture-uml.php draws on uml/index.html, and what it checks the page's other diagrams against. Class members are looked up in the DiscordPHP release, so their parameters and types always match it: `name()` is a method, `$name` a property (declared, or a @property in the class docblock) and `NAME` a constant. A relation's arrow is Mermaid's; an inheritance arrow (<|-- or <|..) must be true in the code.",
+    "architecture": {
+        "direction": "TB",
+        "classes": {
+            "Discord": { "class": "Discord\\Discord", "members": ["$guilds", "$users", "$private_channels", "$application", "on()", "run()", "getHttpClient()", "getFactory()", "getGateway()", "joinVoiceChannel()"] },
+            "Http": { "class": "Discord\\Http\\Http", "members": ["CONCURRENT_REQUESTS", "get()", "post()", "queueRequest()"] },
+            "Bucket": { "class": "Discord\\Http\\Bucket", "members": ["enqueue()", "checkQueue()"] },
+            "DriverInterface": { "class": "Discord\\Http\\DriverInterface", "members": ["runRequest()"] },
+            "React": { "class": "Discord\\Http\\Drivers\\React" },
+            "Guzzle": { "class": "Discord\\Http\\Drivers\\Guzzle" },
+            "Endpoint": { "class": "Discord\\Http\\Endpoint", "members": ["bind()", "bindAssoc()"] },
+            "Factory": { "class": "Discord\\Factory\\Factory", "members": ["part()", "repository()"] },
+            "Handlers": { "class": "Discord\\WebSockets\\Handlers", "members": ["getHandler()"] },
+            "Event": { "class": "Discord\\WebSockets\\Event", "members": ["handle()"] },
+            "WebSocket": { "class": "Ratchet\\Client\\WebSocket" },
+            "Part": { "class": "Discord\\Parts\\Part", "members": ["$created", "fill()"] },
+            "Widget": { "class": "Discord\\Parts\\Guild\\Widget", "members": ["getImage()"] },
+            "AbstractRepository": { "class": "Discord\\Repository\\AbstractRepository", "members": ["freshen()", "fetch()", "save()", "delete()", "cacheGet()"] },
+            "Collection": { "class": "Discord\\Helpers\\Collection" },
+            "CacheWrapper": { "class": "Discord\\Helpers\\CacheWrapper" },
+            "Manager": { "class": "Discord\\Voice\\Manager" },
+            "VoiceClient": { "class": "Discord\\Voice\\VoiceClient" }
+        },
+        "relations": [
+            "Discord *-- Http",
+            "Discord *-- Factory",
+            "Discord *-- Handlers",
+            "Discord o-- WebSocket : gateway",
+            "Discord o-- Manager : voice",
+            "Discord *-- AbstractRepository : guilds, users, …",
+            "Http \"1\" *-- \"many\" Bucket : one per route",
+            "Http --> DriverInterface",
+            "DriverInterface <|.. React",
+            "DriverInterface <|.. Guzzle",
+            "Http ..> Endpoint",
+            "Handlers ..> Event : event name to class",
+            "Factory ..> Part : builds",
+            "Factory ..> AbstractRepository : builds",
+            "Part <|-- Widget",
+            "Widget ..> DriverInterface : PNG, not JSON",
+            "Part *-- AbstractRepository : child repositories",
+            "AbstractRepository --|> Collection",
+            "AbstractRepository *-- CacheWrapper",
+            "AbstractRepository o-- \"many\" Part : items",
+            "Manager \"1\" *-- \"many\" VoiceClient : one per guild"
+        ]
+    },
+    "sequences": {
+        "about": "The hand-written sequence diagrams, by the id of their section on the page. Each call in a message, as in `post(...)`, must be a method of the class of the participant that sends it or receives it, or of one listed under `also`.",
+        "request": {
+            "participants": {
+                "App": [],
+                "Repo": ["Discord\\Parts\\Part", "Discord\\Repository\\AbstractRepository"],
+                "Http": ["Discord\\Http\\Http"],
+                "Bucket": ["Discord\\Http\\Bucket"],
+                "Driver": ["Discord\\Http\\DriverInterface"],
+                "API": []
+            },
+            "also": ["Discord\\Helpers\\CacheWrapper"]
+        },
+        "gateway": {
+            "participants": {
+                "GW": [],
+                "WS": ["Ratchet\\Client\\WebSocket"],
+                "D": ["Discord\\Discord"],
+                "H": ["Discord\\WebSockets\\Handlers"],
+                "E": ["Discord\\WebSockets\\Event"],
+                "C": ["Discord\\Repository\\AbstractRepository"],
+                "L": []
+            }
+        }
+    },
+    "names": {
+        "about": "What the page's prose and diagrams may name besides the classes above: `$discord->method()`, `Op::OP_*` numbers and gateway event names such as MESSAGE_CREATE.",
+        "variables": { "$discord": "Discord\\Discord" },
+        "opcodes": "Discord\\WebSockets\\Op",
+        "events": "Discord\\WebSockets\\Event"
+    }
+}

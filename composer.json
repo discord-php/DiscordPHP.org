@@ -13,6 +13,7 @@
     "scripts": {
         "cs": "php-cs-fixer fix",
         "check-diagrams": "@php tools/check-diagrams.php data/routes.json uml/index.html",
+        "uml": "@php tools/architecture-uml.php ../DiscordPHP uml/architecture.json uml/index.html uml/events.html uml/routes.html",
         "versions": "@php tools/versions.php data libraries.html",
         "serve": [
             "Composer\\Config::disableProcessTimeout",
@@ -22,6 +23,7 @@
     "scripts-descriptions": {
         "cs": "Formats the build tools with php-cs-fixer.",
         "check-diagrams": "Draws every diagram through mermaid.ink and fails on any Mermaid cannot parse.",
+        "uml": "Draws the class diagram on uml/index.html from the DiscordPHP checkout in ../DiscordPHP, and checks the hand-written diagrams against it.",
         "versions": "Looks up the latest release of each package on the libraries page.",
         "serve": "Serves the site at http://localhost:8080."
     }
