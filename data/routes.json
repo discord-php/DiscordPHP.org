@@ -1,18 +1,18 @@
 {
-    "generated": "2026-09-27T12:57:35Z",
-    "discordphp": "bd9060384fa9697d6cbf122bab383fc96426f272",
-    "release": "v10.60.0",
+    "generated": "2026-09-28T12:50:04Z",
+    "discordphp": "cac5f96f7010f8d63051efbc9a7b5debc918e776",
+    "release": "v10.64.0",
     "spec": {
         "title": "Discord HTTP API (Preview)",
         "version": "10"
     },
     "totals": {
         "operations": 246,
-        "sent": 238,
-        "not sent": 8,
+        "sent": 243,
+        "not sent": 3,
         "deprecated": 3,
         "groups": 23,
-        "events": 87
+        "events": 90
     },
     "groups": [
         {
@@ -373,7 +373,13 @@
                     "constants": [
                         "APPLICATION"
                     ],
-                    "sentBy": []
+                    "sentBy": [
+                        {
+                            "class": "Application",
+                            "fqcn": "Discord\\Parts\\OAuth\\Application",
+                            "member": "fetch()"
+                        }
+                    ]
                 },
                 {
                     "method": "PATCH",
@@ -386,7 +392,13 @@
                     "constants": [
                         "APPLICATION"
                     ],
-                    "sentBy": []
+                    "sentBy": [
+                        {
+                            "class": "Application",
+                            "fqcn": "Discord\\Parts\\OAuth\\Application",
+                            "member": "update()"
+                        }
+                    ]
                 },
                 {
                     "method": "GET",
@@ -680,7 +692,7 @@
                     ]
                 }
             ],
-            "mermaid": "classDiagram\n    direction LR\n    class ActivityInstanceRepository {\n        +fetch() GET applications/:application_id/activity-instances/:instance_id\n    }\n    class Application {\n        +getActivityInstance() GET applications/:application_id/activity-instances/:instance_id\n        +uploadAttachment() POST applications/:application_id/attachment\n        +getApplicationRoleConnectionMetadataRecords() GET applications/:application_id/role-connections/metadata\n        +updateApplicationRoleConnectionMetadataRecords() PUT applications/:application_id/role-connections/metadata\n    }\n    class Client {\n        +getCurrentApplication() GET applications/@me\n        +updateCurrentApplication() PATCH applications/@me\n    }\n    class EmojiRepository {\n        +freshen() GET applications/:application_id/emojis\n        +save() POST applications/:application_id/emojis\n        +fetch() GET applications/:application_id/emojis/:emoji_id\n        +save() PATCH applications/:application_id/emojis/:emoji_id\n        +delete() DELETE applications/:application_id/emojis/:emoji_id\n    }\n    class EntitlementRepository {\n        +freshen() GET applications/:application_id/entitlements\n        +getEntitlements() GET applications/:application_id/entitlements\n        +createTestEntitlement() POST applications/:application_id/entitlements\n        +save() POST applications/:application_id/entitlements\n        +fetch() GET applications/:application_id/entitlements/:entitlement_id\n        +delete() DELETE applications/:application_id/entitlements/:entitlement_id\n        +deleteTestEntitlement() DELETE applications/:application_id/entitlements/:entitlement_id\n        +consume() POST applications/:application_id/entitlements/:entitlement_id/consume\n    }\n    class NotSent[\"Not sent by DiscordPHP\"] {\n        GET applications/:application_id\n        PATCH applications/:application_id\n    }\n    Application *-- EntitlementRepository : entitlements\n    Application *-- ActivityInstanceRepository : activity_instances\n    Client *-- EmojiRepository : emojis"
+            "mermaid": "classDiagram\n    direction LR\n    class ActivityInstanceRepository {\n        +fetch() GET applications/:application_id/activity-instances/:instance_id\n    }\n    class Application {\n        +fetch() GET applications/:application_id\n        +update() PATCH applications/:application_id\n        +getActivityInstance() GET applications/:application_id/activity-instances/:instance_id\n        +uploadAttachment() POST applications/:application_id/attachment\n        +getApplicationRoleConnectionMetadataRecords() GET applications/:application_id/role-connections/metadata\n        +updateApplicationRoleConnectionMetadataRecords() PUT applications/:application_id/role-connections/metadata\n    }\n    class Client {\n        +getCurrentApplication() GET applications/@me\n        +updateCurrentApplication() PATCH applications/@me\n    }\n    class EmojiRepository {\n        +freshen() GET applications/:application_id/emojis\n        +save() POST applications/:application_id/emojis\n        +fetch() GET applications/:application_id/emojis/:emoji_id\n        +save() PATCH applications/:application_id/emojis/:emoji_id\n        +delete() DELETE applications/:application_id/emojis/:emoji_id\n    }\n    class EntitlementRepository {\n        +freshen() GET applications/:application_id/entitlements\n        +getEntitlements() GET applications/:application_id/entitlements\n        +createTestEntitlement() POST applications/:application_id/entitlements\n        +save() POST applications/:application_id/entitlements\n        +fetch() GET applications/:application_id/entitlements/:entitlement_id\n        +delete() DELETE applications/:application_id/entitlements/:entitlement_id\n        +deleteTestEntitlement() DELETE applications/:application_id/entitlements/:entitlement_id\n        +consume() POST applications/:application_id/entitlements/:entitlement_id/consume\n    }\n    Client *-- EmojiRepository : emojis\n    Application *-- EntitlementRepository : entitlements\n    Application *-- ActivityInstanceRepository : activity_instances"
         },
         {
             "name": "Channels: messages",
@@ -1722,7 +1734,13 @@
                     "constants": [
                         "GATEWAY"
                     ],
-                    "sentBy": []
+                    "sentBy": [
+                        {
+                            "class": "Discord",
+                            "fqcn": "Discord\\Discord",
+                            "member": "getGateway()"
+                        }
+                    ]
                 },
                 {
                     "method": "GET",
@@ -1744,7 +1762,7 @@
                     ]
                 }
             ],
-            "mermaid": "classDiagram\n    direction LR\n    class Discord {\n        +setGateway() GET gateway/bot\n    }\n    class NotSent[\"Not sent by DiscordPHP\"] {\n        GET gateway\n    }"
+            "mermaid": "classDiagram\n    direction LR\n    class Discord {\n        +getGateway() GET gateway\n        +setGateway() GET gateway/bot\n    }"
         },
         {
             "name": "Guilds: channels, threads and voice",
@@ -3618,10 +3636,16 @@
                     "constants": [
                         "GUILD_WIDGET_IMAGE"
                     ],
-                    "sentBy": []
+                    "sentBy": [
+                        {
+                            "class": "Widget",
+                            "fqcn": "Discord\\Parts\\Guild\\Widget",
+                            "member": "getImage()"
+                        }
+                    ]
                 }
             ],
-            "mermaid": "classDiagram\n    direction LR\n    class AuditLogRepository {\n        +freshen() GET guilds/:guild_id/audit-logs\n    }\n    class Guild {\n        +setFeatures() PATCH guilds/:guild_id\n        +transferOwnership() PATCH guilds/:guild_id\n        +updateIncidentActions() PUT guilds/:guild_id/incident-actions\n        +getInvites() GET guilds/:guild_id/invites\n        +getServerGuide() GET guilds/:guild_id/new-member-welcome\n        +getOnboarding() GET guilds/:guild_id/onboarding\n        +modifyOnboarding() PUT guilds/:guild_id/onboarding\n        +getVoiceRegions() GET guilds/:guild_id/regions\n        +fetchVanityUrl() GET guilds/:guild_id/vanity-url\n        +getWelcomeScreen() GET guilds/:guild_id/welcome-screen\n        +updateWelcomeScreen() PATCH guilds/:guild_id/welcome-screen\n        +getWidgetSettings() GET guilds/:guild_id/widget\n        +updateWidgetSettings() PATCH guilds/:guild_id/widget\n    }\n    class GuildJoinRequestRepository {\n        +freshen() GET guilds/:guild_id/requests\n        +save() PATCH guilds/:guild_id/requests/:request_id\n    }\n    class GuildRepository {\n        +fetch() GET guilds/:guild_id\n        +save() PATCH guilds/:guild_id\n        +preview() GET guilds/:guild_id/preview\n    }\n    class GuildTemplateRepository {\n        +fetch() GET guilds/templates/:code\n        +freshen() GET guilds/:guild_id/templates\n        +save() POST guilds/:guild_id/templates\n        +sync() PUT guilds/:guild_id/templates/:code\n        +save() PATCH guilds/:guild_id/templates/:code\n        +delete() DELETE guilds/:guild_id/templates/:code\n    }\n    class IntegrationRepository {\n        +freshen() GET guilds/:guild_id/integrations\n        +delete() DELETE guilds/:guild_id/integrations/:integration_id\n    }\n    class InviteRepository {\n        +freshen() GET guilds/:guild_id/invites\n    }\n    class MessageRepository {\n        +freshen() GET guilds/:guild_id/messages/search\n    }\n    class Widget {\n        +fetch() GET guilds/:guild_id/widget.json\n    }\n    class NotSent[\"Not sent by DiscordPHP\"] {\n        GET guilds/:guild_id/widget.png\n    }\n    Guild *-- AuditLogRepository : audit_log\n    Guild *-- IntegrationRepository : integrations\n    Guild *-- InviteRepository : invites\n    Guild *-- GuildJoinRequestRepository : join_requests\n    Guild *-- MessageRepository : messages\n    Guild *-- GuildTemplateRepository : templates"
+            "mermaid": "classDiagram\n    direction LR\n    class AuditLogRepository {\n        +freshen() GET guilds/:guild_id/audit-logs\n    }\n    class Guild {\n        +setFeatures() PATCH guilds/:guild_id\n        +transferOwnership() PATCH guilds/:guild_id\n        +updateIncidentActions() PUT guilds/:guild_id/incident-actions\n        +getInvites() GET guilds/:guild_id/invites\n        +getServerGuide() GET guilds/:guild_id/new-member-welcome\n        +getOnboarding() GET guilds/:guild_id/onboarding\n        +modifyOnboarding() PUT guilds/:guild_id/onboarding\n        +getVoiceRegions() GET guilds/:guild_id/regions\n        +fetchVanityUrl() GET guilds/:guild_id/vanity-url\n        +getWelcomeScreen() GET guilds/:guild_id/welcome-screen\n        +updateWelcomeScreen() PATCH guilds/:guild_id/welcome-screen\n        +getWidgetSettings() GET guilds/:guild_id/widget\n        +updateWidgetSettings() PATCH guilds/:guild_id/widget\n    }\n    class GuildJoinRequestRepository {\n        +freshen() GET guilds/:guild_id/requests\n        +save() PATCH guilds/:guild_id/requests/:request_id\n    }\n    class GuildRepository {\n        +fetch() GET guilds/:guild_id\n        +save() PATCH guilds/:guild_id\n        +preview() GET guilds/:guild_id/preview\n    }\n    class GuildTemplateRepository {\n        +fetch() GET guilds/templates/:code\n        +freshen() GET guilds/:guild_id/templates\n        +save() POST guilds/:guild_id/templates\n        +sync() PUT guilds/:guild_id/templates/:code\n        +save() PATCH guilds/:guild_id/templates/:code\n        +delete() DELETE guilds/:guild_id/templates/:code\n    }\n    class IntegrationRepository {\n        +freshen() GET guilds/:guild_id/integrations\n        +delete() DELETE guilds/:guild_id/integrations/:integration_id\n    }\n    class InviteRepository {\n        +freshen() GET guilds/:guild_id/invites\n    }\n    class MessageRepository {\n        +freshen() GET guilds/:guild_id/messages/search\n    }\n    class Widget {\n        +fetch() GET guilds/:guild_id/widget.json\n        +getImage() GET guilds/:guild_id/widget.png\n    }\n    Guild *-- AuditLogRepository : audit_log\n    Guild *-- IntegrationRepository : integrations\n    Guild *-- InviteRepository : invites\n    Guild *-- GuildJoinRequestRepository : join_requests\n    Guild *-- MessageRepository : messages\n    Guild *-- GuildTemplateRepository : templates"
         },
         {
             "name": "Interactions",
@@ -3667,7 +3691,7 @@
                     "sentBy": [
                         {
                             "class": "InviteRepository",
-                            "fqcn": "Discord\\Repository\\Guild\\InviteRepository",
+                            "fqcn": "Discord\\Repository\\Channel\\InviteRepository",
                             "member": "fetch()"
                         }
                     ]
@@ -3686,7 +3710,7 @@
                     "sentBy": [
                         {
                             "class": "InviteRepository",
-                            "fqcn": "Discord\\Repository\\Guild\\InviteRepository",
+                            "fqcn": "Discord\\Repository\\Channel\\InviteRepository",
                             "member": "delete()"
                         }
                     ]
@@ -4170,7 +4194,13 @@
                     "constants": [
                         "OAUTH2_APPLICATIONS_ME"
                     ],
-                    "sentBy": []
+                    "sentBy": [
+                        {
+                            "class": "Client",
+                            "fqcn": "Discord\\Parts\\User\\Client",
+                            "member": "getCurrentBotApplication()"
+                        }
+                    ]
                 },
                 {
                     "method": "GET",
@@ -4213,7 +4243,7 @@
                     ]
                 }
             ],
-            "mermaid": "classDiagram\n    direction LR\n    class Session {\n        +getAuthorization() GET oauth2/@me\n        +getUserInfo() GET oauth2/userinfo\n    }\n    class SessionManager {\n        +getPublicKeys() GET oauth2/keys\n    }\n    class NotSent[\"Not sent by DiscordPHP\"] {\n        GET oauth2/applications/@me\n    }"
+            "mermaid": "classDiagram\n    direction LR\n    class Client {\n        +getCurrentBotApplication() GET oauth2/applications/@me\n    }\n    class Session {\n        +getAuthorization() GET oauth2/@me\n        +getUserInfo() GET oauth2/userinfo\n    }\n    class SessionManager {\n        +getPublicKeys() GET oauth2/keys\n    }"
         },
         {
             "name": "Partner SDK",
@@ -5390,6 +5420,24 @@
             "fqcn": "Discord\\WebSockets\\Events\\GuildScheduledEventDelete"
         },
         {
+            "event": "GUILD_SCHEDULED_EVENT_EXCEPTION_CREATE",
+            "category": "Scheduled events",
+            "handler": "GuildScheduledEventExceptionCreate",
+            "fqcn": "Discord\\WebSockets\\Events\\GuildScheduledEventExceptionCreate"
+        },
+        {
+            "event": "GUILD_SCHEDULED_EVENT_EXCEPTION_DELETE",
+            "category": "Scheduled events",
+            "handler": "GuildScheduledEventExceptionDelete",
+            "fqcn": "Discord\\WebSockets\\Events\\GuildScheduledEventExceptionDelete"
+        },
+        {
+            "event": "GUILD_SCHEDULED_EVENT_EXCEPTION_UPDATE",
+            "category": "Scheduled events",
+            "handler": "GuildScheduledEventExceptionUpdate",
+            "fqcn": "Discord\\WebSockets\\Events\\GuildScheduledEventExceptionUpdate"
+        },
+        {
             "event": "GUILD_SCHEDULED_EVENT_UPDATE",
             "category": "Scheduled events",
             "handler": "GuildScheduledEventUpdate",
@@ -5844,11 +5892,14 @@
             "events": [
                 "GUILD_SCHEDULED_EVENT_CREATE",
                 "GUILD_SCHEDULED_EVENT_DELETE",
+                "GUILD_SCHEDULED_EVENT_EXCEPTION_CREATE",
+                "GUILD_SCHEDULED_EVENT_EXCEPTION_DELETE",
+                "GUILD_SCHEDULED_EVENT_EXCEPTION_UPDATE",
                 "GUILD_SCHEDULED_EVENT_UPDATE",
                 "GUILD_SCHEDULED_EVENT_USER_ADD",
                 "GUILD_SCHEDULED_EVENT_USER_REMOVE"
             ],
-            "mermaid": "flowchart LR\n    gateway((\"Gateway\"))\n    gateway --> e0[\"GUILD_SCHEDULED_EVENT_CREATE\"] --> h0[\"GuildScheduledEventCreate\"]\n    gateway --> e1[\"GUILD_SCHEDULED_EVENT_DELETE\"] --> h1[\"GuildScheduledEventDelete\"]\n    gateway --> e2[\"GUILD_SCHEDULED_EVENT_UPDATE\"] --> h2[\"GuildScheduledEventUpdate\"]\n    gateway --> e3[\"GUILD_SCHEDULED_EVENT_USER_ADD\"] --> h3[\"GuildScheduledEventUserAdd\"]\n    gateway --> e4[\"GUILD_SCHEDULED_EVENT_USER_REMOVE\"] --> h4[\"GuildScheduledEventUserRemove\"]"
+            "mermaid": "flowchart LR\n    gateway((\"Gateway\"))\n    gateway --> e0[\"GUILD_SCHEDULED_EVENT_CREATE\"] --> h0[\"GuildScheduledEventCreate\"]\n    gateway --> e1[\"GUILD_SCHEDULED_EVENT_DELETE\"] --> h1[\"GuildScheduledEventDelete\"]\n    gateway --> e2[\"GUILD_SCHEDULED_EVENT_EXCEPTION_CREATE\"] --> h2[\"GuildScheduledEventExceptionCreate\"]\n    gateway --> e3[\"GUILD_SCHEDULED_EVENT_EXCEPTION_DELETE\"] --> h3[\"GuildScheduledEventExceptionDelete\"]\n    gateway --> e4[\"GUILD_SCHEDULED_EVENT_EXCEPTION_UPDATE\"] --> h4[\"GuildScheduledEventExceptionUpdate\"]\n    gateway --> e5[\"GUILD_SCHEDULED_EVENT_UPDATE\"] --> h5[\"GuildScheduledEventUpdate\"]\n    gateway --> e6[\"GUILD_SCHEDULED_EVENT_USER_ADD\"] --> h6[\"GuildScheduledEventUserAdd\"]\n    gateway --> e7[\"GUILD_SCHEDULED_EVENT_USER_REMOVE\"] --> h7[\"GuildScheduledEventUserRemove\"]"
         },
         {
             "name": "Social SDK",
