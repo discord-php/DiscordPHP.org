@@ -1,6 +1,15 @@
 {
     "editions": [
         {
+            "key": "2026-09-29",
+            "date": "2026-09-29",
+            "headline": "Preparing for big news",
+            "intro": "It has been a busy day of preparation and fine-tuning. I spent a good portion of my time updating both `DiscordPHP.org` and `valgorithms.com` to make sure everything is ready for the newsletter regarding the major DiscordPHP core and ecosystem releases.\n\nToday was a busy day working on non-code related tasks. I'll be taking a break until after the 10th as both Colin and Cezzy are coming to visit starting on Friday.",
+            "sections": [],
+            "signoff": "Valithor",
+            "published_at": "2026-09-30T02:15:12+00:00"
+        },
+        {
             "key": "2026-09-28",
             "date": "2026-09-28",
             "headline": "Major updates to DiscordPHP core and ecosystem releases",
