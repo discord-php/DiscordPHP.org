@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-10-02-2",
+            "date": "2026-10-02",
+            "headline": "Expanding AI-Router and refining PHPacker",
+            "intro": "It has been a productive Friday spent primarily on strengthening the core of the AI-Router. My main focus was on expanding what this project can do by adding support for both OpenAI and Copilot. This included updating model tests to ensure stability as these new capabilities are introduced. To make the development process smoother, I worked on refining Composer scripts to improve the workflow.",
+            "sections": [
+                {
+                    "title": "Technical refinements to PHPacker",
+                    "body": "In addition to the work on the router, I spent some time with the PHPacker integration. I made a few technical tweaks, such as adjusting the binary defaults to use the `--serve` flag. I also resolved a bug related to null timer cancellations."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-10-03T14:26:47+00:00"
+        },
+        {
             "key": "2026-09-29",
             "date": "2026-09-29",
             "headline": "Preparing for big news",
