@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-10-04",
+            "date": "2026-10-04",
+            "headline": "Expanding mechanics and gameplay modes",
+            "intro": "It has been a massive day of progress for the `DiscordPHP-MTGPocket` engine. My main focus was on deepening how the system understands the complexities of Magic: The Gathering. I have successfully merged a significant wave of updates that improve our data coverage, bringing in support for MTGJSON and ensuring we are ready for the future with PHP 8.5 compatibility. This means the engine is becoming much more robust when handling tricky elements like triggered and loyalty abilities, tokens, equipment, and specific mechanical nuances like modal spells or painlands.",
+            "sections": [
+                {
+                    "title": "New ways to play and manage collections",
+                    "body": "Beyond just understanding the cards, I have been working hard to make the actual experience of playing more immersive and functional. I have merged several major gameplay systems, including a new `/menu` panel that allows you to interact using buttons and forms, and a move-by-move match logging system to keep track of your games. I am also very excited to share that a full booster draft mode has been developed, complete with Swiss rounds and card retention.\n\nI have also focused on making your collections more useful outside of Discord. I've implemented features that allow you to export your decks and collections directly to MTG Arena, Tabletop Simulator, and Frogtown. While much of this is now part of the main branch, I am still spending time on the `claude/card-coverage-gaps-sc84tj` branch to bridge the remaining gaps in how the engine reads specific card text and mechanics. We are getting closer to a truly seamless simulation experience."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-10-04T22:17:37+00:00"
+        },
+        {
             "key": "2026-10-02-2",
             "date": "2026-10-02",
             "headline": "Expanding AI-Router and refining PHPacker",
