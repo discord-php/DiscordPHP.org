@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-10-05",
+            "date": "2026-10-05",
+            "headline": "Improving gameplay and mechanical depth",
+            "intro": "It has been a massive day of progress for `DiscordPHP-MTGPocket`, focusing heavily on making the game more accessible and technically robust. I have been working to ensure that new players can jump right in without feeling lost, so I am happy to share that we have merged several features to help with that. Specifically, PR #30 and #33 have brought a new \"How to play\" quick start guide and the ability to play practice games against a bot into the project. You can even use rental decks to practice against the bot now, which should make getting started much smoother.",
+            "sections": [
+                {
+                    "title": "Strengthening the engine",
+                    "body": "Beyond the user experience, I spent a significant amount of time under the hood refining how the engine handles the complexities of the game. To ensure the rules engine is as accurate as possible, I merged a large series of updates, including PR #31 and #34, to better support intricate mechanics like damage prevention, double-faced cards, Sagas, and various \"look and reveal\" templates. This ensures that when these cards appear in a match, the logic holds up.\n\nI am also continuing to bridge the gaps in our card coverage and deck construction. I've been working through the `claude/card-coverage-gaps-sc84tj` branch to address these issues, which included a fix in PR #32 to add basic lands to certain short rental decks. To keep the project's foundation professional, I also integrated new PHP tooling via PR #35 and pushed some much-needed updates to the DiscordPHP.org and valgorithms.com websites."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-10-05T22:04:53+00:00"
+        },
+        {
             "key": "2026-10-04",
             "date": "2026-10-04",
             "headline": "Expanding mechanics and gameplay modes",
