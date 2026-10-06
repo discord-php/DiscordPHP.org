@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-10-06",
+            "date": "2026-10-06",
+            "headline": "A quiet day of maintenance",
+            "intro": "Today was a non-progress day due to my vacation. I made two small patches to `DiscordPHP`, which were minimal effort. I'll fully review recent changes next week. I also spent a brief period playing *Brawlhalla*. I'll be streaming in the near future.",
+            "sections": [
+                {
+                    "title": "DiscordPHP",
+                    "body": "The small updates I pushed included the release of version `v10.66.3`, which addressed `addField` validation and some code style fixes. I am also continuing my ongoing work on the upcoming `v11` version."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-10-06T22:12:03+00:00"
+        },
+        {
             "key": "2026-10-05",
             "date": "2026-10-05",
             "headline": "Improving gameplay and mechanical depth",
