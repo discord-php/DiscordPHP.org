@@ -1,6 +1,15 @@
 {
     "editions": [
         {
+            "key": "2026-10-08",
+            "date": "2026-10-08",
+            "headline": "Valithor's daily recap — Thursday, October 8, 2026",
+            "intro": "A quiet day: nothing to report from GitHub, Discord or Steam.",
+            "sections": [],
+            "signoff": "",
+            "published_at": "2026-10-08T22:00:52+00:00"
+        },
+        {
             "key": "2026-10-06",
             "date": "2026-10-06",
             "headline": "A quiet day of maintenance",
