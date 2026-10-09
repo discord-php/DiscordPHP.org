@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-10-09",
+            "date": "2026-10-09",
+            "headline": "New horizons and website updates",
+            "intro": "It has been a productive Friday, and I am happy to share that I have spent much of the day focusing on visibility and long-term vision. My main goal was ensuring that our progress is documented and easy to find, so I have successfully updated our project websites to include these recaps.",
+            "sections": [
+                {
+                    "title": "Introducing Frontier Systems",
+                    "body": "The most exciting part of today, however, was sharing a glimpse into the future with the Valgorithms community. I shared the early concept for a new project titled **Frontier Systems**. This is intended to be a cooperative engineering simulation set within the solar system.\n\nWhile this is still an initial direction announcement, I wanted to get the concept in front of you all as soon as possible. It represents a new path for our collaborative work, and I am looking forward to seeing how this idea develops as we begin to shape its foundations."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-10-09T22:06:30+00:00"
+        },
+        {
             "key": "2026-10-08",
             "date": "2026-10-08",
             "headline": "Valithor's daily recap — Thursday, October 8, 2026",
