@@ -2,6 +2,7 @@
     "editions": [
         {
             "key": "2026-10-10",
+            "tags": ["discordphp", "releases", "projects", "community", "personal"],
             "date": "2026-10-10",
             "headline": "Engine updates and new frontiers",
             "intro": "It has been a busy Saturday, split between refining my existing libraries and sharing some exciting new directions for my upcoming projects. Much of my focus went into `DiscordPHP-MTGPocket`, where I worked on expanding the engine's ability to understand complex Magic: The Gathering mechanics. By merging updates for things like \"Amass,\" \"shield counters,\" and various enchantment kinds, the engine is becoming much more capable of reading the game accurately. I also spent time keeping the `DiscordPHP` core in sync with the latest API changes from the October 8 OpenAPI description and improving the `VoiceClient` behavior to ensure it returns correctly when ready.",
@@ -16,6 +17,7 @@
         },
         {
             "key": "2026-10-09",
+            "tags": ["projects", "websites"],
             "date": "2026-10-09",
             "headline": "New horizons and website updates",
             "intro": "It has been a productive Friday, and I am happy to share that I have spent much of the day focusing on visibility and long-term vision. My main goal was ensuring that our progress is documented and easy to find, so I have successfully updated our project websites to include these recaps.",
@@ -30,6 +32,7 @@
         },
         {
             "key": "2026-10-08",
+            "tags": ["personal"],
             "date": "2026-10-08",
             "headline": "Valithor's daily recap — Thursday, October 8, 2026",
             "intro": "A quiet day: nothing to report from GitHub, Discord or Steam.",
@@ -39,6 +42,7 @@
         },
         {
             "key": "2026-10-06",
+            "tags": ["discordphp", "releases", "maintenance", "personal"],
             "date": "2026-10-06",
             "headline": "A quiet day of maintenance",
             "intro": "Today was a non-progress day due to my vacation. I made two small patches to `DiscordPHP`, which were minimal effort. I'll fully review recent changes next week. I also spent a brief period playing *Brawlhalla*. I'll be streaming in the near future.",
@@ -53,6 +57,7 @@
         },
         {
             "key": "2026-10-05",
+            "tags": ["discordphp", "projects", "maintenance"],
             "date": "2026-10-05",
             "headline": "Improving gameplay and mechanical depth",
             "intro": "It has been a massive day of progress for `DiscordPHP-MTGPocket`, focusing heavily on making the game more accessible and technically robust. I have been working to ensure that new players can jump right in without feeling lost, so I am happy to share that we have merged several features to help with that. Specifically, PR #30 and #33 have brought a new \"How to play\" quick start guide and the ability to play practice games against a bot into the project. You can even use rental decks to practice against the bot now, which should make getting started much smoother.",
@@ -67,6 +72,7 @@
         },
         {
             "key": "2026-10-04",
+            "tags": ["projects", "releases"],
             "date": "2026-10-04",
             "headline": "Expanding mechanics and gameplay modes",
             "intro": "It has been a massive day of progress for the `DiscordPHP-MTGPocket` engine. My main focus was on deepening how the system understands the complexities of Magic: The Gathering. I have successfully merged a significant wave of updates that improve our data coverage, bringing in support for MTGJSON and ensuring we are ready for the future with PHP 8.5 compatibility. This means the engine is becoming much more robust when handling tricky elements like triggered and loyalty abilities, tokens, equipment, and specific mechanical nuances like modal spells or painlands.",
@@ -81,6 +87,7 @@
         },
         {
             "key": "2026-10-02-2",
+            "tags": ["projects", "maintenance"],
             "date": "2026-10-02",
             "headline": "Expanding AI-Router and refining PHPacker",
             "intro": "It has been a productive Friday spent primarily on strengthening the core of the AI-Router. My main focus was on expanding what this project can do by adding support for both OpenAI and Copilot. This included updating model tests to ensure stability as these new capabilities are introduced. To make the development process smoother, I worked on refining Composer scripts to improve the workflow.",
@@ -95,6 +102,7 @@
         },
         {
             "key": "2026-09-29",
+            "tags": ["discordphp", "projects", "community"],
             "date": "2026-09-29",
             "headline": "Preparing for big news",
             "intro": "It has been a busy day of preparation and fine-tuning. I spent a good portion of my time updating both `DiscordPHP.org` and `valgorithms.com` to make sure everything is ready for the newsletter regarding the major DiscordPHP core and ecosystem releases.\n\nToday was a busy day working on non-code related tasks. I'll be taking a break until after the 10th as both Colin and Cezzy are coming to visit starting on Friday.",
@@ -104,6 +112,7 @@
         },
         {
             "key": "2026-09-28",
+            "tags": ["discordphp", "releases"],
             "date": "2026-09-28",
             "headline": "Major updates to DiscordPHP core and ecosystem releases",
             "intro": "It has been a massive day of progress for the DiscordPHP core. I have pushed out three new releases—`v10.64.0`, `v10.64.1`, and `v10.65.0`—which bring some foundational changes to how the library operates. The biggest shift involves a major refactor of our namespaces to align them with their corresponding API routes, as seen in `discordphp/discordphp#1507`. This reorganization, alongside the implementation of REST operations and updates to the `Factory` class, makes the entire library more intuitive and better structured for the long term. DiscordPHP now covers every route.\n\nWe also managed to squeeze in several important quality-of-life improvements and safety checks. I've merged updates to improve autocomplete callbacks, added validation for embed field lengths, and implemented new regression tests for invites to ensure everything stays stable as we grow.",
@@ -118,6 +127,7 @@
         },
         {
             "key": "2026-09-27-3",
+            "tags": ["discordphp", "releases", "projects"],
             "date": "2026-09-27",
             "headline": "Core releases and bridge improvements",
             "intro": "It has been a productive Sunday focused heavily on stabilizing our core tools and expanding how we connect different platforms. I spent a significant portion of my time reviewing community pull requests regarding autocomplete handling, testing tooling, and emoji logic. After sending several requests back for refinement, I was able to merge some important updates, most notably magic property support in `discordphp/discordphp#1497`. This work directly contributed to the release of two new versions, `v10.61.0` and `v10.62.0`, which include improved documentation for the `init` event and better exception handlers for scheduled events.",
@@ -132,6 +142,7 @@
         },
         {
             "key": "2026-09-27-2",
+            "tags": ["projects", "websites"],
             "date": "2026-09-27",
             "headline": "Deep Dives and Website Updates",
             "intro": "Happy Sunday! I am so excited to be sending out my very first newsletter today. It feels great to finally have a dedicated space to share what I've been working on with all of you.\n\nI've spent most of my morning diving deep into code reviews and making some progress on our web projects. It has been a busy morning of reviewing and managing code, particularly within `discord-php/DiscordPHP`. I spent a significant amount of time conducting extensive reviews, including requesting changes on `discord-php/DiscordPHP#1414` regarding the command handler register overhaul and `discord-php/DiscordPHP#1416` for the autocomplete callback matched option value.",

@@ -358,6 +358,38 @@ section > h2,
   font-weight: 500;
 }
 
+.catalog-group + .catalog-group { margin-top: 1.5rem; }
+.project-title { display: flex; align-items: center; flex-wrap: wrap; gap: 0.55rem; }
+.project-description { min-height: 3.2em; }
+.project-release,
+.catalog-status { font: 0.82rem var(--mono); color: var(--muted); }
+.project-actions a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.55rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  text-decoration: none;
+}
+.project-actions a:hover { border-color: var(--accent); color: var(--accent); }
+.project-actions a.action-primary { border-color: var(--accent); color: var(--accent); }
+.catalog-link { margin-top: 0.8rem !important; }
+.release-view { padding-top: 0.5rem; }
+.table-scroll { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
+.release-table { width: 100%; min-width: 850px; border-collapse: collapse; }
+.release-table th,
+.release-table td { padding: 0.8rem 0.9rem; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+.release-table th { color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.release-table tbody tr:last-child td { border-bottom: 0; }
+.release-project strong,
+.release-project .release-status,
+.release-project code,
+.release-date { display: block; }
+.release-status,
+.release-date { margin-top: 0.2rem; color: var(--muted); font-size: 0.8rem; }
+.release-project code { margin-top: 0.3rem; font-size: 0.75rem; }
+.release-next-step { min-width: 10rem; }
+
 a.card {
   color: inherit;
   text-decoration: none;
@@ -788,3 +820,24 @@ ul.plain li + li {
 .edition-archive .links-list li span {
   white-space: nowrap;
 }
+
+.newsletter-filters { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0.75rem 0; }
+.newsletter-tag-filter,
+.newsletter-tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.76rem;
+  line-height: 1.5;
+  text-decoration: none;
+}
+.newsletter-tag-filter { cursor: pointer; font: inherit; font-size: 0.76rem; }
+.newsletter-tag-filter.is-active { background: var(--accent); border-color: var(--accent); color: var(--accent-text); }
+.newsletter-tag-filter:hover,
+.newsletter-tag:hover { border-color: var(--accent); color: var(--accent); }
+.edition-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.archive-tags { display: flex; flex-wrap: wrap; gap: 0.25rem; margin: 0.25rem 0 0.6rem; }
+.newsletter-feed-link { font-size: 0.9rem; }

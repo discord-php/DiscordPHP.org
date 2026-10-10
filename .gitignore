@@ -7,3 +7,5 @@
 /_site/
 /DiscordPHP/
 /openapi_preview.json
+/data/releases.json
+/newsletter.xml
