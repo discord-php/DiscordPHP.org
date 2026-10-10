@@ -1,0 +1,249 @@
+{
+    "generated": "2026-10-10T23:24:04Z",
+    "projects": {
+        "discordphp": {
+            "release": {
+                "version": "v10.66.3",
+                "time": "2026-10-06T08:09:46+00:00",
+                "url": "https://packagist.org/packages/team-reflex/discord-php"
+            },
+            "compatibility": {
+                "available": true,
+                "php": "^8.1.2",
+                "discordphp": null,
+                "extensions": {
+                    "ext-zlib": "*"
+                }
+            }
+        },
+        "discordphp-http": {
+            "release": {
+                "version": "v10.9.8",
+                "time": "2026-09-24T11:48:20+00:00",
+                "url": "https://packagist.org/packages/discord-php/http"
+            },
+            "compatibility": {
+                "available": true,
+                "php": "^7.4|^8.0",
+                "discordphp": null,
+                "extensions": []
+            }
+        },
+        "discordphp-voice": {
+            "release": {
+                "version": "v8.3.0",
+                "time": "2026-09-28T17:12:32+00:00",
+                "url": "https://packagist.org/packages/discord-php-helpers/voice"
+            },
+            "compatibility": {
+                "available": true,
+                "php": "^8.3",
+                "discordphp": null,
+                "extensions": []
+            }
+        },
+        "collection": {
+            "release": {
+                "version": "v8.4.0",
+                "time": "2026-03-07T21:43:41+00:00",
+                "url": "https://packagist.org/packages/discord-php-helpers/collection"
+            },
+            "compatibility": {
+                "available": true,
+                "php": ">=8.4",
+                "discordphp": null,
+                "extensions": []
+            }
+        },
+        "discordphp-bridge": {
+            "release": null,
+            "compatibility": []
+        },
+        "bridge-twitch": {
+            "release": null,
+            "compatibility": []
+        },
+        "bridge-telegram": {
+            "release": null,
+            "compatibility": []
+        },
+        "bridge-youtube": {
+            "release": null,
+            "compatibility": []
+        },
+        "bridgebot": {
+            "release": null,
+            "compatibility": []
+        },
+        "laracord": {
+            "release": {
+                "version": "v2.3.0",
+                "time": "2024-07-18T15:00:54+00:00",
+                "url": "https://packagist.org/packages/laracord/laracord"
+            },
+            "compatibility": {
+                "available": true,
+                "php": "^8.2",
+                "discordphp": null,
+                "extensions": []
+            }
+        },
+        "rfc9420": {
+            "release": null,
+            "compatibility": []
+        },
+        "mls": {
+            "release": null,
+            "compatibility": []
+        },
+        "phpdoc-tool": {
+            "release": {
+                "version": "v1.0.1",
+                "time": "2026-09-14T18:30:59Z",
+                "url": "https://github.com/discord-php/phpdoc-tool/releases/tag/v1.0.1"
+            },
+            "compatibility": {
+                "available": true,
+                "php": ">=8.1.2",
+                "discordphp": null,
+                "extensions": []
+            }
+        },
+        "dphp": {
+            "release": null,
+            "compatibility": []
+        },
+        "tutelar": {
+            "release": null,
+            "compatibility": []
+        },
+        "discordphp-nha": {
+            "release": {
+                "version": "v3.27.3",
+                "time": "2026-10-10T15:16:19+00:00",
+                "url": "https://packagist.org/packages/discord-php-extended/discordphp-nha"
+            },
+            "compatibility": {
+                "available": true,
+                "php": "^8.3",
+                "discordphp": "dev-master",
+                "extensions": []
+            }
+        },
+        "discordphp-mtg": {
+            "release": {
+                "version": "v1.1.0",
+                "time": "2026-10-03T21:41:55+00:00",
+                "url": "https://packagist.org/packages/discord-php-extended/discordphp-mtg"
+            },
+            "compatibility": {
+                "available": true,
+                "php": "^8.3",
+                "discordphp": "* || dev-master",
+                "extensions": {
+                    "ext-pdo_sqlite": "*",
+                    "ext-zlib": "*"
+                }
+            }
+        },
+        "twitchphp": {
+            "release": {
+                "version": "3.4.0",
+                "time": "2026-09-27T20:00:02+00:00",
+                "url": "https://packagist.org/packages/vzgcoders/twitchphp"
+            },
+            "compatibility": {
+                "available": true,
+                "php": "^8.4",
+                "discordphp": null,
+                "extensions": []
+            }
+        },
+        "twitchphp-http": {
+            "release": {
+                "version": "1.2.0",
+                "time": "2026-09-27T00:58:08+00:00",
+                "url": "https://packagist.org/packages/twitchphp/http"
+            },
+            "compatibility": {
+                "available": true,
+                "php": "^8.1",
+                "discordphp": null,
+                "extensions": []
+            }
+        },
+        "telegramphp": {
+            "release": {
+                "version": "v10.3",
+                "time": "2026-09-15T15:33:33+00:00",
+                "url": "https://packagist.org/packages/vzgcoders/telegramphp"
+            },
+            "compatibility": {
+                "available": true,
+                "php": "^8.4",
+                "discordphp": null,
+                "extensions": []
+            }
+        },
+        "youtubephp": {
+            "release": null,
+            "compatibility": []
+        },
+        "eventlogger": {
+            "release": null,
+            "compatibility": []
+        },
+        "pdf-converter": {
+            "release": null,
+            "compatibility": []
+        },
+        "pdf-signer": {
+            "release": null,
+            "compatibility": []
+        },
+        "nfg": {
+            "release": {
+                "version": "0.15.0",
+                "time": "2026-09-25T18:45:12Z",
+                "url": "https://github.com/valzargaming/NFG/releases/tag/0.15.0"
+            },
+            "compatibility": {
+                "available": false
+            }
+        },
+        "discordphp-org": {
+            "release": null,
+            "compatibility": []
+        },
+        "coffee-s-crafts": {
+            "release": null,
+            "compatibility": []
+        },
+        "civilizationbot": {
+            "release": {
+                "version": "v4.0.2",
+                "time": "2025-03-25T01:56:04Z",
+                "url": "https://github.com/Valgorithms/Civilizationbot/releases/tag/v4.0.2"
+            },
+            "compatibility": {
+                "available": true,
+                "php": "^8.0.0",
+                "discordphp": "dev-master",
+                "extensions": []
+            }
+        },
+        "discordphp-slash": {
+            "release": {
+                "version": "v1.0.5",
+                "time": "2021-09-01T04:05:08+00:00",
+                "url": "https://packagist.org/packages/discord-php/slash"
+            },
+            "compatibility": {
+                "available": true,
+                "php": ">=7.3|>=8.0",
+                "discordphp": null,
+                "extensions": []
+            }
+        }
+    }
+}
