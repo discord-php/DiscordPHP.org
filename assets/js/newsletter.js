@@ -5,6 +5,7 @@
 // escaped before the small subset of formatting below is applied, so an edition can never inject HTML.
 
 const DATA = 'data/newsletter.json';
+const ECOSYSTEM_DATA = 'data/ecosystem.json';
 
 /** The bot that writes the editions. Every edition links to its source code. */
 const SOURCE = 'https://github.com/Valgorithms/DiscordPHP-Newsletter';
@@ -81,14 +82,19 @@ function formatDate(edition) {
     : date.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 }
 
-function renderEdition(article, edition) {
+function renderEdition(article, edition, labels) {
   const sections = (edition.sections ?? [])
     .map((s) => `<section>${s.title ? `<h3>${inline(s.title)}</h3>` : ''}${block(s.body ?? '')}</section>`)
     .join('');
+  const tags = (edition.tags ?? [])
+    .filter((tag) => /^[a-z0-9-]{1,32}$/.test(tag))
+    .map((tag) => `<a class="newsletter-tag" href="?tag=${encodeURIComponent(tag)}#${encodeURIComponent(edition.key)}">${escapeHtml(labels[tag] ?? tag)}</a>`)
+    .join(' ');
 
   article.innerHTML = `
     <p class="edition-date"><time datetime="${escapeHtml(edition.date)}">${escapeHtml(formatDate(edition))}</time></p>
     <h2 class="edition-headline">${inline(edition.headline ?? '')}</h2>
+    ${tags ? `<p class="edition-tags" aria-label="Topics">${tags}</p>` : ''}
     ${edition.intro ? `<div class="edition-intro">${block(edition.intro)}</div>` : ''}
     ${sections}
     ${edition.signoff ? `<div class="edition-signoff">${block(edition.signoff)}</div>` : ''}
@@ -96,13 +102,25 @@ function renderEdition(article, edition) {
   document.title = `${edition.headline} — DiscordPHP Newsletter`;
 }
 
-function renderArchive(list, editions, current) {
+function renderArchive(list, editions, current, labels) {
   list.innerHTML = editions
     .map((e) => {
       const here = e.key === current.key ? ' aria-current="page"' : '';
-      return `<li><a href="#${encodeURIComponent(e.key)}"${here}>${escapeHtml(e.headline ?? e.key)}</a> <span>— ${escapeHtml(e.date)}</span></li>`;
+      const tags = (e.tags ?? []).map((tag) => `<span class="newsletter-tag">${escapeHtml(labels[tag] ?? tag)}</span>`).join(' ');
+      return `<li><a href="#${encodeURIComponent(e.key)}"${here}>${escapeHtml(e.headline ?? e.key)}</a> <span>— ${escapeHtml(e.date)}</span>${tags ? `<div class="archive-tags">${tags}</div>` : ''}</li>`;
     })
     .join('');
+}
+
+function renderTagFilters(container, tags, selected, onSelect) {
+  const buttons = [{ id: '', label: 'All topics' }, ...tags];
+  container.innerHTML = buttons.map((tag) => {
+    const active = tag.id === selected;
+    return `<button type="button" class="newsletter-tag-filter${active ? ' is-active' : ''}" data-tag="${escapeHtml(tag.id)}" aria-pressed="${active}">${escapeHtml(tag.label)}</button>`;
+  }).join('');
+  container.querySelectorAll('button[data-tag]').forEach((button) => {
+    button.addEventListener('click', () => onSelect(button.dataset.tag));
+  });
 }
 
 async function showNewsletter() {
@@ -112,34 +130,56 @@ async function showNewsletter() {
   }
   const article = root.querySelector('.edition');
   const archive = root.querySelector('[data-archive]');
+  const filters = root.querySelector('[data-newsletter-tags]');
 
   let editions = [];
+  let labels = {};
   try {
-    const response = await fetch(DATA, { cache: 'no-cache' });
-    if (response.ok) {
-      editions = ((await response.json()).editions ?? []).filter((e) => e && e.key && e.date);
+    const [response, catalogResponse] = await Promise.all([
+      fetch(DATA, { cache: 'no-cache' }),
+      fetch(ECOSYSTEM_DATA, { cache: 'no-cache' }),
+    ]);
+    if (response.ok) editions = ((await response.json()).editions ?? []).filter((e) => e && e.key && e.date);
+    if (catalogResponse.ok) {
+      const tags = (await catalogResponse.json()).newsletterTags ?? [];
+      labels = Object.fromEntries(tags.map((tag) => [tag.id, tag.label]));
     }
   } catch (error) {
     console.error('Could not load the newsletter', error);
   }
   editions.sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : String(b.key).localeCompare(String(a.key))));
 
-  if (editions.length === 0) {
-    article.innerHTML = '<p class="note">No editions have been published yet. Check back soon.</p>';
-    root.querySelector('.edition-archive').hidden = true;
-    return;
-  }
-
-  const show = () => {
-    const wanted = decodeURIComponent(window.location.hash.slice(1));
-    const edition = editions.find((e) => e.key === wanted) ?? editions[0];
-    renderEdition(article, edition);
-    renderArchive(archive, editions, edition);
+  const availableTags = Object.entries(labels).map(([id, label]) => ({ id, label }));
+  const getSelectedTag = () => {
+    const tag = new URLSearchParams(window.location.search).get('tag') || '';
+    return Object.hasOwn(labels, tag) ? tag : '';
   };
-  window.addEventListener('hashchange', () => {
-    show();
-    article.scrollIntoView({ block: 'start' });
-  });
+  const show = (scroll = false) => {
+    const selected = getSelectedTag();
+    const visible = selected ? editions.filter((edition) => (edition.tags ?? []).includes(selected)) : editions;
+    if (filters) renderTagFilters(filters, availableTags, selected, (tag) => {
+      const url = new URL(window.location.href);
+      tag ? url.searchParams.set('tag', tag) : url.searchParams.delete('tag');
+      history.pushState(null, '', url);
+      show();
+    });
+
+    if (visible.length === 0) {
+      article.innerHTML = `<p class="note">${editions.length ? 'No editions match this topic yet.' : 'No editions have been published yet. Check back soon.'}</p>`;
+      archive.replaceChildren();
+      root.querySelector('.edition-archive').hidden = editions.length === 0;
+      return;
+    }
+
+    root.querySelector('.edition-archive').hidden = false;
+    const wanted = decodeURIComponent(window.location.hash.slice(1));
+    const edition = visible.find((e) => e.key === wanted) ?? visible[0];
+    renderEdition(article, edition, labels);
+    renderArchive(archive, visible, edition, labels);
+    if (scroll) article.scrollIntoView({ block: 'start' });
+  };
+  window.addEventListener('hashchange', () => show(true));
+  window.addEventListener('popstate', () => show());
   show();
 }
 

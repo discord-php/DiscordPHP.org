@@ -1,0 +1,476 @@
+{
+  "schemaVersion": 1,
+  "newsletterTags": [
+    { "id": "discordphp", "label": "DiscordPHP" },
+    { "id": "releases", "label": "Releases" },
+    { "id": "projects", "label": "Projects" },
+    { "id": "maintenance", "label": "Maintenance" },
+    { "id": "community", "label": "Community" },
+    { "id": "websites", "label": "Websites" },
+    { "id": "personal", "label": "Personal" }
+  ],
+  "projects": [
+    {
+      "id": "discordphp",
+      "name": "DiscordPHP",
+      "kind": "library",
+      "group": "core",
+      "status": "stable",
+      "audiences": ["discordphp", "valgorithms"],
+      "description": "The asynchronous PHP client for Discord: gateway, cached models, commands, components, OAuth2 and webhooks.",
+      "repository": "discord-php/DiscordPHP",
+      "package": "team-reflex/discord-php",
+      "docs": "https://discord-php.github.io/DiscordPHP/guide/",
+      "reference": "https://discord-php.github.io/DiscordPHP/namespaces/discord.html",
+      "nextSteps": [
+        { "label": "Install with Composer", "url": "https://packagist.org/packages/team-reflex/discord-php", "type": "install" },
+        { "label": "Start the guide", "url": "https://discord-php.github.io/DiscordPHP/guide/", "type": "docs" },
+        { "label": "Ask for support", "url": "https://discord.gg/dphp", "type": "support" },
+        { "label": "Report an issue", "url": "https://github.com/discord-php/DiscordPHP/issues", "type": "issues" }
+      ]
+    },
+    {
+      "id": "discordphp-http",
+      "name": "DiscordPHP-Http",
+      "kind": "library",
+      "group": "core",
+      "status": "stable",
+      "audiences": ["discordphp", "valgorithms"],
+      "description": "An asynchronous Discord REST client with per-bucket queues, rate-limit handling and ReactPHP or Guzzle support.",
+      "repository": "discord-php/DiscordPHP-Http",
+      "package": "discord-php/http",
+      "docs": "https://discord-php.github.io/DiscordPHP-Http/",
+      "nextSteps": [
+        { "label": "Install with Composer", "url": "https://packagist.org/packages/discord-php/http", "type": "install" },
+        { "label": "Read the docs", "url": "https://discord-php.github.io/DiscordPHP-Http/", "type": "docs" },
+        { "label": "Report an issue", "url": "https://github.com/discord-php/DiscordPHP-Http/issues", "type": "issues" }
+      ]
+    },
+    {
+      "id": "discordphp-voice",
+      "name": "DiscordPHP-Voice",
+      "kind": "library",
+      "group": "core",
+      "status": "stable",
+      "audiences": ["discordphp", "valgorithms"],
+      "description": "Voice connections for DiscordPHP, including audio playback, recording and DAVE end-to-end encryption.",
+      "repository": "discord-php/DiscordPHP-Voice",
+      "package": "discord-php-helpers/voice",
+      "docs": "https://discord-php.github.io/DiscordPHP-Voice/",
+      "nextSteps": [
+        { "label": "Install with Composer", "url": "https://packagist.org/packages/discord-php-helpers/voice", "type": "install" },
+        { "label": "Check voice requirements", "url": "https://discord-php.github.io/DiscordPHP-Voice/", "type": "docs" },
+        { "label": "Report an issue", "url": "https://github.com/discord-php/DiscordPHP-Voice/issues", "type": "issues" }
+      ]
+    },
+    {
+      "id": "collection",
+      "name": "Collection",
+      "kind": "library",
+      "group": "core",
+      "status": "stable",
+      "audiences": ["discordphp", "valgorithms"],
+      "description": "The collection implementation behind DiscordPHP repositories, with an interface for bringing your own collection class.",
+      "repository": "discord-php/Collection",
+      "package": "discord-php-helpers/collection",
+      "docs": "https://discord-php.github.io/Collection/",
+      "nextSteps": [
+        { "label": "Install with Composer", "url": "https://packagist.org/packages/discord-php-helpers/collection", "type": "install" },
+        { "label": "Read the reference", "url": "https://discord-php.github.io/Collection/", "type": "docs" },
+        { "label": "Report an issue", "url": "https://github.com/discord-php/Collection/issues", "type": "issues" }
+      ]
+    },
+    {
+      "id": "discordphp-bridge",
+      "name": "DiscordPHP-Bridge",
+      "kind": "library",
+      "group": "bridge",
+      "status": "stable",
+      "audiences": ["discordphp", "valgorithms"],
+      "description": "A platform-agnostic chat bridge core with routing, persistence, shared commands, Components v2 panels and connector packages.",
+      "repository": "discord-php/DiscordPHP-Bridge",
+      "package": "vzgcoders/discordphp-bridge",
+      "nextSteps": [
+        { "label": "Install with Composer", "url": "https://packagist.org/packages/vzgcoders/discordphp-bridge", "type": "install" },
+        { "label": "Read the setup guide", "url": "https://github.com/discord-php/DiscordPHP-Bridge#readme", "type": "docs" },
+        { "label": "Report an issue", "url": "https://github.com/discord-php/DiscordPHP-Bridge/issues", "type": "issues" }
+      ]
+    },
+    {
+      "id": "bridge-twitch",
+      "name": "DiscordPHP-Bridge-Twitch",
+      "kind": "library",
+      "group": "bridge",
+      "status": "stable",
+      "audiences": ["discordphp", "valgorithms"],
+      "description": "A Twitch connector for DiscordPHP-Bridge with two-way chat relay and Helix API commands.",
+      "repository": "Valgorithms/DiscordPHP-Bridge-Twitch",
+      "package": "vzgcoders/discordphp-bridge-twitch",
+      "nextSteps": [
+        { "label": "Install with Composer", "url": "https://packagist.org/packages/vzgcoders/discordphp-bridge-twitch", "type": "install" },
+        { "label": "Read setup instructions", "url": "https://github.com/Valgorithms/DiscordPHP-Bridge-Twitch#readme", "type": "docs" },
+        { "label": "Report an issue", "url": "https://github.com/Valgorithms/DiscordPHP-Bridge-Twitch/issues", "type": "issues" }
+      ]
+    },
+    {
+      "id": "bridge-telegram",
+      "name": "DiscordPHP-Bridge-Telegram",
+      "kind": "library",
+      "group": "bridge",
+      "status": "stable",
+      "audiences": ["discordphp", "valgorithms"],
+      "description": "A Telegram connector for DiscordPHP-Bridge, relaying edits, media and controls between group chats.",
+      "repository": "Valgorithms/DiscordPHP-Bridge-Telegram",
+      "package": "vzgcoders/discordphp-bridge-telegram",
+      "nextSteps": [
+        { "label": "Install with Composer", "url": "https://packagist.org/packages/vzgcoders/discordphp-bridge-telegram", "type": "install" },
+        { "label": "Read setup instructions", "url": "https://github.com/Valgorithms/DiscordPHP-Bridge-Telegram#readme", "type": "docs" },
+        { "label": "Report an issue", "url": "https://github.com/Valgorithms/DiscordPHP-Bridge-Telegram/issues", "type": "issues" }
+      ]
+    },
+    {
+      "id": "bridge-youtube",
+      "name": "DiscordPHP-Bridge-YouTube",
+      "kind": "library",
+      "group": "bridge",
+      "status": "stable",
+      "audiences": ["valgorithms"],
+      "description": "A YouTube connector that brings live chat and stream announcements into Discord and supports moderation from chat.",
+      "repository": "Valgorithms/DiscordPHP-Bridge-YouTube",
+      "nextSteps": [
+        { "label": "Read setup instructions", "url": "https://github.com/Valgorithms/DiscordPHP-Bridge-YouTube#readme", "type": "docs" },
+        { "label": "Report an issue", "url": "https://github.com/Valgorithms/DiscordPHP-Bridge-YouTube/issues", "type": "issues" }
+      ]
+    },
+    {
+      "id": "bridgebot",
+      "name": "DiscordPHP-BridgeBot",
+      "kind": "bot",
+      "group": "bridge",
+      "status": "stable",
+      "audiences": ["discordphp", "valgorithms"],
+      "description": "A ready-to-run Discord bot that brings the Bridge core and Twitch, Telegram and YouTube connectors together.",
+      "repository": "Valgorithms/DiscordPHP-BridgeBot",
+      "package": "vzgcoders/discordphp-bridgebot",
+      "nextSteps": [
+        { "label": "Get the bot", "url": "https://github.com/Valgorithms/DiscordPHP-BridgeBot#readme", "type": "install" },
+        { "label": "Report an issue", "url": "https://github.com/Valgorithms/DiscordPHP-BridgeBot/issues", "type": "issues" },
+        { "label": "Ask in DiscordPHP support", "url": "https://discord.gg/dphp", "type": "support" }
+      ]
+    },
+    {
+      "id": "laracord",
+      "name": "Laracord",
+      "kind": "integration",
+      "group": "integrations",
+      "status": "stable",
+      "audiences": ["discordphp"],
+      "description": "A Laravel-native way to build DiscordPHP bots with service container bindings and configuration helpers; maintained independently.",
+      "repository": "laracord/laracord",
+      "package": "laracord/laracord",
+      "website": "https://laracord.com/",
+      "nextSteps": [
+        { "label": "Visit Laracord", "url": "https://laracord.com/", "type": "docs" },
+        { "label": "Install with Composer", "url": "https://packagist.org/packages/laracord/laracord", "type": "install" },
+        { "label": "Report an issue", "url": "https://github.com/laracord/laracord/issues", "type": "issues" }
+      ]
+    },
+    {
+      "id": "rfc9420",
+      "name": "RFC9420",
+      "kind": "library",
+      "group": "experimental",
+      "status": "experimental",
+      "audiences": ["discordphp"],
+      "description": "An experimental PHP implementation of Messaging Layer Security (RFC 9420). Not ready for production use.",
+      "repository": "discord-php/RFC9420",
+      "package": "discord-php-helpers/rfc9420",
+      "nextSteps": [
+        { "label": "Install with Composer", "url": "https://packagist.org/packages/discord-php-helpers/rfc9420", "type": "install" },
+        { "label": "Review the implementation", "url": "https://github.com/discord-php/RFC9420#readme", "type": "docs" },
+        { "label": "Report an issue", "url": "https://github.com/discord-php/RFC9420/issues", "type": "issues" }
+      ]
+    },
+    {
+      "id": "mls",
+      "name": "MLS",
+      "kind": "library",
+      "group": "experimental",
+      "status": "experimental",
+      "audiences": ["discordphp"],
+      "description": "A scaffold for PHP MLS crypto adapters using libsodium and OpenSSL; HPKE does not implement RFC 9180 yet.",
+      "repository": "discord-php/MLS",
+      "package": "discord-php/mls",
+      "nextSteps": [
+        { "label": "Review the scaffold", "url": "https://github.com/discord-php/MLS#readme", "type": "docs" },
+        { "label": "Report an issue", "url": "https://github.com/discord-php/MLS/issues", "type": "issues" }
+      ]
+    },
+    {
+      "id": "phpdoc-tool",
+      "name": "phpdoc-tool",
+      "kind": "tool",
+      "group": "tools",
+      "status": "stable",
+      "audiences": ["discordphp", "valgorithms"],
+      "description": "A phpDocumentor fork that preserves nullable union types used in the DiscordPHP API references.",
+      "repository": "discord-php/phpdoc-tool",
+      "package": "discord-php/phpdoc-tool",
+      "nextSteps": [
+        { "label": "Download the latest release", "url": "https://github.com/discord-php/phpdoc-tool/releases", "type": "install" },
+        { "label": "Read the README", "url": "https://github.com/discord-php/phpdoc-tool#readme", "type": "docs" },
+        { "label": "Report an issue", "url": "https://github.com/discord-php/phpdoc-tool/issues", "type": "issues" }
+      ]
+    },
+    {
+      "id": "dphp",
+      "name": "D.PHP",
+      "kind": "bot",
+      "group": "tools",
+      "status": "stable",
+      "audiences": ["discordphp", "valgorithms"],
+      "description": "DiscordPHP's support and maintainer bot for API lookups, support guidance and maintainer diagnostics.",
+      "repository": "discord-php/D.PHP",
+      "package": "discord-php/d.php",
+      "install": "https://discord.com/oauth2/authorize?client_id=157746770539970560&permissions=0&scope=bot%20applications.commands",
+      "nextSteps": [
+        { "label": "Install D.PHP", "url": "https://discord.com/oauth2/authorize?client_id=157746770539970560&permissions=0&scope=bot%20applications.commands", "type": "install" },
+        { "label": "Use /help in Discord", "url": "https://discord.gg/dphp", "type": "support" },
+        { "label": "Contribute or report an issue", "url": "https://github.com/discord-php/D.PHP/issues", "type": "issues" }
+      ]
+    },
+    {
+      "id": "tutelar",
+      "name": "Tutelar",
+      "kind": "bot",
+      "group": "tools",
+      "status": "stable",
+      "audiences": ["discordphp", "valgorithms"],
+      "description": "A Discord community-management bot with event logging, onboarding, role tools, per-guild settings and reports.",
+      "repository": "discord-php/DiscordPHP-Tutelar",
+      "package": "vzgcoders/discordphp-tutelar",
+      "nextSteps": [
+        { "label": "Read the setup guide", "url": "https://github.com/discord-php/DiscordPHP-Tutelar#readme", "type": "install" },
+        { "label": "Report an issue", "url": "https://github.com/discord-php/DiscordPHP-Tutelar/issues", "type": "issues" },
+        { "label": "Ask in DiscordPHP support", "url": "https://discord.gg/dphp", "type": "support" }
+      ]
+    },
+    {
+      "id": "discordphp-nha",
+      "name": "DiscordPHP-NHA",
+      "kind": "library",
+      "group": "valgorithms",
+      "status": "stable",
+      "audiences": ["valgorithms"],
+      "description": "An API library and bot for the No Human Allowed agent-sandbox world, with an LLM autoplayer.",
+      "repository": "Valgorithms/DiscordPHP-NHA",
+      "package": "discord-php-extended/discordphp-nha",
+      "nextSteps": [
+        { "label": "Install with Composer", "url": "https://packagist.org/packages/discord-php-extended/discordphp-nha", "type": "install" },
+        { "label": "Read the README", "url": "https://github.com/Valgorithms/DiscordPHP-NHA#readme", "type": "docs" },
+        { "label": "Report an issue", "url": "https://github.com/Valgorithms/DiscordPHP-NHA/issues", "type": "issues" }
+      ]
+    },
+    {
+      "id": "discordphp-mtg",
+      "name": "DiscordPHP-MTG",
+      "kind": "library",
+      "group": "valgorithms",
+      "status": "stable",
+      "audiences": ["valgorithms"],
+      "description": "A Magic: The Gathering API library and bot for card search and game rules, built on DiscordPHP.",
+      "repository": "Valgorithms/DiscordPHP-MTG",
+      "package": "discord-php-extended/discordphp-mtg",
+      "nextSteps": [
+        { "label": "Install with Composer", "url": "https://packagist.org/packages/discord-php-extended/discordphp-mtg", "type": "install" },
+        { "label": "Read the README", "url": "https://github.com/Valgorithms/DiscordPHP-MTG#readme", "type": "docs" },
+        { "label": "Report an issue", "url": "https://github.com/Valgorithms/DiscordPHP-MTG/issues", "type": "issues" }
+      ]
+    },
+    {
+      "id": "twitchphp",
+      "name": "TwitchPHP",
+      "kind": "library",
+      "group": "valgorithms",
+      "status": "stable",
+      "audiences": ["valgorithms"],
+      "description": "An asynchronous Twitch framework for PHP with Helix REST, EventSub over WebSocket and IRC chat.",
+      "repository": "Valgorithms/TwitchPHP",
+      "package": "vzgcoders/twitchphp",
+      "nextSteps": [
+        { "label": "Install with Composer", "url": "https://packagist.org/packages/vzgcoders/twitchphp", "type": "install" },
+        { "label": "Read the README", "url": "https://github.com/Valgorithms/TwitchPHP#readme", "type": "docs" },
+        { "label": "Report an issue", "url": "https://github.com/Valgorithms/TwitchPHP/issues", "type": "issues" }
+      ]
+    },
+    {
+      "id": "twitchphp-http",
+      "name": "TwitchPHP-Http",
+      "kind": "library",
+      "group": "valgorithms",
+      "status": "stable",
+      "audiences": ["valgorithms"],
+      "description": "A standalone asynchronous Helix transport for TwitchPHP with queueing and rate-limit handling.",
+      "repository": "Valgorithms/TwitchPHP-Http",
+      "package": "twitchphp/http",
+      "nextSteps": [
+        { "label": "Install with Composer", "url": "https://packagist.org/packages/twitchphp/http", "type": "install" },
+        { "label": "Read the README", "url": "https://github.com/Valgorithms/TwitchPHP-Http#readme", "type": "docs" },
+        { "label": "Report an issue", "url": "https://github.com/Valgorithms/TwitchPHP-Http/issues", "type": "issues" }
+      ]
+    },
+    {
+      "id": "telegramphp",
+      "name": "TelegramPHP",
+      "kind": "library",
+      "group": "valgorithms",
+      "status": "stable",
+      "audiences": ["valgorithms"],
+      "description": "An asynchronous Telegram Bot API client generated from the official specification.",
+      "repository": "Valgorithms/TelegramPHP",
+      "package": "vzgcoders/telegramphp",
+      "nextSteps": [
+        { "label": "Install with Composer", "url": "https://packagist.org/packages/vzgcoders/telegramphp", "type": "install" },
+        { "label": "Read the README", "url": "https://github.com/Valgorithms/TelegramPHP#readme", "type": "docs" },
+        { "label": "Report an issue", "url": "https://github.com/Valgorithms/TelegramPHP/issues", "type": "issues" }
+      ]
+    },
+    {
+      "id": "youtubephp",
+      "name": "YouTubePHP",
+      "kind": "library",
+      "group": "valgorithms",
+      "status": "stable",
+      "audiences": ["valgorithms"],
+      "description": "An asynchronous YouTube Data API client generated from Google's discovery document, with live chat and quota tracking.",
+      "repository": "Valgorithms/YoutubePHP",
+      "package": "vzgcoders/youtubephp",
+      "nextSteps": [
+        { "label": "Read the README", "url": "https://github.com/Valgorithms/YoutubePHP#readme", "type": "docs" },
+        { "label": "Report an issue", "url": "https://github.com/Valgorithms/YoutubePHP/issues", "type": "issues" }
+      ]
+    },
+    {
+      "id": "eventlogger",
+      "name": "DiscordPHP-EventLogger",
+      "kind": "library",
+      "group": "valgorithms",
+      "status": "stable",
+      "audiences": ["valgorithms"],
+      "description": "Drop-in audit logging for DiscordPHP bots, with readable output for every gateway event.",
+      "repository": "Valgorithms/DiscordPHP-EventLogger",
+      "package": "valgorithms/discord-php-eventlogger",
+      "nextSteps": [
+        { "label": "Read the README", "url": "https://github.com/Valgorithms/DiscordPHP-EventLogger#readme", "type": "docs" },
+        { "label": "Report an issue", "url": "https://github.com/Valgorithms/DiscordPHP-EventLogger/issues", "type": "issues" }
+      ]
+    },
+    {
+      "id": "pdf-converter",
+      "name": "PDF-Converter",
+      "kind": "tool",
+      "group": "tools",
+      "status": "stable",
+      "audiences": ["valgorithms"],
+      "description": "Arrange images into a PDF in the browser without uploading files, or use the PHP version with GD.",
+      "repository": "Valgorithms/PDF-Converter",
+      "package": "vzgcoders/pdf-converter",
+      "website": "https://valgorithms.github.io/PDF-Converter/",
+      "nextSteps": [
+        { "label": "Open the tool", "url": "https://valgorithms.github.io/PDF-Converter/", "type": "install" },
+        { "label": "Read the README", "url": "https://github.com/Valgorithms/PDF-Converter#readme", "type": "docs" },
+        { "label": "Report an issue", "url": "https://github.com/Valgorithms/PDF-Converter/issues", "type": "issues" }
+      ]
+    },
+    {
+      "id": "pdf-signer",
+      "name": "PDF-Signer",
+      "kind": "tool",
+      "group": "tools",
+      "status": "stable",
+      "audiences": ["valgorithms"],
+      "description": "Add a drawn, typed or photographed signature to a PDF while preserving the original document as an incremental update.",
+      "repository": "Valgorithms/PDF-Signer",
+      "package": "vzgcoders/pdf-signer",
+      "website": "https://valgorithms.github.io/PDF-Signer/",
+      "nextSteps": [
+        { "label": "Open the tool", "url": "https://valgorithms.github.io/PDF-Signer/", "type": "install" },
+        { "label": "Read the README", "url": "https://github.com/Valgorithms/PDF-Signer#readme", "type": "docs" },
+        { "label": "Report an issue", "url": "https://github.com/Valgorithms/PDF-Signer/issues", "type": "issues" }
+      ]
+    },
+    {
+      "id": "nfg",
+      "name": "NFG",
+      "kind": "tool",
+      "group": "tools",
+      "status": "stable",
+      "audiences": ["valgorithms"],
+      "description": "A dependency-free form generator that turns inline JSON schemas into tabbed forms and exports standalone pages.",
+      "repository": "valzargaming/NFG",
+      "nextSteps": [
+        { "label": "Read the README", "url": "https://github.com/valzargaming/NFG#readme", "type": "docs" },
+        { "label": "Report an issue", "url": "https://github.com/valzargaming/NFG/issues", "type": "issues" }
+      ]
+    },
+    {
+      "id": "discordphp-org",
+      "name": "DiscordPHP.org",
+      "kind": "website",
+      "group": "websites",
+      "status": "stable",
+      "audiences": ["valgorithms"],
+      "description": "The DiscordPHP project site for libraries, guides, community support and API route and event maps.",
+      "repository": "discord-php/DiscordPHP.org",
+      "website": "https://discordphp.org/",
+      "nextSteps": [
+        { "label": "Visit DiscordPHP.org", "url": "https://discordphp.org/", "type": "docs" },
+        { "label": "Browse the library catalog", "url": "https://discordphp.org/libraries.html", "type": "docs" },
+        { "label": "Contribute or report an issue", "url": "https://github.com/discord-php/DiscordPHP.org/issues", "type": "issues" }
+      ]
+    },
+    {
+      "id": "coffee-s-crafts",
+      "name": "Coffee-s-Crafts",
+      "kind": "website",
+      "group": "websites",
+      "status": "stable",
+      "audiences": ["valgorithms"],
+      "description": "A portfolio and commission site featuring galleries for original art, fursuits and premades.",
+      "repository": "Coffee-s-Crafts/coffee-s-crafts",
+      "website": "https://coffeescrafts.com/",
+      "nextSteps": [
+        { "label": "Visit the portfolio", "url": "https://coffeescrafts.com/", "type": "docs" },
+        { "label": "View the source", "url": "https://github.com/Coffee-s-Crafts/coffee-s-crafts", "type": "source" }
+      ]
+    },
+    {
+      "id": "civilizationbot",
+      "name": "Civilizationbot",
+      "kind": "bot",
+      "group": "bots",
+      "status": "stable",
+      "audiences": ["valgorithms"],
+      "description": "Civ13's official Discord bot for game-server management, player verification and moderation.",
+      "repository": "Valgorithms/Civilizationbot",
+      "nextSteps": [
+        { "label": "Read the README", "url": "https://github.com/Valgorithms/Civilizationbot#readme", "type": "docs" },
+        { "label": "Report an issue", "url": "https://github.com/Valgorithms/Civilizationbot/issues", "type": "issues" }
+      ]
+    },
+    {
+      "id": "discordphp-slash",
+      "name": "DiscordPHP-Slash",
+      "kind": "library",
+      "group": "archived",
+      "status": "archived",
+      "audiences": ["discordphp"],
+      "description": "An archived standalone slash-command server from before DiscordPHP handled slash commands directly.",
+      "repository": "discord-php/DiscordPHP-Slash",
+      "package": "discord-php/slash",
+      "nextSteps": [
+        { "label": "Review the archived project", "url": "https://github.com/discord-php/DiscordPHP-Slash", "type": "source" }
+      ]
+    }
+  ]
+}

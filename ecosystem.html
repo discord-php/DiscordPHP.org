@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Libraries — DiscordPHP</title>
-  <meta name="description" content="DiscordPHP and the libraries around it: the HTTP client, voice, collections, the chat bridge, tools and integrations.">
+  <title>Ecosystem releases and compatibility — DiscordPHP</title>
+  <meta name="description" content="Current releases and Composer compatibility for DiscordPHP and related projects.">
   <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="assets/css/site.css">
   <script>try { const t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch {}</script>
@@ -18,8 +18,8 @@
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav class="site-nav" id="site-nav" aria-label="Site">
         <a href="./">Home</a>
-        <a href="libraries.html" aria-current="page">Libraries</a>
-        <a href="ecosystem.html">Releases</a>
+        <a href="libraries.html">Libraries</a>
+        <a href="ecosystem.html" aria-current="page">Releases</a>
         <a href="guides.html">Guides</a>
         <a href="uml/">UML</a>
         <a href="community.html">Community</a>
@@ -33,14 +33,15 @@
   <main>
     <div class="wrap">
       <div class="page-head">
-        <h1>Libraries</h1>
-        <p>Browse the DiscordPHP packages, integrations and tools. Each project includes a practical next step, the latest release and links to help you get started.</p>
-        <p class="catalog-link"><a href="ecosystem.html">See releases and compatibility across the ecosystem</a></p>
+        <h1>Releases and compatibility</h1>
+        <p>One view of the ecosystem's tagged releases and runtime requirements. Release versions come from Packagist or GitHub; PHP, DiscordPHP and extension constraints are read from the Composer file at that release. “No Composer metadata” means no readable composer.json was found at the release tag, “Not declared” means the file has no such constraint, and “None declared” means no extensions are required.</p>
+        <p class="catalog-status" data-ecosystem-status>Loading release metadata…</p>
+        <p class="catalog-link"><a href="newsletter.xml">Subscribe to the tagged RSS feed</a> · <a href="libraries.html">Browse projects</a></p>
       </div>
 
-      <div class="project-catalog" data-project-catalog="discordphp">
-        <p class="note">Loading the project catalog…</p>
-      </div>
+      <section class="release-view" data-release-view="all">
+        <p class="note">Loading releases and compatibility…</p>
+      </section>
     </div>
   </main>
 

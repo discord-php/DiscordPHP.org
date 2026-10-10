@@ -12,17 +12,21 @@ branch.
 
 | Path | What it is |
 | --- | --- |
-| `index.html`, `libraries.html`, `guides.html`, `community.html`, `newsletter.html`, `404.html` | The pages |
+| `index.html`, `libraries.html`, `ecosystem.html`, `guides.html`, `community.html`, `newsletter.html`, `404.html` | The pages |
 | `uml/index.html` | The main classes (generated), a REST request and a gateway event (hand-written, checked against DiscordPHP) |
 | `uml/architecture.json` | Which classes and members the class diagram shows, and which classes the sequence diagrams' participants are |
 | `uml/routes.html`, `uml/events.html` | The generated maps, drawn in the browser from `data/routes.json` |
 | `assets/` | One stylesheet and a few ES modules. Diagrams are drawn with [Mermaid](https://mermaid.js.org/) from jsDelivr. |
 | `data/routes.json` | The route and event maps (generated) |
-| `data/versions.json` | The latest release of each package on the libraries page (generated) |
-| `data/newsletter.json` | The published newsletter editions, which `newsletter.html` renders (written by the newsletter bot) |
+| `data/ecosystem.json` | The shared project catalog and newsletter tag taxonomy used by both sites |
+| `data/versions.json` | Legacy latest-release badges for any `data-version` elements (generated) |
+| `data/releases.json` | The latest release and Composer compatibility for each catalog project (generated) |
+| `data/newsletter.json` | The shared, tagged newsletter editions (written by the newsletter bot) |
+| `newsletter.xml` | The generated RSS feed, with newsletter tags as categories |
 | `tools/routes-uml.php` | Generates `data/routes.json` |
 | `tools/architecture-uml.php` | Draws the class diagram and its package table on `uml/index.html`, and checks the UML pages' other diagrams and prose against DiscordPHP |
-| `tools/versions.php` | Generates `data/versions.json` |
+| `tools/versions.php` | Generates release and compatibility metadata, plus any legacy version badges |
+| `tools/newsletter-feed.php` | Generates the shared tagged RSS feed |
 | `tools/check-diagrams.php` | Draws every diagram through [mermaid.ink](https://mermaid.ink) and fails on any Mermaid rejects |
 
 ## Working on the site
@@ -92,21 +96,33 @@ composer install
 composer cs
 ```
 
+## Shared ecosystem catalog
+
+`data/ecosystem.json` is the canonical list of DiscordPHP and Valgorithms projects. Each entry selects
+the sites where it appears, its Composer package and useful next steps. `libraries.html` renders the
+DiscordPHP audience and `valgorithms.com` renders the Valgorithms audience from this same file.
+`ecosystem.html` shows the latest stable release and the PHP, DiscordPHP and extension constraints
+from each tagged Composer release. The Valgorithms Pages workflow checks out this repository and
+refreshes that release data before its nightly build.
+
 ## The newsletter
 
-`newsletter.html` shows the daily newsletter from the
+`newsletter.html` shows the tagged daily newsletter from the
 [DiscordPHP-Newsletter](https://github.com/Valgorithms/DiscordPHP-Newsletter) bot, whose source code the page links to. The bot writes each edition with a
 locally hosted model and DMs it to its owner for approval. Once an edition is approved, the bot commits it to
-`data/newsletter.json` on `main`, and that push publishes the site as usual. Each entry looks like:
+`data/newsletter.json` on `main`, and that push publishes the site as usual. Each entry has topic IDs
+from `newsletterTags` in the shared catalog and looks like:
 
 ```json
 { "key": "2026-09-27", "date": "2026-09-27", "headline": "…", "intro": "…",
-  "sections": [{ "title": "…", "body": "…" }], "signoff": "…", "published_at": "2026-09-27T18:04:00-04:00" }
+  "tags": ["discordphp", "releases"], "sections": [{ "title": "…", "body": "…" }],
+  "signoff": "…", "published_at": "2026-09-27T18:04:00-04:00" }
 ```
 
 Bodies are Discord-flavoured markdown. `assets/js/newsletter.js` escapes everything, then applies bold, italics,
 inline code, bullet lists, `https` links and `owner/repo#123` references, so an edition can never add HTML to the page.
-Each edition has a permalink, `newsletter.html#<key>`.
+Each edition has a permalink, `newsletter.html#<key>`. The page filters by topic and
+`newsletter.xml` publishes the same tagged editions as RSS for both sites.
 
 ## Publishing
 

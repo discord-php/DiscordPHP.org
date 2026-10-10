@@ -111,16 +111,23 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         run: php tools/versions.php data libraries.html
 
+      - name: Build the tagged newsletter feed
+        run: php tools/newsletter-feed.php newsletter.xml
+
       - name: Check that every diagram draws
         run: php tools/check-diagrams.php data/routes.json uml/index.html
 
       - name: Assemble and validate the site
         run: |
           mkdir _site
-          cp -r index.html libraries.html guides.html community.html newsletter.html 404.html favicon.ico .nojekyll assets uml data _site/
+          cp -r index.html libraries.html ecosystem.html guides.html community.html newsletter.html newsletter.xml 404.html favicon.ico .nojekyll assets uml data _site/
           cp CNAME _site/CNAME
           test -s _site/index.html
           test -s _site/libraries.html
+          test -s _site/ecosystem.html
+          test -s _site/newsletter.xml
+          test -s _site/data/ecosystem.json
+          test -s _site/data/releases.json
           test -f _site/.nojekyll
           test "$(cat _site/CNAME)" = "discordphp.org"
 

@@ -12,10 +12,9 @@ declare(strict_types=1);
  */
 
 /**
- * Looks up the latest stable release of every package the pages show a version for, so the
- * libraries page never goes stale: an element with `data-version="vendor/name"` gets that
- * package's latest version from Packagist, or from GitHub's latest release when it also has
- * `data-source="github:owner/repo"`.
+ * Looks up releases and Composer compatibility for the shared ecosystem catalog. Legacy
+ * `data-version="vendor/name"` badges on any supplied page are also refreshed from Packagist
+ * or GitHub when paired with `data-source="github:owner/repo"`.
  *
  * Usage: php tools/versions.php <output directory> <page.html>...
  *
@@ -54,7 +53,12 @@ function fromPackagist(string $package): ?array
     foreach ($data['packages'][$package] ?? [] as $release) {
         // Stable versions normalise to four numbers only: 10.60.0.0, not 1.0.0.0-beta1.
         if (preg_match('/^\d+\.\d+\.\d+\.\d+$/', (string) ($release['version_normalized'] ?? ''))) {
-            return ['version' => (string) $release['version'], 'time' => (string) ($release['time'] ?? '')];
+            return [
+                'version' => (string) $release['version'],
+                'time' => (string) ($release['time'] ?? ''),
+                'reference' => (string) ($release['source']['reference'] ?? ''),
+                'url' => 'https://packagist.org/packages/'.$package,
+            ];
         }
     }
 
@@ -70,7 +74,41 @@ function fromGitHub(string $repository): ?array
     }
     $release = fetchJson("https://api.github.com/repos/{$repository}/releases/latest", $headers);
 
-    return null === $release ? null : ['version' => (string) $release['tag_name'], 'time' => (string) ($release['published_at'] ?? '')];
+    return null === $release ? null : [
+        'version' => (string) $release['tag_name'],
+        'time' => (string) ($release['published_at'] ?? ''),
+        'reference' => (string) ($release['tag_name'] ?? ''),
+        'url' => (string) ($release['html_url'] ?? "https://github.com/{$repository}/releases"),
+    ];
+}
+
+/** Read a project's runtime constraints at the exact release revision. */
+function compatibility(string $repository, string $reference): array
+{
+    if ('' === $reference) {
+        return ['available' => false];
+    }
+
+    $composer = fetchJson("https://raw.githubusercontent.com/{$repository}/{$reference}/composer.json");
+    if (null === $composer) {
+        return ['available' => false];
+    }
+
+    $requires = $composer['require'] ?? [];
+    $extensions = [];
+    foreach ($requires as $name => $constraint) {
+        if (str_starts_with((string) $name, 'ext-')) {
+            $extensions[$name] = (string) $constraint;
+        }
+    }
+    ksort($extensions);
+
+    return [
+        'available' => true,
+        'php' => isset($requires['php']) ? (string) $requires['php'] : null,
+        'discordphp' => isset($requires['team-reflex/discord-php']) ? (string) $requires['team-reflex/discord-php'] : null,
+        'extensions' => $extensions,
+    ];
 }
 
 $wanted = [];
@@ -98,6 +136,48 @@ file_put_contents(
     rtrim($outDir, '/\\').'/versions.json',
     json_encode(['generated' => gmdate('Y-m-d\TH:i:s\Z'), 'packages' => $versions], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR)."\n",
 );
+
+// The ecosystem catalog is the source of project metadata for both sites.
+// Enrich each tagged project from Packagist or its GitHub release, then read
+// Composer constraints from that exact tag so the compatibility view does not
+// accidentally describe the default branch instead of the published release.
+$catalogFile = rtrim($outDir, '/\\').'/ecosystem.json';
+if (is_file($catalogFile)) {
+    $catalog = json_decode((string) file_get_contents($catalogFile), true, 512, JSON_THROW_ON_ERROR);
+    $releases = [];
+    foreach ($catalog['projects'] ?? [] as $project) {
+        $id = (string) ($project['id'] ?? '');
+        $repository = (string) ($project['repository'] ?? '');
+        if ('' === $id || '' === $repository) {
+            continue;
+        }
+
+        $found = ! empty($project['package']) ? fromPackagist((string) $project['package']) : null;
+        if (null === $found) {
+            $found = fromGitHub($repository);
+        }
+        if (null === $found) {
+            printf("%-32s %s\n", $id, 'no stable release');
+            $releases[$id] = ['release' => null, 'compatibility' => []];
+            continue;
+        }
+
+        printf("%-32s %s\n", $id, $found['version']);
+        $releases[$id] = [
+            'release' => [
+                'version' => $found['version'],
+                'time' => $found['time'],
+                'url' => $found['url'],
+            ],
+            'compatibility' => compatibility($repository, $found['reference']),
+        ];
+    }
+
+    file_put_contents(
+        rtrim($outDir, '/\\').'/releases.json',
+        json_encode(['generated' => gmdate('Y-m-d\TH:i:s\Z'), 'projects' => $releases], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR)."\n",
+    );
+}
 
 // A package that could not be looked up keeps its badge hidden; that is not worth failing a deploy.
 exit(0);
