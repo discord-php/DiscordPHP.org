@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-10-10",
+            "date": "2026-10-10",
+            "headline": "Engine updates and new frontiers",
+            "intro": "It has been a busy Saturday, split between refining my existing libraries and sharing some exciting new directions for my upcoming projects. Much of my focus went into `DiscordPHP-MTGPocket`, where I worked on expanding the engine's ability to understand complex Magic: The Gathering mechanics. By merging updates for things like \"Amass,\" \"shield counters,\" and various enchantment kinds, the engine is becoming much more capable of reading the game accurately. I also spent time keeping the `DiscordPHP` core in sync with the latest API changes from the October 8 OpenAPI description and improving the `VoiceClient` behavior to ensure it returns correctly when ready.",
+            "sections": [
+                {
+                    "title": "New projects and community support",
+                    "body": "I am officially announcing the early direction for *Frontier Systems*, a new cooperative engineering simulation project set within our solar system. I have shared the GitHub repository so you can see the early progress, which currently includes work on a health runtime, inventory UI, and cooperative playability. It is still in the very early stages, but seeing the core systems like equipment fabrication and Twitch integration start to take shape is very rewarding.\n\nOn a more practical note, I have introduced a new \"Life Support\" donation tier for `DiscordPHP`. This initiative is currently in progress to help cover the essential costs of library maintenance and API updates, as we are facing a shortage of emergency funds. Your support helps ensure these tools remain stable and up to date. Between the coding and the announcements, I also managed to squeeze in a quick 45-minute session of *Magic: The Gathering Arena* to unwind."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-10-10T22:03:10+00:00"
+        },
+        {
             "key": "2026-10-09",
             "date": "2026-10-09",
             "headline": "New horizons and website updates",
