@@ -149,6 +149,11 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
       - name: Download the validated site
         uses: actions/download-artifact@v8
         with:
