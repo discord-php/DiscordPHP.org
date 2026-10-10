@@ -29,7 +29,7 @@ on:
         default: ''
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   # Publishing runs one at a time; each pull request only replaces its own older run.
@@ -38,12 +38,14 @@ concurrency:
 
 jobs:
   build:
-    name: Build and publish
+    name: Build and validate
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - name: Checkout the site
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
 
       - name: Choose the DiscordPHP version
         id: ref
@@ -65,12 +67,13 @@ jobs:
           echo "ref=$ref" >> "$GITHUB_OUTPUT"
 
       - name: Checkout DiscordPHP
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: discord-php/DiscordPHP
           ref: ${{ steps.ref.outputs.ref }}
           path: DiscordPHP
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -78,12 +81,24 @@ jobs:
           php-version: '8.4'
           tools: composer
 
+      - name: Get Composer cache directory
+        id: composer-cache
+        working-directory: DiscordPHP
+        run: echo "dir=$(composer config cache-files-dir)" >> "$GITHUB_OUTPUT"
+
+      - name: Cache Composer downloads
+        uses: actions/cache@v5
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-discordphp-composer-${{ hashFiles('DiscordPHP/composer.lock') }}
+          restore-keys: ${{ runner.os }}-discordphp-composer-
+
       - name: Install DiscordPHP's dependencies
         working-directory: DiscordPHP
-        run: composer install --no-interaction --no-progress
+        run: composer install --no-interaction --no-progress --prefer-dist
 
       - name: Download Discord's OpenAPI description
-        run: curl -fsSL --retry 3 -o openapi_preview.json https://raw.githubusercontent.com/discord/discord-api-spec/main/specs/openapi_preview.json
+        run: curl -fsSL --retry 3 --retry-all-errors -o openapi_preview.json https://raw.githubusercontent.com/discord/discord-api-spec/main/specs/openapi_preview.json
 
       - name: Generate the route and event maps
         run: php tools/routes-uml.php DiscordPHP openapi_preview.json data
@@ -99,17 +114,44 @@ jobs:
       - name: Check that every diagram draws
         run: php tools/check-diagrams.php data/routes.json uml/index.html
 
-      - name: Assemble the site
+      - name: Assemble and validate the site
         run: |
           mkdir _site
           cp -r index.html libraries.html guides.html community.html newsletter.html 404.html favicon.ico .nojekyll assets uml data _site/
-          if [ -f CNAME ]; then cp CNAME _site/; fi
+          cp CNAME _site/CNAME
+          test -s _site/index.html
+          test -s _site/libraries.html
+          test -f _site/.nojekyll
+          test "$(cat _site/CNAME)" = "discordphp.org"
+
+      - name: Upload the built site
+        uses: actions/upload-artifact@v7
+        with:
+          name: discordphp-site
+          path: _site/
+          if-no-files-found: error
+          include-hidden-files: true
+          retention-days: 1
+
+  deploy:
+    name: Publish to GitHub Pages
+    needs: build
+    if: ${{ github.event_name != 'pull_request' && github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - name: Download the validated site
+        uses: actions/download-artifact@v8
+        with:
+          name: discordphp-site
+          path: _site
 
       - name: Publish
-        if: github.event_name != 'pull_request'
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
           folder: _site
           clean: true
-          commit-message: 'Deploy ${{ github.sha }} with DiscordPHP ${{ steps.ref.outputs.ref }}'
+          commit-message: 'Deploy ${{ github.sha }}'
