@@ -111,8 +111,10 @@ Each edition has a permalink, `newsletter.html#<key>`.
 ## Publishing
 
 `.github/workflows/pages.yml` generates the maps and the class diagram, checks the hand-written diagrams
-against DiscordPHP and that every diagram draws, and publishes the site to the `gh-pages` branch. It maps
-the latest DiscordPHP release, and runs:
+against DiscordPHP and that every diagram draws, validates the site output, and publishes the validated
+artifact to the `gh-pages` branch. Pull requests run the same build without publishing. The build job has
+read-only repository permissions; only the publish job can write. It maps the latest DiscordPHP release,
+and runs:
 
 - when DiscordPHP publishes a release, through a `discordphp-release` dispatch (below),
 - every day, to pick up changes to Discord's OpenAPI description, and any release whose dispatch did not
@@ -124,9 +126,9 @@ the latest DiscordPHP release, and runs:
 A pull request runs the same build without publishing, so a diagram that no longer matches DiscordPHP
 fails before it is merged.
 
-GitHub Pages serves the `gh-pages` branch. For the custom domain, add a `CNAME` file containing
-`discordphp.org` to the root of this repository. The workflow copies it into each deployment, so the
-domain survives every publish.
+GitHub Pages serves the `gh-pages` branch. The root `CNAME` file contains `discordphp.org`; the workflow
+copies it into each deployment and verifies it before publishing, so the custom domain survives every
+publish.
 
 ### Rebuilding when DiscordPHP is released
 
