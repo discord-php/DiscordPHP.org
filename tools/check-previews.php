@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 require __DIR__.'/preview-payload.php';
 
-function checkPreviewPage(string $html, string $path, string $root): array
+function checkPreviewPage(string $html, string $path, string $root, bool $fallbackOnly = false): array
 {
     $dom = new DOMDocument();
     $previous = libxml_use_internal_errors(true);
@@ -13,10 +13,10 @@ function checkPreviewPage(string $html, string $path, string $root): array
     libxml_use_internal_errors($previous);
     $xpath = new DOMXPath($dom);
     $scripts = $xpath->query('//*[@id="discord:component-embed"]');
-    if ($scripts->length !== 1 || $scripts->item(0)->nodeName !== 'script' || $scripts->item(0)->parentNode->nodeName !== 'head' || $scripts->item(0)->getAttribute('type') !== 'application/json') {
+    if (!$fallbackOnly && ($scripts->length !== 1 || $scripts->item(0)->nodeName !== 'script' || $scripts->item(0)->parentNode->nodeName !== 'head' || $scripts->item(0)->getAttribute('type') !== 'application/json')) {
         throw new RuntimeException('Expected one inline application/json preview script in head.');
     }
-    $stats = validatePreview($scripts->item(0)->textContent);
+    $stats = $fallbackOnly ? [] : validatePreview($scripts->item(0)->textContent);
     $meta = function (string $key) use ($xpath): string {
         $nodes = $xpath->query('/html/head/meta[@property="'.$key.'" or @name="'.$key.'"]');
         if ($nodes->length !== 1 || $nodes->item(0)->getAttribute('content') === '') {
@@ -53,6 +53,9 @@ function checkPreviewPage(string $html, string $path, string $root): array
     }
     $meta('og:image:alt');
     $meta('twitter:image:alt');
+    if ($fallbackOnly) {
+        return $stats;
+    }
     $payload = json_decode($scripts->item(0)->textContent, true, 64, JSON_THROW_ON_ERROR);
     $checkLinks = function (array $node) use (&$checkLinks, $root): void {
         foreach ($node as $key => $value) {
