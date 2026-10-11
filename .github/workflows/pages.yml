@@ -134,6 +134,7 @@ jobs:
       - name: Check static link previews offline
         run: |
           php tools/test-previews.php
+          php tools/test-redirects.php
           php tools/check-previews.php _site
 
       - name: Upload the built site
