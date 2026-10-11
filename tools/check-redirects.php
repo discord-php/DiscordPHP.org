@@ -117,7 +117,7 @@ if (realpath($_SERVER['SCRIPT_FILENAME']) === __FILE__) {
         return ['status' => curl_getinfo($handle, CURLINFO_RESPONSE_CODE), 'location' => $headers['location'] ?? null, 'content_type' => $headers['content-type'] ?? null, 'disposition' => $headers['content-disposition'] ?? null];
     };
     $failed = false;
-    foreach (array_slice($argv, 1) ?: ['https://discordphp.org/', 'https://www.discordphp.org/', 'https://discord-php.github.io/DiscordPHP.org/'] as $start) {
+    foreach (array_slice($argv, 1) ?: ['http://discordphp.org/', 'https://discordphp.org/', 'https://www.discordphp.org/', 'https://discord-php.github.io/DiscordPHP.org/'] as $start) {
         $result = checkRedirectChain($start, $fetch);
         echo json_encode($result, JSON_THROW_ON_ERROR | JSON_UNESCAPED_SLASHES)."\n";
         $failed = $failed || !$result['passed'];

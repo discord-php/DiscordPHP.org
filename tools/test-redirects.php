@@ -14,6 +14,7 @@ $test = function (bool $condition, string $name) use (&$checks): void {
 $html = ['status' => 200, 'content_type' => 'text/html; charset=utf-8'];
 $constantClock = fn () => 0.0;
 $test(checkRedirectChain('https://discordphp.org/', fn () => $html, $constantClock)['passed'], 'canonical 200 HTML');
+$test(checkRedirectChain('http://discordphp.org/', fn ($url) => str_starts_with($url, 'http:') ? ['status' => 301, 'location' => 'https://discordphp.org/'] : $html, $constantClock)['passed'], 'HTTP upgrades to canonical HTTPS');
 $test(checkRedirectChain('https://www.discordphp.org/', fn ($url) => str_contains($url, 'www.') ? ['status' => 301, 'location' => 'https://discordphp.org/'] : $html, $constantClock)['passed'], 'www canonical redirect');
 $test(!checkRedirectChain('https://discordphp.org/', fn () => ['status' => 301, 'location' => '/'], $constantClock)['passed'], 'loop');
 $requests = 0;
