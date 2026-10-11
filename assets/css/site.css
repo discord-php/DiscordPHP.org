@@ -841,3 +841,8 @@ ul.plain li + li {
 .edition-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
 .archive-tags { display: flex; flex-wrap: wrap; gap: 0.25rem; margin: 0.25rem 0 0.6rem; }
 .newsletter-feed-link { font-size: 0.9rem; }
+
+/* Official Open Collective donation image and a persistent text fallback. */
+.collective-support { margin-bottom: 1.5rem; }
+.collective-button { display: inline-block; max-width: 100%; }
+.collective-button img { display: block; max-width: 100%; height: auto; }
