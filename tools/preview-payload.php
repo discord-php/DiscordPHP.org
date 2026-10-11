@@ -102,6 +102,8 @@ function previewPages(): array
         'libraries.html' => ['Browse libraries', 'https://discordphp.org/libraries.html', 'Check compatibility', 'https://discordphp.org/ecosystem.html'],
         'ecosystem.html' => ['Check releases', 'https://discordphp.org/ecosystem.html', 'Library references', 'https://discordphp.org/guides.html'],
         'guides.html' => ['Read the guide', 'https://discord-php.github.io/DiscordPHP/guide/', 'API reference', 'https://discord-php.github.io/DiscordPHP/'],
+        'community.html' => ['Join the community', 'https://discord.gg/dphp', 'GitHub Discussions', 'https://github.com/discord-php/DiscordPHP/discussions'],
+        'newsletter.html' => ['Read the newsletter', 'https://discordphp.org/newsletter.html', 'Subscribe with RSS', 'https://discordphp.org/newsletter.xml'],
         'uml/index.html' => ['Explore architecture', 'https://discordphp.org/uml/', 'REST route map', 'https://discordphp.org/uml/routes.html'],
         'uml/routes.html' => ['Explore REST routes', 'https://discordphp.org/uml/routes.html', 'Gateway events', 'https://discordphp.org/uml/events.html'],
         'uml/events.html' => ['Explore gateway events', 'https://discordphp.org/uml/events.html', 'Architecture', 'https://discordphp.org/uml/'],

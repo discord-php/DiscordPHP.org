@@ -40,10 +40,11 @@ relative links, so the site works at a domain's root and under `/DiscordPHP.org/
 
 ### Link previews
 
-The home, library, release, guide and UML pages contain static Discord component embeds and Open
+The home, library, release, guide, community, newsletter and UML pages contain static Discord component embeds and Open
 Graph/Twitter fallback tags in their heads. The preview uses the existing DiscordPHP organization
 logo (`assets/images/discordphp.png`, copied from its GitHub avatar), the site's accent color and
-page-specific documentation links. These display-only previews require no bot or interaction handler.
+page-specific links. These display-only previews require no bot or interaction handler. The 404 page
+is excluded because an error response should not unfurl.
 
 After changing a page title, description or preview link, regenerate the marked head blocks:
 

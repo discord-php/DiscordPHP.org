@@ -70,6 +70,21 @@ rejectPreview(fn () => validatePreview(previewJson($galleries)), 'gallery total 
 rejectPreview(fn () => previewUrl('https://example.com/logo.svg', true), 'SVG media');
 rejectPreview(fn () => previewUrl('https://example.com/'.str_repeat('a', 2048)), 'URL limit');
 $root = dirname(__DIR__);
+$publicPages = array_merge(glob($root.'/*.html'), glob($root.'/uml/*.html'));
+$expectedPages = [];
+foreach ($publicPages as $publicPage) {
+    $path = str_replace('\\', '/', substr($publicPage, strlen($root) + 1));
+    if ($path !== '404.html') {
+        $expectedPages[] = $path;
+    }
+}
+$coveredPages = array_keys(previewPages());
+sort($expectedPages);
+sort($coveredPages);
+expectPreview($coveredPages === $expectedPages, 'all public content pages covered except 404');
+foreach ($coveredPages as $path) {
+    expectPreview(checkPreviewPage(file_get_contents($root.'/'.$path), $path, $root)['components'] > 0, 'valid preview and fallback for '.$path);
+}
 $html = file_get_contents($root.'/index.html');
 checkPreviewPage($html, 'index.html', $root);
 rejectPreview(fn () => checkPreviewPage(str_replace('property="og:title"', 'property="missing:title"', $html), 'index.html', $root), 'missing fallback');
