@@ -44,5 +44,5 @@ foreach (previewPages() as $path => $links) {
         $html = str_replace('</head>', $block.'</head>', $html);
     }
     file_put_contents($root.'/'.$path, $html);
-    echo $path.": ".strlen($json)." bytes\n";
+    echo $path.': '.strlen($json)." bytes\n";
 }
