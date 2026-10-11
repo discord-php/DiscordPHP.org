@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-10-11-2",
+            "date": "2026-10-11",
+            "headline": "Refining inventory mechanics in Frontier Systems",
+            "intro": "I have merged several updates to *Frontier Systems* that aim to improve how players interact with equipment and inventory, specifically regarding equipment prerequisites and how items are handed off within the inventory tray.",
+            "sections": [
+                {
+                    "title": "Engineering and simulation progress",
+                    "body": "Work on *Frontier Systems* continued with new proposals to refine the client shell, including integrated panel layouts and production panel navigation. I also opened a pull request to verify panels inside the actual client shell and another regarding client input construction acceptance to help streamline how the simulation handles user commands. Further efforts focused on refining extraction mechanics, such as equipment transport and nested inventory transfer recovery. I have also opened new pull requests to address active hand extraction and nested inventory transfers.\n\nIn other areas, I worked on memory management and cleanup for `Civ13`, focusing on the water and season registries as well as observer references. I also merged a pull request regarding memory runtime and another proposing a plant terminal lifecycle. To support the project's growth, I updated the `Civ13` wiki with new player guides for current mechanics. I have also opened several issues to track upcoming features like sustainable mining, food lifecycles, hydroponics, and aquaculture.\n\nFinally, I continued identifying gaps in card coverage within `DiscordPHP-MTGPocket`."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-10-11T22:02:09+00:00"
+        },
+        {
             "key": "2026-10-11",
             "date": "2026-10-11",
             "headline": "Improving UI and system mechanics in Frontier Systems",
