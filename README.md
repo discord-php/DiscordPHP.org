@@ -38,6 +38,31 @@ composer serve
 serves it at <http://localhost:8080> (or run `php -S localhost:8080` without Composer). Everything uses
 relative links, so the site works at a domain's root and under `/DiscordPHP.org/` on github.io alike.
 
+### Link previews
+
+The home, library, release, guide and UML pages contain static Discord component embeds and Open
+Graph/Twitter fallback tags in their heads. The preview uses the existing DiscordPHP organization
+logo (`assets/images/discordphp.png`, copied from its GitHub avatar), the site's accent color and
+page-specific documentation links. These display-only previews require no bot or interaction handler.
+
+After changing a page title, description or preview link, regenerate the marked head blocks:
+
+```sh
+php tools/build-previews.php
+php tools/test-previews.php
+php tools/check-previews.php
+```
+
+`tools/preview-payload.php` serializes HTML-safe JSON and validates the supported display component
+subset, the 3,000-byte encoded payload, 40-component total (including accessories and root), ten
+gallery items across the whole payload, and HTTP(S) links. The focused tests include boundary and
+invalid payload cases. The page checker validates server-rendered head placement, canonical URLs,
+fallback metadata and local preview targets. CI runs it against the exact staged `_site` artifact.
+It does not contact Discord or prove crawler reachability, fetch timing or live rendering; those
+require a later deployed preview check. Contract sources:
+[Component Embeds](https://docs.discord.com/developers/link-previews/component-embeds) and
+[Link Previews](https://docs.discord.com/developers/link-previews/overview).
+
 ### Regenerating the maps
 
 `tools/routes-uml.php` reads DiscordPHP's source and Discord's OpenAPI description. It uses DiscordPHP's
