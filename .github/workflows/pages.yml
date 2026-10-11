@@ -131,6 +131,12 @@ jobs:
           test -f _site/.nojekyll
           test "$(cat _site/CNAME)" = "discordphp.org"
 
+      - name: Check static link previews offline
+        run: |
+          php tools/test-previews.php
+          php tools/test-redirects.php
+          php tools/check-previews.php _site
+
       - name: Upload the built site
         uses: actions/upload-artifact@v7
         with:

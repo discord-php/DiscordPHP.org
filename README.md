@@ -38,6 +38,72 @@ composer serve
 serves it at <http://localhost:8080> (or run `php -S localhost:8080` without Composer). Everything uses
 relative links, so the site works at a domain's root and under `/DiscordPHP.org/` on github.io alike.
 
+### Link previews
+
+The home, library, release, guide, community, newsletter and UML pages contain static Discord component embeds and Open
+Graph/Twitter fallback tags in their heads. The preview uses the existing DiscordPHP organization
+logo (`assets/images/discordphp.png`, copied from its GitHub avatar), the site's accent color and
+page-specific links. These display-only previews require no bot or interaction handler. The 404 page
+is excluded because an error response should not unfurl.
+
+After changing a page title, description or preview link, regenerate the marked head blocks:
+
+```sh
+php tools/build-previews.php
+php tools/test-previews.php
+php tools/check-previews.php
+```
+
+`tools/preview-payload.php` serializes HTML-safe JSON and validates the supported display component
+subset, the 3,000-byte encoded payload, 40-component total (including accessories and root), ten
+gallery items across the whole payload, and HTTP(S) links. The focused tests include boundary and
+invalid payload cases. The page checker validates server-rendered head placement, canonical URLs,
+fallback metadata and local preview targets. CI runs it against the exact staged `_site` artifact.
+It does not contact Discord or prove crawler reachability, fetch timing or live rendering; those
+require a later deployed preview check. Contract sources:
+[Component Embeds](https://docs.discord.com/developers/link-previews/component-embeds) and
+[Link Previews](https://docs.discord.com/developers/link-previews/overview).
+
+### Diagnosing custom-domain redirects
+
+Run `php tools/check-redirects.php` for read-only deployed header checks, or supply a known site URL
+such as `https://discordphp.org/guides.html`. It uses HEAD requests, follows at most five redirects,
+allows only the site's three known hosts, keeps TLS verification enabled and limits each chain to
+ten seconds. It rejects loops, HTTPS downgrades, non-2xx responses and terminal pages outside the
+canonical HTTPS domain. It does not validate a GET body, image fetches or Discord rendering. Run
+`php tools/test-redirects.php` for injected offline fixtures; CI runs only those offline tests.
+
+On October 10, 2026, public HTTPS for the apex and `www` redirected through Cloudflare to
+`https://discord-php.github.io/DiscordPHP.org/`, which GitHub redirected to `http://discordphp.org/`.
+The Pages source was `gh-pages` `/`, with custom domain `discordphp.org` and HTTPS enforcement off.
+Its deployed commit was `e04ed407e3e6934813468ad37a2c9026e8edfa3a` (site source `a377a41`). Direct
+GitHub Pages origin HTTP with the custom-domain Host returned 200; origin HTTPS failed certificate
+hostname verification. The deployed HTML had no redirect markup. GitHub's DNS health reported both
+public hosts proxied through Cloudflare and not HTTPS eligible. The exact Cloudflare rule and
+underlying origin DNS targets require inspection in the owner's account; public DNS hides them.
+
+The hosting correction, requiring separate authorization, is:
+
+1. Disable the Cloudflare forwarding/redirect to the `github.io` repository URL for the apex and
+   `www` (inspect Redirect Rules, Bulk Redirects, Page Rules and Workers). Keep `discordphp.org` in
+   Pages settings and the existing CNAME file; GitHub's redirect back to that custom domain is expected.
+2. Point apex DNS at GitHub Pages: A records `185.199.108.153`, `185.199.109.153`,
+   `185.199.110.153`, `185.199.111.153`; optional AAAA records `2606:50c0:8000::153` through
+   `2606:50c0:8003::153`. A flattened apex CNAME to `discord-php.github.io` is an alternative.
+   Set `www` CNAME to `discord-php.github.io`, without a URL scheme or repository path. Preserve
+   unrelated MX/TXT records. Start with these website records DNS-only to establish the origin.
+3. Wait for Pages DNS verification and a valid custom-domain certificate, then enable Enforce HTTPS.
+   Keep certificate verification enabled during acceptance. Do not switch Cloudflare to Full (strict)
+   while the origin certificate is invalid. If re-enabling the proxy later, use Full (strict) with
+   the valid origin certificate and keep redirects toward `https://discordphp.org`, never back to
+   `github.io`. Preserve paths and queries on any `www` canonical redirect.
+4. Purge obsolete redirect cache and retest apex, `www`, the default GitHub URL and a detail page:
+   each must finish at a 2xx HTTPS HTML page on `discordphp.org`. Then verify Discord crawler GETs.
+
+Sources: [GitHub custom-domain configuration](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)
+and [Cloudflare redirect-loop troubleshooting](https://developers.cloudflare.com/ssl/troubleshooting/too-many-redirects/).
+No repository-only change repairs external redirect rules, DNS or certificate provisioning.
+
 ### Regenerating the maps
 
 `tools/routes-uml.php` reads DiscordPHP's source and Discord's OpenAPI description. It uses DiscordPHP's
