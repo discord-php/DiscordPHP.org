@@ -1,6 +1,24 @@
 {
     "editions": [
         {
+            "key": "2026-10-12",
+            "date": "2026-10-12",
+            "headline": "Advancing game mechanics and performance in Civ13",
+            "intro": "I have merged several updates to `Civ13` that address game balance and performance, including fixes for digging exploits and issues with reagent processing and renewable mining. To further optimize the experience, I opened a pull request (`Civ13#3103`) aimed at improving lighting queue performance.",
+            "sections": [
+                {
+                    "title": "Simulation and documentation progress",
+                    "body": "Development on `Civ13` has moved into more granular mechanical territory, with work focusing on gun maintenance systems, component-based mechanics, and configurable attachments. I also addressed world-saving stability through bounded world saving and worked on extraction survival modes. To keep the community informed, I updated the official website and the wiki with new guides and details on various game modes."
+                },
+                {
+                    "title": "Library and bot maintenance",
+                    "body": "In my other projects, I continued filling card coverage gaps in `DiscordPHP-MTGPocket` and merged a pull request to `DiscordPHP-MCP`. I also opened a new pull request for `TwitchPHP` and worked on a local verification replica for `Civilizationbot`, where I opened `Civilizationbot#16` to track recent updates."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-10-12T22:01:21+00:00"
+        },
+        {
             "key": "2026-10-11-2",
             "date": "2026-10-11",
             "headline": "Refining inventory mechanics in Frontier Systems",
