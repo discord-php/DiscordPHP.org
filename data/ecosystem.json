@@ -11,6 +11,33 @@
   ],
   "projects": [
     {
+      "id": "civ13-website",
+      "name": "Civ13.com",
+      "kind": "website",
+      "group": "websites",
+      "status": "stable",
+      "audiences": ["valgorithms"],
+      "description": "The Civilization 13 website, with game modes, joining instructions and community links.",
+      "website": "https://civ13.com/",
+      "nextSteps": [
+        { "label": "Visit Civ13.com", "url": "https://civ13.com/", "type": "docs" }
+      ]
+    },
+    {
+      "id": "civ13",
+      "name": "Civilization 13",
+      "kind": "game",
+      "group": "games",
+      "status": "active",
+      "audiences": ["valgorithms"],
+      "description": "A free multiplayer BYOND game based on Space Station 13, with society-building, roleplay and historical team combat.",
+      "repository": "Civ13/Civ13",
+      "nextSteps": [
+        { "label": "How to play", "url": "https://civ13.com/#join", "type": "docs" },
+        { "label": "Explore the source", "url": "https://github.com/Civ13/Civ13", "type": "source" }
+      ]
+    },
+    {
       "id": "discordphp",
       "name": "DiscordPHP",
       "kind": "library",
