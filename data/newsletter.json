@@ -1,6 +1,24 @@
 {
     "editions": [
         {
+            "key": "2026-10-13",
+            "date": "2026-10-13",
+            "headline": "Improving gameplay stability and documentation in Civ13",
+            "intro": "I have merged several updates to `Civ13` that refine core mechanics, such as improving AI gameplay assistance, ensuring food nutrition and age are preserved during the drying process, and managing paid-child transfers within saved game contents. To support players better, I also rewrote the Merchant guide for the wiki and added documentation for the North America Nomads map.",
+            "sections": [
+                {
+                    "title": "Survival modes and engine development",
+                    "body": "Work on the extraction survival mode continues with efforts to define how faction-war persistence functions and defining custody phases. I have also proposed a plan for crash acceptance and opened a pull request to add a bounded Windows supervisor for isolated engine builds.\n\nIn my work on `OpenDream`, I focused on the `native-byond-bridge-proof` to manage object ownership. I opened and merged several pull requests aimed at ensuring that prompt snapshots, disconnected client references, and argument owners are released when procedure initializations fail or calls are rejected."
+                },
+                {
+                    "title": "Library and web updates",
+                    "body": "I merged several updates to `DiscordPHP-MTGPocket`, which included adding support for uncontracted two-sentence creature fights, documenting the rules-engine architecture, and making land-entry life payments explicit and resumable. Additionally, I have integrated the `Civ13` website and game into both `DiscordPHP.org` and `valgorithms.com`."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-10-13T22:02:52+00:00"
+        },
+        {
             "key": "2026-10-12",
             "date": "2026-10-12",
             "headline": "Advancing game mechanics and performance in Civ13",
