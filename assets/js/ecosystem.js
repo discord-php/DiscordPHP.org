@@ -84,7 +84,7 @@ function renderProjectCatalog(root, catalog, releases) {
   }
 
   const groupOrder = audience === 'valgorithms'
-    ? ['library', 'tool', 'website', 'bot']
+    ? ['library', 'tool', 'website', 'game', 'bot']
     : ['core', 'bridge', 'integrations', 'experimental', 'tools', 'bots', 'archived'];
   const fragment = document.createDocumentFragment();
   for (const key of groupOrder) {
@@ -92,7 +92,7 @@ function renderProjectCatalog(root, catalog, releases) {
     if (!entries?.length) continue;
     const info = GROUPS[key] || [key, ''];
     const section = node('section', 'catalog-group');
-    section.append(node('h2', '', audience === 'valgorithms' ? ({ library: 'Libraries', tool: 'Tools', website: 'Websites', bot: 'Bots' }[key] || key) : info[0]));
+    section.append(node('h2', '', audience === 'valgorithms' ? ({ library: 'Libraries', tool: 'Tools', website: 'Websites', game: 'Games', bot: 'Bots' }[key] || key) : info[0]));
     if (info[1] && audience !== 'valgorithms') section.append(node('p', 'section-intro', info[1]));
     const grid = node('div', 'grid project-grid');
     for (const project of entries) grid.append(renderProjectCard(project, releases));
