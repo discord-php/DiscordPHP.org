@@ -1,7 +1,7 @@
 {
-    "generated": "2026-10-14T12:26:16Z",
-    "discordphp": "adc8b9980c16cfa6dec66259c0b31c417cf62332",
-    "release": "v10.67.0",
+    "generated": "2026-10-14T13:10:39Z",
+    "discordphp": "331f5612b4cf24313a8779b807d005bf98cf3681",
+    "release": "v10.67.1",
     "spec": {
         "title": "Discord HTTP API (Preview)",
         "version": "10"
