@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-10-14",
+            "date": "2026-10-14",
+            "headline": "Improving the Civ13 launcher and web roadmap",
+            "intro": "I have merged a new, single-file self-updating Windows launcher for `Civ13` and updated the `civ13.github.io` site to include a player roadmap with validated navigation and automatic progress refreshes. To improve how the game connects to the launcher, I opened a pull request to resolve `valzargaming.com` for native connections, while ongoing work aims to refine how the launcher handles isolated launch configurations and local host verification.",
+            "sections": [
+                {
+                    "title": "Simulation stability and resource management",
+                    "body": "In `Civ13`, I merged updates to retire chemical smoke reagent sources after emission and to bound retained runtime error detail history. I am also working on improving world-save restoration through two open pull requests: one aims to exclude client HUD graphs from saved-world restoration, and another aims to restore authenticated players to their saved bodies after a world load.\n\nWork on `OpenDream` focused on bounding memory and CPU costs. I merged improvements regarding turf tile appearance updates, list pool backing capacity, and the release of disk-backed savefile read caches. To further optimize resource usage, I have opened pull requests that propose bounding idle DM list pool capacity and avoiding full text copies when resource output appends CRLF.\n\nIn the `DiscordPHP` ecosystem, I merged preparations for the v10.67.1 release, which includes compatibility updates for `libdave` and channel obfuscation."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-10-15T15:22:10+00:00"
+        },
+        {
             "key": "2026-10-13",
             "date": "2026-10-13",
             "headline": "Improving gameplay stability and documentation in Civ13",
