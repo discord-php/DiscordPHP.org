@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-10-15",
+            "date": "2026-10-15",
+            "headline": "Improving world recovery and gameplay mechanics in Civ13",
+            "intro": "I have merged several updates to `Civ13` that improve how the game handles world-save restoration, including excluding HUD graphs from saved worlds and validating added levels before recovery. To help with server management, I also added admin save restarts and automatic generation recovery.",
+            "sections": [
+                {
+                    "title": "Gameplay and infrastructure updates",
+                    "body": "New mechanics are now live in `Civ13`, including staged flax, tow, and textile lint processing, buildable freshwater dew collectors, and realistic prepared meals with bounded quality rewards. I also merged changes to reduce food and water consumption during inactivity and a system to confirm firearm actions in chat. To help players navigate crafting, I added a dependency atlas with era and processor views.\n\nOngoing work aims to further refine the player experience and server stability. I have opened pull requests to reclaim players waiting through saved-world recovery, rebuild runtime lighting ownership during world recovery, and verify full-map Europe native save and recovery. I am also working on a proposal to show hovered object names on the HUD and a plan to bound recent combat histories while archiving older forensic records. On the infrastructure side, I am exploring the use of public game ports with explicit launcher overrides and a method to use verified BYOND for ValZarGaming server selections."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-10-15T22:01:45+00:00"
+        },
+        {
             "key": "2026-10-14",
             "date": "2026-10-14",
             "headline": "Improving the Civ13 launcher and web roadmap",
