@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-10-16",
+            "date": "2026-10-16",
+            "headline": "Stabilizing world persistence and map transitions in Civ13",
+            "intro": "I have merged two updates to `Civ13` that improve data handling during critical transitions: preventing concurrent world saves and imports (`Civ13#3194`) and ensuring players are preserved when map transitions block the loading process (`Civ13#3195`). These changes build on recent efforts to make world-save restoration more reliable.",
+            "sections": [
+                {
+                    "title": "Playtesting and map development",
+                    "body": "The `Civ13` Nomads persistence playtest is live on the ValZarGaming server, testing server updates, save/load recovery, and the stability of persistent rounds.\n\nTo support new content, I have opened a pull request for a four-level Dagger home map with protected core and build areas (`Civ13#3193`). I am also working on a \"Europe lighting recovery\" probe to trace startup and diagnostic behavior. On the infrastructure side, I updated the native launcher to report diagnostics for update failures and added loss-safe archival for admin history.\n\nIn my work on `Civilizationbot`, I opened a pull request to add isolated Windows TEST1714 startup support. I also refreshed the player roadmap on the `civ13.github.io` site and added a link to the latest launcher release."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-10-16T23:13:04+00:00"
+        },
+        {
             "key": "2026-10-15",
             "date": "2026-10-15",
             "headline": "Improving world recovery and gameplay mechanics in Civ13",
