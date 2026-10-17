@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-10-17",
+            "date": "2026-10-17",
+            "headline": "Expanding Magic: The Gathering mechanics in DiscordPHP-MTGPocket",
+            "intro": "I have merged a series of updates to `DiscordPHP-MTGPocket` that expand the engine's ability to process complex Magic: The Gathering mechanics. This includes improved handling for various triggers—such as combat damage, creature death, sacrifices, and \"intervening-if\" conditions—as well as token types and specific card effects. To continue this expansion, I have opened a pull request to improve how the engine reads opponent spell kinds and defending-player attack triggers.",
+            "sections": [
+                {
+                    "title": "Technical handoffs and library maintenance",
+                    "body": "In `Civ13`, I have handed off several investigations to a dedicated branch, including work on lighting-after-load behavior and chemical registration fixes. I also provided technical feedback regarding HUD blindness reconciliation, Linux native diagnostic loss, and CI failures to assist with ongoing troubleshooting.\n\nRegarding the broader `DiscordPHP` ecosystem, I published release v10.68.0 and merged several pull requests. I am also reviewing a proposal to keep specific fields added by Discord within applications and search results."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-10-17T22:04:03+00:00"
+        },
+        {
             "key": "2026-10-16",
             "date": "2026-10-16",
             "headline": "Stabilizing world persistence and map transitions in Civ13",
