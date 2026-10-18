@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-10-18",
+            "date": "2026-10-18",
+            "headline": "Expanding card coverage in DiscordPHP-MTGPocket",
+            "intro": "I have merged a high volume of updates to `DiscordPHP-MTGPocket` to address card coverage gaps, specifically focusing on work related to `sc84tj`. This work continues the effort to ensure the engine can accurately process a wider variety of card interactions.",
+            "sections": [
+                {
+                    "title": "Refinement of Civ13 interfaces and agents",
+                    "body": "In `Civ13`, I have merged updates to improve how players join lobbies and how join verbs are displayed. I also pushed updates to help maintain the user experience by restoring input runtime states.\n\nTo support further development of automated systems, I have started work on a new gameplay agent contract and new debug tools for bounded agents. This work aims to provide a more structured way to test and implement agent behaviors within the game environment."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-10-18T22:02:38+00:00"
+        },
+        {
             "key": "2026-10-17",
             "date": "2026-10-17",
             "headline": "Expanding Magic: The Gathering mechanics in DiscordPHP-MTGPocket",
