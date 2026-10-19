@@ -1,6 +1,24 @@
 {
     "editions": [
         {
+            "key": "2026-10-19",
+            "date": "2026-10-19",
+            "headline": "Updating the Civ13 launcher with new server options",
+            "intro": "I have released Windows launcher version 1.0.3, which adds support for `Civ13.com` servers via `Civ13#3234`.",
+            "sections": [
+                {
+                    "title": "Engine and graphics refinements",
+                    "body": "In `Civ13`, I merged several updates to the engine, including binding agent grass gathering to explicit wait contexts (`Civ13#3208`), refusing unmeasured world-z growth before allocation (`Civ13#3217`), and using switch dispatch for persistence exclusions (`Civ13#3197`). I am also continuing work on visual and mechanical refinements, including an audit of stone lifting weights and updates to lighting plane mask composition. To improve environmental immersion, I have opened an issue to add geometric line-of-sight occlusion with wall and opening shadows."
+                },
+                {
+                    "title": "Expanding card data in DiscordPHP-MTGPocket",
+                    "body": "I have continued the effort to address card coverage gaps in `DiscordPHP-MTGPocket`, pushing frequent updates to expand the engine's ability to recognize and process more cards accurately."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-10-19T22:06:57+00:00"
+        },
+        {
             "key": "2026-10-18",
             "date": "2026-10-18",
             "headline": "Expanding card coverage in DiscordPHP-MTGPocket",
