@@ -1,6 +1,24 @@
 {
     "editions": [
         {
+            "key": "2026-10-20",
+            "date": "2026-10-20",
+            "headline": "Integrating gameplay footage uploads for Civ13",
+            "intro": "I have merged several updates to manage how gameplay footage is uploaded and verified, enrolling specific recordings—such as weapon attachments and train footage—into a reviewed YouTube uploader. This work includes new logic for rescheduling reviewed uploads and handling protected environment secrets to keep the uploader secure.",
+            "sections": [
+                {
+                    "title": "Infrastructure and documentation updates",
+                    "body": "In `Civ13`, I merged improvements to the system foundation, including a new identity and lease foundation for inactive extraction instances and a fix to keep bronze production and research evidence together during help retrieval. I also merged a fix to preserve wildlife peers during registry retirement. To support these systems, I have opened a pull request to add a guarded native bot supervisor consumer.\n\nWork on the `civ13.github.io` site has progressed with the publication of a source-pinned architecture and UML atlas, which includes fixes to maintain diagram aspect ratios on mobile. For the `YoutubePHP` project, I published phpDocumentor API references and uploader guides."
+                },
+                {
+                    "title": "Expanding engine capabilities and other tools",
+                    "body": "I have expanded the mechanics supported in `DiscordPHP-MTGPocket` by implementing graveyard-cast triggers and resolving a delay issue with cantrip draws through a persisted upkeep trigger. \n\nIn other projects, I merged opt-in step-click controls for `NFG` and added desktop and mobile render reports to `Coffee's Crafts` that preserve artwork. For `Civilizationbot`, I merged updates to ensure the portable bot uses a verified default main branch for its startup and updates, alongside improved Windows lifecycle controls."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-10-20T22:01:31+00:00"
+        },
+        {
             "key": "2026-10-19",
             "date": "2026-10-19",
             "headline": "Updating the Civ13 launcher with new server options",
