@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-10-21",
+            "date": "2026-10-21",
+            "headline": "Releasing Civ13 Launcher 1.0.6",
+            "intro": "I have released version 1.0.6 of the `Civ13` launcher, which includes cached server status to help preserve cooldowns across restarts. This follows the 1.0.5 release, which addressed single-file containment logging configuration and clarified YouTube review run guard refusals.",
+            "sections": [
+                {
+                    "title": "Engine stability and bot updates",
+                    "body": "To improve the reliability of the `Civ13` environment, I merged a passive monotonic watchdog to detect hangs in the Nomads system and added recovery verification tooling for the Gaia and Europe maps. I also addressed issues with extraction loot handoffs and adjusted research and mining restrictions, such as restricting rock mining to pickaxes. To support maintenance, I have opened a pull request to save and stop canonical Nomads processes before updating or compiling.\n\nIn other projects, I merged an update to `Civilizationbot` to improve nomad status freshness and merged an update to the `DiscordPHP` OpenAPI schema to address changes in the Discord API."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-10-21T22:03:13+00:00"
+        },
+        {
             "key": "2026-10-20",
             "date": "2026-10-20",
             "headline": "Integrating gameplay footage uploads for Civ13",
