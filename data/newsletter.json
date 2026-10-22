@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-10-22",
+            "date": "2026-10-22",
+            "headline": "Releasing Civ13 Launcher 1.0.7",
+            "intro": "I have released version 1.0.7 of the `Civ13` launcher, which includes a fix to prevent players from joining immediately after verified server discovery.",
+            "sections": [
+                {
+                    "title": "Engine and community updates",
+                    "body": "In `Civ13`, I merged experimental lighting overlays for inactive reserved cells and added clearance guards. I also pushed an update to extraction survival mode to fail closed on malformed recovery inventory roots and nodes. To support performance testing, I am working on aligning save benchmarks for `bounded-world-save`. To help organize our growing knowledge base, I have opened a pull request to define the mission and community standards for the `civ13.github.io` wiki.\n\nIn other projects, I released `DiscordPHP` version 10.69.0 and merged an update to `Civilizationbot` that adds an opt-in live launcher server directory. I am also working on separating disabled-source review from safehouse activation evidence in `Civilizationbot`."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-10-22T23:00:57+00:00"
+        },
+        {
             "key": "2026-10-21",
             "date": "2026-10-21",
             "headline": "Releasing Civ13 Launcher 1.0.6",
