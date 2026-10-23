@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-10-23",
+            "date": "2026-10-23",
+            "headline": "Refining Civ13 gameplay loops and lighting",
+            "intro": "I have opened an issue in `Civ13` to audit and fix redundant gameplay loops and lost scheduler progress. This work includes work on wolf cave timer ownership, movement discovery subsets, and refinements to lighting plane mask composition.",
+            "sections": [
+                {
+                    "title": "System and bot updates",
+                    "body": "In `Frontier-Systems`, I merged three pull requests (#128, #129, and #130) and have opened four new ones (#131 through #134) to propose further changes to the system. I am also continuing development on `Civilizationbot`, where I merged two updates and opened a new pull request (#24).\n\nRegarding my work with `DiscordPHP`, I merged a pull request to `DiscordPHP-NHA` to address changes in the NHA server API contract. I have also opened a new pull request (#331) for `DiscordPHP-MTGPocket` to continue expanding its capabilities."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-10-23T22:01:18+00:00"
+        },
+        {
             "key": "2026-10-22",
             "date": "2026-10-22",
             "headline": "Releasing Civ13 Launcher 1.0.7",
