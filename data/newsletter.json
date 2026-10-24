@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-10-24",
+            "date": "2026-10-24",
+            "headline": "Expanding MTGPocket card coverage and Civ13 documentation",
+            "intro": "I have merged several updates to `DiscordPHP-MTGPocket` to address card coverage gaps and resolve search issues for specific cards, including \"Burnished Hart,\" \"Harrow Land,\" and \"Farseek.\"",
+            "sections": [
+                {
+                    "title": "Civ13 roadmap and documentation updates",
+                    "body": "In `Civ13`, I merged pull requests #3302, #3303, and #3305 to support ongoing engine development. I have also been updating the project's documentation, merging new roadmap and mapping guides to the `civ13.github.io` site and the `civ13-wiki`. As part of a shift in project priorities, I have closed two pull requests related to \"OpenDream\" without merging them, as that work is currently discontinued.\n\nI recently shared a broad roadmap for the future of `Civ13`, which aims to move toward deeper historical survival and persistent worlds. This direction involves expanding resource and production chains—such as textiles and chemistry—and improving farming and food mechanics. To support this, I am working on enhancing world persistence through better saving and movement logic, with long-term plans to introduce industrialization tools like pipes and pumps."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-10-24T22:01:31+00:00"
+        },
+        {
             "key": "2026-10-23",
             "date": "2026-10-23",
             "headline": "Refining Civ13 gameplay loops and lighting",
