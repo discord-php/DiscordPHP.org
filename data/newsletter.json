@@ -1,6 +1,24 @@
 {
     "editions": [
         {
+            "key": "2026-10-25",
+            "date": "2026-10-25",
+            "headline": "Advancing Civ13 environmental mechanics and cloud metadata",
+            "intro": "I have merged several updates to `Civ13` focusing on environmental persistence, including snow accumulation, native zone persistence, and elevation metadata. This work includes documenting reproducible native cloud-rendered stills and validating zone data within the engine.",
+            "sections": [
+                {
+                    "title": "Gameplay evolution and engine compatibility",
+                    "body": "To expand survival depth in `Civ13`, I merged improvements to tree growth mechanics and added a requirement for shovels when uprooting seedlings. I have also opened pull requests to introduce winter food crops, such as turnips and plump helmets, and to add character discovery elements like berry scents. I am also working on a design for balanced nutritional diets.\n\nOn the technical side, I am working to ensure compatibility with BYOND 516.1688, using various CI branches to test client and cloud-bakery scenarios. I have also opened a pull request to retire unverified legacy BYOND installer entrypoints."
+                },
+                {
+                    "title": "Tooling and other projects",
+                    "body": "In `DiscordPHP`, I am developing a feature branch that proposes an asynchronous Windows RPC pipe helper to help keep loop heartbeats independent of Windows spawn latency. In `Frontier-Systems`, I opened a pull request to propose a design research knowledgebase and a rendering experiment plan. Finally, I merged an approved mission statement onto the `valgorithms.com` homepage."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-10-25T22:01:21+00:00"
+        },
+        {
             "key": "2026-10-24",
             "date": "2026-10-24",
             "headline": "Expanding MTGPocket card coverage and Civ13 documentation",
