@@ -235,7 +235,7 @@
     },
     {
       "id": "phpdoc-tool",
-      "name": "phpdoc-tool",
+      "name": "PHPDoc-Tool",
       "kind": "tool",
       "group": "tools",
       "status": "stable",
@@ -458,7 +458,7 @@
     },
     {
       "id": "coffee-s-crafts",
-      "name": "coffeescrafts.com",
+      "name": "CoffeesCrafts.com",
       "kind": "website",
       "group": "websites",
       "status": "stable",
