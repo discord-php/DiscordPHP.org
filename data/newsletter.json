@@ -1,6 +1,24 @@
 {
     "editions": [
         {
+            "key": "2026-10-26",
+            "date": "2026-10-26",
+            "headline": "Advancing Civ13 survival mechanics and MTGPocket verification",
+            "intro": "I have merged several updates to `Civ13` to refine core survival loops, specifically improving the correctness of husbandry and fishing systems and adding yeast bread cooking. I am also working on a proposal to plan procedurally generated `Civ13` surface worlds.",
+            "sections": [
+                {
+                    "title": "Civ13 systems and infrastructure",
+                    "body": "To improve engine stability, I merged fixes for redundant gameplay loops, lost scheduler progress, and gaps in crafted items. I am continuing work on the BYOND 516.1688 runtime acceptance and making improvements to the CI/CD pipeline. On the gameplay side, I have opened pull requests to address human drop mechanics, mutual shard transfer policies, and the implementation of era-specific dictionary replacements. Ongoing environmental work continues to focus on snowfall mechanics, seasonal construction persistence, and lighting research."
+                },
+                {
+                    "title": "DiscordPHP updates",
+                    "body": "In `DiscordPHP-MTGPocket`, I merged fixes for specific card mechanics, including death counters for \"Quest for the Gravelord,\" target clauses for \"Soul Stair Expedition,\" and counters for \"Quest for Ancient Secrets.\" I also merged updates to the `DiscordPHP.org` website to address display names and community links."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-10-26T22:01:41+00:00"
+        },
+        {
             "key": "2026-10-25",
             "date": "2026-10-25",
             "headline": "Advancing Civ13 environmental mechanics and cloud metadata",
