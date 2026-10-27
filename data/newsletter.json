@@ -1,6 +1,24 @@
 {
     "editions": [
         {
+            "key": "2026-10-27",
+            "date": "2026-10-27",
+            "headline": "Improving movement mechanics and map documentation in Civ13",
+            "intro": "I have merged fixes for diagonal human movement and map compilation to improve how players navigate the world. I am also continuing to expand our documentation, merging new map pages for Gaia and Nomads into the `civ13-wiki`.",
+            "sections": [
+                {
+                    "title": "Civ13 gameplay and world design",
+                    "body": "To further refine the player experience, I have opened pull requests to address minimap grid labels, \"prone continuous pulses,\" and overlaps in \"throw launch\" mechanics. I am also working on features to restore owned Nomad characters at assigned beds and to introduce request-bound local process facts.\n\nOur environmental and exploration work continues through \"liminal design\" and \"backrooms expedition\" projects, where I have been updating room rendering and expedition furnishings. To add more life to the landscape, I have opened pull requests to include decorative wildflower types and ecology activity heatmaps."
+                },
+                {
+                    "title": "DiscordPHP and bot updates",
+                    "body": "In `DiscordPHP-MTGPocket`, I have opened several pull requests to refine combat logic, specifically aiming to keep countered abilities from moving source cards, preserve frozen targets during paid damage, and support \"Garza Assassin\" payment recoveries. I am also working on implementing \"pure flame damage continuations\" and addressing \"disguise copy characteristics.\"\n\nRegarding other projects, I merged a fix for Windows admin-list framing in `Civilizationbot` and opened a pull request for authoritative admin-sync foundations. In `DiscordPHP`, I merged an update to document and verify optional lobby names."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-10-27T22:01:11+00:00"
+        },
+        {
             "key": "2026-10-26",
             "date": "2026-10-26",
             "headline": "Advancing Civ13 survival mechanics and MTGPocket verification",
