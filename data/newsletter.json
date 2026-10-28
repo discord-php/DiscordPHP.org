@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-10-28",
+            "date": "2026-10-28",
+            "headline": "Expanding survival crafting and engine systems in Civ13",
+            "intro": "I have merged several new survival mechanics into `Civ13`, including finite water collection from wild cactus, campfire stone kilns, hot-stone boiling, and preserving meat with salt without resetting freshness. These additions build on recent work with food and cooking to provide more ways for players to manage resources in the wild.",
+            "sections": [
+                {
+                    "title": "Civ13 and Civ14 progress",
+                    "body": "To further deepen the crafting loop, I have opened pull requests to introduce axe-free wooden tools, crude plank splitting, and replaceable primitive sawmill blades. I am also working on refining injury context guidance for players and improving the smoothness of pulling crates and material stacks. On the engine side, I merged updates to retire poultry and deer registry owners, improved world-save bounds to preserve rolling contents, and merged an experimental lighting coverage composition. I also opened pull requests to improve the continuous integration process by bounding the CI selector and aggregating checkouts.\n\nIn `Civ14`, I have been working to resolve YAML linter errors related to Gulag content and am progressing a pull request regarding steel production via pig iron and blast furnaces."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-10-28T22:02:34+00:00"
+        },
+        {
             "key": "2026-10-27",
             "date": "2026-10-27",
             "headline": "Improving movement mechanics and map documentation in Civ13",
