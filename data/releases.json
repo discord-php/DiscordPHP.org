@@ -1,5 +1,5 @@
 {
-    "generated": "2026-10-28T22:03:10Z",
+    "generated": "2026-10-29T12:26:39Z",
     "projects": {
         "civ13": {
             "release": {
@@ -13,8 +13,8 @@
         },
         "discordphp": {
             "release": {
-                "version": "v10.69.1",
-                "time": "2026-10-23T12:31:37+00:00",
+                "version": "v10.70.0",
+                "time": "2026-10-29T06:42:39+00:00",
                 "url": "https://packagist.org/packages/team-reflex/discord-php"
             },
             "compatibility": {
