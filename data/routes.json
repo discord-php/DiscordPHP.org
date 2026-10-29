@@ -1,15 +1,15 @@
 {
-    "generated": "2026-10-29T13:45:17Z",
-    "discordphp": "6779ce83185b66bcee2c20931480663a7e928c67",
-    "release": "v10.70.0",
+    "generated": "2026-10-29T20:50:18Z",
+    "discordphp": "ad202afbf7c2c67d1f2917b4c881898e2139377c",
+    "release": "v10.71.0",
     "spec": {
         "title": "Discord HTTP API (Preview)",
         "version": "10"
     },
     "totals": {
         "operations": 250,
-        "sent": 243,
-        "not sent": 7,
+        "sent": 247,
+        "not sent": 3,
         "deprecated": 3,
         "groups": 23,
         "events": 90
@@ -1353,8 +1353,16 @@
                         "BotToken"
                     ],
                     "deprecated": false,
-                    "constants": [],
-                    "sentBy": []
+                    "constants": [
+                        "CHANNEL_MEMBER_PERMISSIONS"
+                    ],
+                    "sentBy": [
+                        {
+                            "class": "ChannelTrait",
+                            "fqcn": "Discord\\Parts\\Channel\\ChannelTrait",
+                            "member": "fetchMemberPermissions()"
+                        }
+                    ]
                 },
                 {
                     "method": "GET",
@@ -1364,8 +1372,16 @@
                         "BotToken"
                     ],
                     "deprecated": false,
-                    "constants": [],
-                    "sentBy": []
+                    "constants": [
+                        "CHANNEL_ROLE_PERMISSIONS"
+                    ],
+                    "sentBy": [
+                        {
+                            "class": "ChannelTrait",
+                            "fqcn": "Discord\\Parts\\Channel\\ChannelTrait",
+                            "member": "fetchRolePermissions()"
+                        }
+                    ]
                 },
                 {
                     "method": "PUT",
@@ -1520,7 +1536,7 @@
                     ]
                 }
             ],
-            "mermaid": "classDiagram\n    direction LR\n    class Channel {\n        +setCategory() PATCH channels/:channel_id\n        +follow() POST channels/:channel_id/followers\n        +createInvite() POST channels/:channel_id/invites\n        +setOverwrite() PUT channels/:channel_id/permissions/:overwrite_id\n        +sendSoundboardSound() POST channels/:channel_id/send-soundboard-sound\n        +setVoiceChannelStatus() PUT channels/:channel_id/voice-status\n    }\n    class ChannelRepository {\n        +fetch() GET channels/:channel_id\n        +save() PATCH channels/:channel_id\n        +delete() DELETE channels/:channel_id\n    }\n    class GroupDM {\n        +addRecipient() PUT channels/:channel_id/recipients/:user_id\n        +removeRecipient() DELETE channels/:channel_id/recipients/:user_id\n    }\n    class InviteRepository {\n        +freshen() GET channels/:channel_id/invites\n        +save() POST channels/:channel_id/invites\n    }\n    class OverwriteRepository {\n        +delete() DELETE channels/:channel_id/permissions/:overwrite_id\n    }\n    class PrivateChannelRepository {\n        +fetch() GET channels/:channel_id\n        +modifyGroupDM() PATCH channels/:channel_id\n    }\n    class Thread {\n        +archive() PATCH channels/:channel_id\n        +rename() PATCH channels/:channel_id\n        +setAutoArchiveDuration() PATCH channels/:channel_id\n        +unarchive() PATCH channels/:channel_id\n    }\n    class ThreadRepository {\n        +fetch() GET channels/:channel_id\n        +save() PATCH channels/:channel_id\n        +delete() DELETE channels/:channel_id\n    }\n    class WebhookRepository {\n        +freshen() GET channels/:channel_id/webhooks\n        +save() POST channels/:channel_id/webhooks\n    }\n    class NotSent[\"Not sent by DiscordPHP\"] {\n        GET channels/:channel_id/permissions/member/:user_id\n        GET channels/:channel_id/permissions/role/:role_id\n    }\n    Channel *-- OverwriteRepository : overwrites\n    Channel *-- WebhookRepository : webhooks\n    Channel *-- ThreadRepository : threads\n    Channel *-- InviteRepository : invites"
+            "mermaid": "classDiagram\n    direction LR\n    class Channel {\n        +setCategory() PATCH channels/:channel_id\n        +follow() POST channels/:channel_id/followers\n        +createInvite() POST channels/:channel_id/invites\n        +setOverwrite() PUT channels/:channel_id/permissions/:overwrite_id\n        +sendSoundboardSound() POST channels/:channel_id/send-soundboard-sound\n        +setVoiceChannelStatus() PUT channels/:channel_id/voice-status\n    }\n    class ChannelRepository {\n        +fetch() GET channels/:channel_id\n        +save() PATCH channels/:channel_id\n        +delete() DELETE channels/:channel_id\n    }\n    class ChannelTrait {\n        +fetchMemberPermissions() GET channels/:channel_id/permissions/member/:user_id\n        +fetchRolePermissions() GET channels/:channel_id/permissions/role/:role_id\n    }\n    class GroupDM {\n        +addRecipient() PUT channels/:channel_id/recipients/:user_id\n        +removeRecipient() DELETE channels/:channel_id/recipients/:user_id\n    }\n    class InviteRepository {\n        +freshen() GET channels/:channel_id/invites\n        +save() POST channels/:channel_id/invites\n    }\n    class OverwriteRepository {\n        +delete() DELETE channels/:channel_id/permissions/:overwrite_id\n    }\n    class PrivateChannelRepository {\n        +fetch() GET channels/:channel_id\n        +modifyGroupDM() PATCH channels/:channel_id\n    }\n    class Thread {\n        +archive() PATCH channels/:channel_id\n        +rename() PATCH channels/:channel_id\n        +setAutoArchiveDuration() PATCH channels/:channel_id\n        +unarchive() PATCH channels/:channel_id\n    }\n    class ThreadRepository {\n        +fetch() GET channels/:channel_id\n        +save() PATCH channels/:channel_id\n        +delete() DELETE channels/:channel_id\n    }\n    class WebhookRepository {\n        +freshen() GET channels/:channel_id/webhooks\n        +save() POST channels/:channel_id/webhooks\n    }\n    Channel *-- OverwriteRepository : overwrites\n    Channel *-- WebhookRepository : webhooks\n    Channel *-- ThreadRepository : threads\n    Channel *-- InviteRepository : invites"
         },
         {
             "name": "Channels: threads",
@@ -3380,8 +3396,16 @@
                         "BotToken"
                     ],
                     "deprecated": false,
-                    "constants": [],
-                    "sentBy": []
+                    "constants": [
+                        "GUILD_MEMBER_PERMISSIONS"
+                    ],
+                    "sentBy": [
+                        {
+                            "class": "Guild",
+                            "fqcn": "Discord\\Parts\\Guild\\Guild",
+                            "member": "fetchMemberPermissions()"
+                        }
+                    ]
                 },
                 {
                     "method": "GET",
@@ -3391,8 +3415,16 @@
                         "BotToken"
                     ],
                     "deprecated": false,
-                    "constants": [],
-                    "sentBy": []
+                    "constants": [
+                        "GUILD_ROLE_PERMISSIONS"
+                    ],
+                    "sentBy": [
+                        {
+                            "class": "Guild",
+                            "fqcn": "Discord\\Parts\\Guild\\Guild",
+                            "member": "fetchRolePermissions()"
+                        }
+                    ]
                 },
                 {
                     "method": "GET",
@@ -3701,7 +3733,7 @@
                     ]
                 }
             ],
-            "mermaid": "classDiagram\n    direction LR\n    class AuditLogRepository {\n        +freshen() GET guilds/:guild_id/audit-logs\n    }\n    class Guild {\n        +setFeatures() PATCH guilds/:guild_id\n        +transferOwnership() PATCH guilds/:guild_id\n        +updateIncidentActions() PUT guilds/:guild_id/incident-actions\n        +getInvites() GET guilds/:guild_id/invites\n        +getServerGuide() GET guilds/:guild_id/new-member-welcome\n        +getOnboarding() GET guilds/:guild_id/onboarding\n        +modifyOnboarding() PUT guilds/:guild_id/onboarding\n        +getVoiceRegions() GET guilds/:guild_id/regions\n        +fetchVanityUrl() GET guilds/:guild_id/vanity-url\n        +getWelcomeScreen() GET guilds/:guild_id/welcome-screen\n        +updateWelcomeScreen() PATCH guilds/:guild_id/welcome-screen\n        +getWidgetSettings() GET guilds/:guild_id/widget\n        +updateWidgetSettings() PATCH guilds/:guild_id/widget\n    }\n    class GuildJoinRequestRepository {\n        +freshen() GET guilds/:guild_id/requests\n        +save() PATCH guilds/:guild_id/requests/:request_id\n    }\n    class GuildRepository {\n        +fetch() GET guilds/:guild_id\n        +save() PATCH guilds/:guild_id\n        +preview() GET guilds/:guild_id/preview\n    }\n    class GuildTemplateRepository {\n        +fetch() GET guilds/templates/:code\n        +freshen() GET guilds/:guild_id/templates\n        +save() POST guilds/:guild_id/templates\n        +sync() PUT guilds/:guild_id/templates/:code\n        +save() PATCH guilds/:guild_id/templates/:code\n        +delete() DELETE guilds/:guild_id/templates/:code\n    }\n    class IntegrationRepository {\n        +freshen() GET guilds/:guild_id/integrations\n        +delete() DELETE guilds/:guild_id/integrations/:integration_id\n    }\n    class InviteRepository {\n        +freshen() GET guilds/:guild_id/invites\n    }\n    class MessageRepository {\n        +freshen() GET guilds/:guild_id/messages/search\n    }\n    class Session {\n        +searchGuildMessages() GET guilds/:guild_id/messages/search\n    }\n    class Widget {\n        +fetch() GET guilds/:guild_id/widget.json\n        +getImage() GET guilds/:guild_id/widget.png\n    }\n    class NotSent[\"Not sent by DiscordPHP\"] {\n        GET guilds/:guild_id/permissions/member/:user_id\n        GET guilds/:guild_id/permissions/role/:role_id\n    }\n    Guild *-- AuditLogRepository : audit_log\n    Guild *-- IntegrationRepository : integrations\n    Guild *-- InviteRepository : invites\n    Guild *-- GuildJoinRequestRepository : join_requests\n    Guild *-- MessageRepository : messages\n    Guild *-- GuildTemplateRepository : templates"
+            "mermaid": "classDiagram\n    direction LR\n    class AuditLogRepository {\n        +freshen() GET guilds/:guild_id/audit-logs\n    }\n    class Guild {\n        +setFeatures() PATCH guilds/:guild_id\n        +transferOwnership() PATCH guilds/:guild_id\n        +updateIncidentActions() PUT guilds/:guild_id/incident-actions\n        +getInvites() GET guilds/:guild_id/invites\n        +getServerGuide() GET guilds/:guild_id/new-member-welcome\n        +getOnboarding() GET guilds/:guild_id/onboarding\n        +modifyOnboarding() PUT guilds/:guild_id/onboarding\n        +fetchMemberPermissions() GET guilds/:guild_id/permissions/member/:user_id\n        +fetchRolePermissions() GET guilds/:guild_id/permissions/role/:role_id\n        +getVoiceRegions() GET guilds/:guild_id/regions\n        +fetchVanityUrl() GET guilds/:guild_id/vanity-url\n        +getWelcomeScreen() GET guilds/:guild_id/welcome-screen\n        +updateWelcomeScreen() PATCH guilds/:guild_id/welcome-screen\n        +getWidgetSettings() GET guilds/:guild_id/widget\n        +updateWidgetSettings() PATCH guilds/:guild_id/widget\n    }\n    class GuildJoinRequestRepository {\n        +freshen() GET guilds/:guild_id/requests\n        +save() PATCH guilds/:guild_id/requests/:request_id\n    }\n    class GuildRepository {\n        +fetch() GET guilds/:guild_id\n        +save() PATCH guilds/:guild_id\n        +preview() GET guilds/:guild_id/preview\n    }\n    class GuildTemplateRepository {\n        +fetch() GET guilds/templates/:code\n        +freshen() GET guilds/:guild_id/templates\n        +save() POST guilds/:guild_id/templates\n        +sync() PUT guilds/:guild_id/templates/:code\n        +save() PATCH guilds/:guild_id/templates/:code\n        +delete() DELETE guilds/:guild_id/templates/:code\n    }\n    class IntegrationRepository {\n        +freshen() GET guilds/:guild_id/integrations\n        +delete() DELETE guilds/:guild_id/integrations/:integration_id\n    }\n    class InviteRepository {\n        +freshen() GET guilds/:guild_id/invites\n    }\n    class MessageRepository {\n        +freshen() GET guilds/:guild_id/messages/search\n    }\n    class Session {\n        +searchGuildMessages() GET guilds/:guild_id/messages/search\n    }\n    class Widget {\n        +fetch() GET guilds/:guild_id/widget.json\n        +getImage() GET guilds/:guild_id/widget.png\n    }\n    Guild *-- AuditLogRepository : audit_log\n    Guild *-- IntegrationRepository : integrations\n    Guild *-- InviteRepository : invites\n    Guild *-- GuildJoinRequestRepository : join_requests\n    Guild *-- MessageRepository : messages\n    Guild *-- GuildTemplateRepository : templates"
         },
         {
             "name": "Interactions",
