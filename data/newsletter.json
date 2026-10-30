@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-10-30",
+            "date": "2026-10-30",
+            "headline": "Refining player feedback and UI components in Civ13",
+            "intro": "I have merged an update to `Civ13` that allows the player Help system to record evidence of animal damage and limb loss.",
+            "sections": [
+                {
+                    "title": "Gameplay and Interface updates",
+                    "body": "To improve the interface, I opened pull requests to migrate NanoUI screens to official `tgui 6` components and to add administrative actions for player hygiene and mood context. I am also working on a proposal to introduce Gaia geometric line-of-sight and bounded whole-tree lighting defaults. Other ongoing work includes a pull request to address character trait foundations, a pull request to cancel automatic lobby starts for persistent rounds, and a draft regarding memory verification and bounded walking-animal save chunks. I have also opened pull requests to add Alt-held authoritative fine offset movement and to require real-world FX values for extraction traders in the documentation.\n\nIn `Frontier-Systems`, I opened a pull request to research the tradeoffs between fixed ticks, recovery, and life-support. Additionally, I updated the `fast-uri` dependency to version 3.1.9 in `coffee-s-crafts`."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-10-30T23:01:53+00:00"
+        },
+        {
             "key": "2026-10-29",
             "date": "2026-10-29",
             "headline": "Launching extraction survival mode in Civ13",
