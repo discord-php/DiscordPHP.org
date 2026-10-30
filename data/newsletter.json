@@ -1,6 +1,24 @@
 {
     "editions": [
         {
+            "key": "2026-10-29",
+            "date": "2026-10-29",
+            "headline": "Launching extraction survival mode in Civ13",
+            "intro": "I have merged a major update to `Civ13` that builds extraction survival mode with private durable safe houses. This builds on our recent focus on resource management and survival loops, providing a new way to experience the world's challenges.",
+            "sections": [
+                {
+                    "title": "Civ13 and backend progress",
+                    "body": "To support this new mode and refine existing gameplay, I merged fixes for composting input rejection, flint gathering completions, and depleted branches. I also merged work to smooth the pulling of crates and material stacks, and features to restore owned Nomad characters at assigned beds. On the engine side, I merged updates to improve world persistence by excluding certain entities from saves and guarding save admission's pull-pair checks. I am currently verifying an offline procedural map generator and working on a pull request to smooth paid prone and crawl movement.\n\nIn `In-Absentia-MMO`, I have been conducting an extensive review of a pull request for a PHP backend foundation. This work includes publishing a public recovery mirror for dependencies and performing multiple rounds of CI and independent reviews to address API and test corrections."
+                },
+                {
+                    "title": "Project updates",
+                    "body": "I released `DiscordPHP` version 10.70.0. Additionally, in `Frontier-Systems`, I merged a pull request to add a paid chamber recovery transaction prerequisite and another to add a genuine workshop teaser capture route."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-10-30T00:41:26+00:00"
+        },
+        {
             "key": "2026-10-28",
             "date": "2026-10-28",
             "headline": "Expanding survival crafting and engine systems in Civ13",
