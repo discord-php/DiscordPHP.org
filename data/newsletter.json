@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-10-31",
+            "date": "2026-10-31",
+            "headline": "Refining wood processing and UI components in Civ13",
+            "intro": "I have merged several updates to `Civ13` that refine resource processing, including adding conserved wood-chip batches for oven fuel and requiring electricity for wood grinder construction. I also merged fixes for dik-dik reproduction and addressed stale or unpowered grinder completions.",
+            "sections": [
+                {
+                    "title": "Civ13 and backend refinements",
+                    "body": "To improve the technical foundation of the game, I merged work to migrate NanoUI screens to official `tgui 6` components and updated the system to coordinate the native lifecycle through one process owner. I also added the ability to show launcher options without starting the launcher. As part of a broader effort to clean up the engine, I completed an audit of redundant gameplay loops and merged seven identified fixes. I am also no longer pursuing OpenDream compatibility.\n\nI have also opened pull requests to explain the existing cutting uses of flint shrapnel and to prepare flax human-entry acceptance.\n\nIn `DiscordPHP`, I merged a pull request to support PHP-compatible dependencies and cache promises, which involved updating requirements for Symfony Cache and Pest. Meanwhile, in `Civilizationbot`, I merged a change to bind native spool requests to bounded admission and target."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-10-31T22:03:33+00:00"
+        },
+        {
             "key": "2026-10-30",
             "date": "2026-10-30",
             "headline": "Refining player feedback and UI components in Civ13",
