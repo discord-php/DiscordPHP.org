@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-11-01",
+            "date": "2026-11-01",
+            "headline": "Modernizing the interface and HUD in Civ13",
+            "intro": "I have merged a large-scale migration of several key readers to the modern UI, including the Ship Stocks, Religion List, Crew Log, Faction List, Crafting Atlas, Photo reader, and various character-related notes. This transition aims to bring more of the game's core information systems into alignment with the updated interface standards.",
+            "sections": [
+                {
+                    "title": "Interface and engine refinements",
+                    "body": "To improve immediate player feedback, I merged several HUD and gameplay enhancements, such as displaying inventory item names when hovering over HUD slots and showing wet and dry hide stages on tanning racks. I also merged animations for mining and chopping with held-tool work strikes and ensured that mood and targeted player-help history remain visible. On the technical side, I merged a change to persist a 100 FPS client target independently of movement and implemented a fix to preserve HUD and world rendering during appearance refreshes.\n\nWork continues on several background systems, including a pull request to add bounded synthetic save round-trip acceptance in `Civilizationbot`. I have also opened a pull request in the `DiscordPHP` repository and am working on a proposal for a bounded debug-lossy save recovery system."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-11-01T23:02:04+00:00"
+        },
+        {
             "key": "2026-10-31",
             "date": "2026-10-31",
             "headline": "Refining wood processing and UI components in Civ13",
