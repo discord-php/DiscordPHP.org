@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-11-02",
+            "date": "2026-11-02",
+            "headline": "Expanding animal utility and interface feedback in Civ13",
+            "intro": "I have merged several new gameplay features to `Civ13`, including leather saddles and animal harnesses, alongside improvements to how players interact with storage through hover names for visible contents. These changes aim to make animal management and inventory inspection more intuitive as we continue building out the survival loop.",
+            "sections": [
+                {
+                    "title": "Gameplay and technical refinements",
+                    "body": "To further polish the user experience, I merged updates that allow crafted primitive axes to be placed in the active hand, added organic disposal in lit stone braziers, and updated pouch visibility and in-game tips. I also merged a fix to keep chat anchored through layout changes and addressed several typos in comments and player-facing text. On the engine side, I merged a significant update to the native tree callback and refresh harness and implemented a fix for the `Civ13` website to allow manual retries after a map overview load failure.\n\nWork is currently in progress on a retained-buffer calcium tablet press, a proposal to consolidate Crafting Atlas recipe variants into families, and a pull request to warn of fecal well contamination by smell. I am also working on a pull request to trace native tree withdrawal across mutation suspension and recording verified source comparisons to support new-branch CI.\n\nIn `Civilizationbot`, I merged three pull requests to update the bot's functionality."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-11-02T23:04:49+00:00"
+        },
+        {
             "key": "2026-11-01",
             "date": "2026-11-01",
             "headline": "Modernizing the interface and HUD in Civ13",
