@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-11-03",
+            "date": "2026-11-03",
+            "headline": "Improving world persistence and storage interaction in Civ13",
+            "intro": "I have merged several updates to `Civ13` that improve how the world and its contents are handled, including a fix to prevent saved limbs from being deleted during world loads and a new low-memory segmented world save and load mode. To make managing resources more efficient, I also merged the ability to shift-click examine items in open storage.",
+            "sections": [
+                {
+                    "title": "Gameplay and technical refinements",
+                    "body": "To help with character management, I merged a change that pauses mood decreases while a character is asleep and adjusted the anvil smithing Crafting requirement. I also merged updates to improve line-of-sight, including making the refresh linear and adding an ambient occlusion toggle. On the documentation side, I added new guides to the `Civ13` wiki covering station and service loops, as well as boats and ships.\n\nTo address ongoing CI infrastructure timeouts, I merged a new policy that allows for admin merges based on local build evidence, which included updating the toolchain guide and preflight index. I am also continuing an audit of D3DX data signatures, specifically working on pinning preparation policy controls and adjusting costs for hair, tree-light, and LOS audits.\n\nIn `Civilizationbot`, I merged updates to keep game chat visible when hosted identity lookup is unavailable and to prevent mentions in unverified game chat relays."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-11-03T23:02:13+00:00"
+        },
+        {
             "key": "2026-11-02",
             "date": "2026-11-02",
             "headline": "Expanding animal utility and interface feedback in Civ13",
