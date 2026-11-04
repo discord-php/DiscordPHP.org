@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-11-04",
+            "date": "2026-11-04",
+            "headline": "Advancing factory automation and world generation in Civ13",
+            "intro": "I have merged the first two phases of factory automation into `Civ13`, introducing belts, feeders, sorting arms, parts bins, belt drives, sorting gates, splitters, and tunnels. I am now working on Phase 2b, which aims to allow sorting arms to feed directly into bloomeries, blast furnaces, and powered saw mills.",
+            "sections": [
+                {
+                    "title": "World mechanics and ecology",
+                    "body": "To expand the variety of environments, I merged a new procedural map generator for underground caverns and added the ability for maps to opt-in to colder temperatures at high altitudes via a lapse rate. I also merged a fix to prevent saved world-time cooldowns from blocking doors and actions after a restart. To help stabilize the ecosystem, I merged a change to keep wildlife sub-tile walking on the native walk schedule, and I am working on a pull request to add ecology-driven wildlife spawning.\n\nTechnical refinements included merging a fix to prevent day/night changes from stalling the server and a performance update to stop saving per-animal art and sound copies in world saves. I also resolved an issue with carriage rider jitter during travel and prevented a second digger from collecting from an emptied turf. On the backend, I merged a change to let the lifecycle supervisor own a Linux game process, and I am working on a proposal to implement SQLite-per-region transfer storage.\n\nIn `Civilizationbot`, I merged a change to announce resumed rounds without the standard Round Start ping. I am also working to ensure staff webhooks are accepted even when hosted verification is unavailable."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-11-04T23:01:40+00:00"
+        },
+        {
             "key": "2026-11-03",
             "date": "2026-11-03",
             "headline": "Improving world persistence and storage interaction in Civ13",
