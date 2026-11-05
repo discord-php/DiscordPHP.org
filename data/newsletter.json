@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-11-05",
+            "date": "2026-11-05",
+            "headline": "Improving server stability and world management in Civ13",
+            "intro": "I have merged a new save policy for `Civ13` that waits until a server is empty before performing automatic saves or maintenance reboots. I also merged a system to let host services sleep, wake, and cold-start region worlds, aiming to make server and world management more efficient.",
+            "sections": [
+                {
+                    "title": "Gameplay and wiki updates",
+                    "body": "To add more variety to player communication and interaction, I merged the addition of craftable radio headsets and implemented a modern, non-blocking prompt system for `WWinput` notices. I also merged fixes for industrial drills running on uncovered dirt, the \"bakelizer\" crafting node, and an issue where loaded rounds lacked bullets after a restore.\n\nOn the documentation side, I merged an upgrade of the `Civ13` wiki to mdBook 0.4.52 and introduced a navigation system that groups content by vote lists and generates overview pages. I also merged updates to automate the re-pinning of player help guides and moved large assets to Git LFS.\n\nCurrent work includes several open pull requests to expand the game's scope, such as adding a 2026 Digital Age, implementing space settlement survey probes, and introducing \"resetting raid worlds\" for zombie city scenarios. I am also working on mechanics for NPC raiders and trader caravans, as well as a system for players to build admin-approved trail markers. In `Civilizationbot`, I have opened a new pull request."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-11-05T23:02:14+00:00"
+        },
+        {
             "key": "2026-11-04",
             "date": "2026-11-04",
             "headline": "Advancing factory automation and world generation in Civ13",
