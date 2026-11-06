@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-11-06",
+            "date": "2026-11-06",
+            "headline": "Enabling independent world rounds and Mars region updates in Civ13",
+            "intro": "I have merged logic that allows region worlds other than the mainland to start their own rounds independently once world setup and any save loads have finished. As part of this expansion, I merged a change to rename the Barren region to Mars (Red Plain), which limits its weather to clear skies and dust storms and now supports saving.",
+            "sections": [
+                {
+                    "title": "Infrastructure and launcher improvements",
+                    "body": "I released `Civ13` Launcher versions 1.4.0 and 1.4.1. These updates point the launcher's Discord sign-in at the live service by default and fix a \"WinError 50\" that occurred during server update checks.\n\nOn the backend, I am working on a host service watchdog to monitor for crashed or hung worlds and implementing staged builds that compile alongside running reboots. I have also been addressing technical issues regarding supervisor contract checks, save-latency lane tests, and the `Verifier-server` pin in `Civilizationbot`."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-11-06T23:01:56+00:00"
+        },
+        {
             "key": "2026-11-05",
             "date": "2026-11-05",
             "headline": "Improving server stability and world management in Civ13",
