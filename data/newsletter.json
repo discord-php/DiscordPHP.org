@@ -1,6 +1,24 @@
 {
     "editions": [
         {
+            "key": "2026-11-07",
+            "date": "2026-11-07",
+            "headline": "Laying railway tracks and expanding crafting options in Civ13",
+            "intro": "I have merged a system to lay railway track piece-by-piece using sleepers, rails, and a hammer, with the ability to take tracks apart using a crowbar. I also merged a change to ensure party train stations connect to the map edge via connected rail networks.",
+            "sections": [
+                {
+                    "title": "Survival and crafting updates",
+                    "body": "To expand the survival and crafting loops, I merged a toolsmith's bench for turning smelted ingots and wood directly into tools, and added a craftable leather harness for tools and short weapons. I also merged the addition of flint mining, knapping, antler picks, and fire strikers, and implemented a system where portable lights have finite fuel and can be refilled. To assist with resource gathering, I merged a change that allows open outdoor barrels to collect rain and dew."
+                },
+                {
+                    "title": "Ongoing development",
+                    "body": "Work continues on several ambitious systems, including a pull request to add 1969-era orbital flight featuring two-stage rockets, launch pads, and orbital capsules. I am also working on a proposal to add steel and concrete bridge spans that cross the ocean. Regarding the ecosystem, I am working on a pull request to implement habitat-based wildlife spawning for 41 species across all Nomad maps.\n\nOn the technical side, I merged a change to hand running regions over to staged builds without stopping the load. I am also working on a pull request to improve continuous integration by catching stale moving-save inventories and reducing checkout and digest churn."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-11-07T23:03:10+00:00"
+        },
+        {
             "key": "2026-11-06",
             "date": "2026-11-06",
             "headline": "Enabling independent world rounds and Mars region updates in Civ13",
