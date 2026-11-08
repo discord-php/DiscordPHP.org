@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-11-08",
+            "date": "2026-11-08",
+            "headline": "Expanding faction combat and satellite control in Civ13",
+            "intro": "I have merged a system that allows factions to own satellites and raid each other's ground stations, including the ability for owners to reacquire a satellite if a link is cut. To add more tactical depth to group interactions, I also merged fire teams for squads, factions, and companies, which includes rosters, friendly-fire notices, machine gun heat, autoinjectors, and an observer HUD.",
+            "sections": [
+                {
+                    "title": "Gameplay and interface updates",
+                    "body": "Beyond satellite management, I merged several improvements to character and world interaction. This includes a system to queue out-of-character messages sent before a region's round starts, and a fix to keep the prone sprite at a consistent size and angle after clicks. I also addressed visual refinements by merging fixes for HUD tile scaling and hover name text, along with a new refresh link for the Regions panel.\n\nOn the technical side, I merged repairs to the native runners for weapon parry, survival, and process time. I also pushed several updates to the `Civ13` wiki. In the `byond-devtools` repository, I released version 0.5.1, which includes dictionary widening and fixes for Entra credentials and Marketplace member ID printing."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-11-08T23:08:53+00:00"
+        },
+        {
             "key": "2026-11-07",
             "date": "2026-11-07",
             "headline": "Laying railway tracks and expanding crafting options in Civ13",
