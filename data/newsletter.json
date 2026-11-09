@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-11-09",
+            "date": "2026-11-09",
+            "headline": "Expanding media and knowledge systems in Civ13",
+            "intro": "I have merged the first components of a new media and knowledge system, introducing 1903-era radio stations with live presenters and the ability for characters to receive distributed recipe books. This work also includes the addition of 1969-era television stations that feature visible cameras.",
+            "sections": [
+                {
+                    "title": "Gameplay refinements and stability",
+                    "body": "A significant portion of today's work focused on cleaning up various gameplay mechanics and fixing bugs. I merged fixes for combat and environmental hazards, including issues with punji traps, barbed wire, and injury stance penalties when using canes. I also addressed several item-related bugs involving handcuffs, syringes, fire extinguishers, and reagent barrels, while resolving inconsistencies with beehive harvesting, crop bonuses, and campfire cooking timers.\n\nTo improve server performance and reliability, I merged fixes to prevent save failures during moving chunk updates and implemented a change to stop animal walkers from running when no players are connected to a region. Additionally, I merged an update to the `Civ13` wiki."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-11-09T23:02:13+00:00"
+        },
+        {
             "key": "2026-11-08",
             "date": "2026-11-08",
             "headline": "Expanding faction combat and satellite control in Civ13",
