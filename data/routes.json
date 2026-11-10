@@ -1,5 +1,5 @@
 {
-    "generated": "2026-11-09T23:02:45Z",
+    "generated": "2026-11-10T15:15:19Z",
     "discordphp": "074a0bb1309737896afeecd7a782951d7d265929",
     "release": "v10.72.0",
     "spec": {
@@ -1761,7 +1761,7 @@
                     ]
                 }
             ],
-            "mermaid": "classDiagram\n    direction LR\n    class Channel {\n        +startThread() POST channels/:channel_id/threads\n    }\n    class Member {\n        +remove() DELETE channels/:channel_id/thread-members/:user_id\n    }\n    class MemberRepository {\n        +freshen() GET channels/:channel_id/thread-members\n        +fetch() GET channels/:channel_id/thread-members/:user_id\n    }\n    class Thread {\n        +join() PUT channels/:channel_id/thread-members/@me\n        +leave() DELETE channels/:channel_id/thread-members/@me\n        +addMember() PUT channels/:channel_id/thread-members/:user_id\n        +removeMember() DELETE channels/:channel_id/thread-members/:user_id\n        +search() GET channels/:channel_id/threads/search\n    }\n    class ThreadRepository {\n        +save() POST channels/:channel_id/threads\n        +archived() GET channels/:channel_id/threads/archived/private\n        +archived() GET channels/:channel_id/threads/archived/public\n        +archived() GET channels/:channel_id/users/@me/threads/archived/private\n    }\n    Channel *-- ThreadRepository : threads\n    Thread *-- MemberRepository : members"
+            "mermaid": "classDiagram\n    direction LR\n    class Channel {\n        +startThread() POST channels/:channel_id/threads\n    }\n    class Member {\n        +remove() DELETE channels/:channel_id/thread-members/:user_id\n    }\n    class MemberRepository {\n        +freshen() GET channels/:channel_id/thread-members\n        +fetch() GET channels/:channel_id/thread-members/:user_id\n    }\n    class Thread {\n        +join() PUT channels/:channel_id/thread-members/@me\n        +leave() DELETE channels/:channel_id/thread-members/@me\n        +addMember() PUT channels/:channel_id/thread-members/:user_id\n        +removeMember() DELETE channels/:channel_id/thread-members/:user_id\n        +search() GET channels/:channel_id/threads/search\n    }\n    class ThreadRepository {\n        +save() POST channels/:channel_id/threads\n        +archived() GET channels/:channel_id/threads/archived/private\n        +archived() GET channels/:channel_id/threads/archived/public\n        +archived() GET channels/:channel_id/users/@me/threads/archived/private\n    }\n    Thread *-- MemberRepository : members\n    Channel *-- ThreadRepository : threads"
         },
         {
             "name": "Gateway",
