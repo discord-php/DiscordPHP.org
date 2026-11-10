@@ -1,6 +1,24 @@
 {
     "editions": [
         {
+            "key": "2026-11-10",
+            "date": "2026-11-10",
+            "headline": "Advancing research tools and logistics in Civ13",
+            "intro": "I have merged era-specific writing tools for scholars, a writing desk, and a library bonus to support the book research system. I also merged a fix to ensure auto-research remains active after exiting book research mode.",
+            "sections": [
+                {
+                    "title": "Crafting and transportation groundwork",
+                    "body": "To support long-term progression, I merged the first components of a \"Crafting Atlas,\" providing information on raw material sources, reaction sites, and material tool damage. I am also working on a proposal for an active foraging system that aims to introduce biome-aware discovery and persistent shared depletion. On the logistics side, I have added groundwork for physical train routes, including route previews, manifests, and admission APIs, though departures are currently disabled."
+                },
+                {
+                    "title": "Gameplay and stability refinements",
+                    "body": "I addressed several issues regarding item physics and entity logic, such as fixing glass tables that failed to shatter when climbed and ensuring septim coin icons update correctly when splitting stacks. I also merged a fix to validate limb identity during reattachment to prevent selecting a missing limb from replacing an intact one. Other refinements included military flashlight lens cycling, resolving issues with concurrent grille construction, and fixing railing dismantling logic."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-11-10T23:34:23+00:00"
+        },
+        {
             "key": "2026-11-09",
             "date": "2026-11-09",
             "headline": "Expanding media and knowledge systems in Civ13",
