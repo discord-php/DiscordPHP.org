@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-11-12",
+            "date": "2026-11-12",
+            "headline": "Naval customization and submarine mechanics in Civ13",
+            "intro": "I have merged updates to improve life at sea, including the ability to name submarines and repaint their hull stripes at the ballast station. I also merged the addition of contact and magnetic naval mines, along with degaussing coils and hull wiping stations. Additionally, ships can now meet and part company while navigating the open sea.",
+            "sections": [
+                {
+                    "title": "Gameplay and stability refinements",
+                    "body": "To support orbital mechanics, I merged changes so that spacecraft with docked habitat modules fly as one ship on the orbit chart. I also merged a change to ensure bone armor, bone helmets, hair-pipe armor, and skull masks remain craftable in later eras. To aid in gathering, I merged a fix to grant electricity in the resource extraction probe.\n\nI addressed several issues regarding Geiger counters, merging a fix to maintain a single scan loop, resume scans after loading, and expire old pulses. Other stability work included fixing biofuel refinery feedstock loss, correcting drying rack gelatin behavior, and resolving a faction HUD context issue."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-11-12T23:03:50+00:00"
+        },
+        {
             "key": "2026-11-11",
             "date": "2026-11-11",
             "headline": "Modular weapon parts and HUD updates in Civ13",
