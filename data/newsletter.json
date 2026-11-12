@@ -1,6 +1,24 @@
 {
     "editions": [
         {
+            "key": "2026-11-11",
+            "date": "2026-11-11",
+            "headline": "Modular weapon parts and HUD updates in Civ13",
+            "intro": "I have merged modular parts for the AR, AK-100, Mosin, and Arisaka rifle families. I also merged the addition of a new `ConsoleStyle` HUD, which is now the default.",
+            "sections": [
+                {
+                    "title": "Content and documentation",
+                    "body": "To support new gameplay loops, I merged the addition of synthetic leather and a honey frame cutting mechanic. I also expanded the Crafting Atlas with source-only entity coverage for the Atlas. Extensive updates were made to the `Civ13` wiki, including new guides for the default HUD layout, weapon parts and salvage, tanning drums, organ healing, and various crafting and dietary mechanics."
+                },
+                {
+                    "title": "Bot and web refinements",
+                    "body": "I have updated `Civilizationbot` to include \"Play\" buttons for TDM and Persistence, and refined how the bot handles chat moderation, medals, permits, bans, and round information. The bot also received hardening for IP and key lookups. Additionally, I merged updates to the `Civ13` website regarding persistence join pages."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-11-12T05:22:50+00:00"
+        },
+        {
             "key": "2026-11-10",
             "date": "2026-11-10",
             "headline": "Advancing research tools and logistics in Civ13",
