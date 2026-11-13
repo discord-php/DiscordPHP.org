@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-11-13",
+            "date": "2026-11-13",
+            "headline": "Improved communication logic and tutorial regions in Civ13",
+            "intro": "I have merged new practice room tutorial regions to help players learn the ropes, alongside shared templates for plain ground tiles to streamline world building. To refine how characters interact with the world, I merged shared comprehension logic that governs how radio, telephone, and voicepipe signals are heard.",
+            "sections": [
+                {
+                    "title": "Gameplay and systems development",
+                    "body": "I merged several refinements to core mechanics, including improved logic for smoke signals and better handling of animal save-states. I also addressed stability for home ledgers and region management, and merged a fix for home coordinator recovery. I have also merged the ability for vehicles to tow planes on the ground. I am currently working on a system for using animal intestines as sausage casings, as well as mechanics for hand-built submarines.\n\nTo support these new features, I have updated the wiki with guides for the survival camp practice rooms and sausage casing production. Documentation is also being prepared for upcoming weather forecasting, firefighting tools, and boat equipment.\n\nOn the integration side, I pushed updates to `Civilizationbot` to verify Discord connectivity from within the game and added a way to control inactive DiscordPHP lobby rosters. I am also currently planning a DiscordPHP-backed launcher voice implementation and a staged integration of the Discord Social SDK.\n\nIn other projects, I worked on the `MTGPocket` rules-engine guide and creature token helpers, and committed a change to `NFG` to protect the built application against external dependencies."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-11-13T23:07:21+00:00"
+        },
+        {
             "key": "2026-11-12",
             "date": "2026-11-12",
             "headline": "Naval customization and submarine mechanics in Civ13",
