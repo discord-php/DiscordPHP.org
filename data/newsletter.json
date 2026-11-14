@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-11-14",
+            "date": "2026-11-14",
+            "headline": "Expanded transport mechanics and mass-scale bug fixes in Civ13",
+            "intro": "I have merged new mechanics for carts to hitch behind horses, oxen, and carriages, alongside the addition of throttles, reversers, braking distance, and loads for trains. To improve flight realism, I also merged updates that make aircraft performance—including takeoff roll, climb rate, fuel burn, and cruise pace—dependent on aircraft weight.",
+            "sections": [
+                {
+                    "title": "Gameplay systems and stability",
+                    "body": "The day's work included significant improvements to infrastructure and crafting. I merged a new sewer system featuring drain ditches, stone drains, outfalls, and cesspits, a relief generator for expedition lands, and expanded tool crafting to allow plain tools to be made in other metals. I also added thirteen new tailored hat bodies and updated the art for locomotives and railway guns.\n\nTo improve the overall stability of the game, I merged a large batch of audited bug fixes, covering high, medium, and low-priority issues. This included resolving a problem where compost bins would lose livestock during world saves and removing a redundant projectile cover firer check. I also refactored how map data is handled by replacing copied ID lists with map traits for `tribes`, `nationsrp`, and `campaign`.\n\nTo support these changes, I updated the wiki and re-pinned guides for the new tailored headwear. In other development, I have opened two new pull requests for the `dm-godot` project."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-11-14T23:08:45+00:00"
+        },
+        {
             "key": "2026-11-13",
             "date": "2026-11-13",
             "headline": "Improved communication logic and tutorial regions in Civ13",
