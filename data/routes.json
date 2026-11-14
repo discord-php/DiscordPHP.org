@@ -1,5 +1,5 @@
 {
-    "generated": "2026-11-13T23:08:12Z",
+    "generated": "2026-11-14T13:48:49Z",
     "discordphp": "074a0bb1309737896afeecd7a782951d7d265929",
     "release": "v10.72.0",
     "spec": {
@@ -692,7 +692,7 @@
                     ]
                 }
             ],
-            "mermaid": "classDiagram\n    direction LR\n    class ActivityInstanceRepository {\n        +fetch() GET applications/:application_id/activity-instances/:instance_id\n    }\n    class Application {\n        +fetch() GET applications/:application_id\n        +update() PATCH applications/:application_id\n        +getActivityInstance() GET applications/:application_id/activity-instances/:instance_id\n        +uploadAttachment() POST applications/:application_id/attachment\n        +getApplicationRoleConnectionMetadataRecords() GET applications/:application_id/role-connections/metadata\n        +updateApplicationRoleConnectionMetadataRecords() PUT applications/:application_id/role-connections/metadata\n    }\n    class Client {\n        +getCurrentApplication() GET applications/@me\n        +updateCurrentApplication() PATCH applications/@me\n    }\n    class EmojiRepository {\n        +freshen() GET applications/:application_id/emojis\n        +save() POST applications/:application_id/emojis\n        +fetch() GET applications/:application_id/emojis/:emoji_id\n        +save() PATCH applications/:application_id/emojis/:emoji_id\n        +delete() DELETE applications/:application_id/emojis/:emoji_id\n    }\n    class EntitlementRepository {\n        +freshen() GET applications/:application_id/entitlements\n        +getEntitlements() GET applications/:application_id/entitlements\n        +createTestEntitlement() POST applications/:application_id/entitlements\n        +save() POST applications/:application_id/entitlements\n        +fetch() GET applications/:application_id/entitlements/:entitlement_id\n        +delete() DELETE applications/:application_id/entitlements/:entitlement_id\n        +deleteTestEntitlement() DELETE applications/:application_id/entitlements/:entitlement_id\n        +consume() POST applications/:application_id/entitlements/:entitlement_id/consume\n    }\n    Application *-- EntitlementRepository : entitlements\n    Application *-- ActivityInstanceRepository : activity_instances\n    Client *-- EmojiRepository : emojis"
+            "mermaid": "classDiagram\n    direction LR\n    class ActivityInstanceRepository {\n        +fetch() GET applications/:application_id/activity-instances/:instance_id\n    }\n    class Application {\n        +fetch() GET applications/:application_id\n        +update() PATCH applications/:application_id\n        +getActivityInstance() GET applications/:application_id/activity-instances/:instance_id\n        +uploadAttachment() POST applications/:application_id/attachment\n        +getApplicationRoleConnectionMetadataRecords() GET applications/:application_id/role-connections/metadata\n        +updateApplicationRoleConnectionMetadataRecords() PUT applications/:application_id/role-connections/metadata\n    }\n    class Client {\n        +getCurrentApplication() GET applications/@me\n        +updateCurrentApplication() PATCH applications/@me\n    }\n    class EmojiRepository {\n        +freshen() GET applications/:application_id/emojis\n        +save() POST applications/:application_id/emojis\n        +fetch() GET applications/:application_id/emojis/:emoji_id\n        +save() PATCH applications/:application_id/emojis/:emoji_id\n        +delete() DELETE applications/:application_id/emojis/:emoji_id\n    }\n    class EntitlementRepository {\n        +freshen() GET applications/:application_id/entitlements\n        +getEntitlements() GET applications/:application_id/entitlements\n        +createTestEntitlement() POST applications/:application_id/entitlements\n        +save() POST applications/:application_id/entitlements\n        +fetch() GET applications/:application_id/entitlements/:entitlement_id\n        +delete() DELETE applications/:application_id/entitlements/:entitlement_id\n        +deleteTestEntitlement() DELETE applications/:application_id/entitlements/:entitlement_id\n        +consume() POST applications/:application_id/entitlements/:entitlement_id/consume\n    }\n    Client *-- EmojiRepository : emojis\n    Application *-- EntitlementRepository : entitlements\n    Application *-- ActivityInstanceRepository : activity_instances"
         },
         {
             "name": "Channels: messages",
@@ -1761,7 +1761,7 @@
                     ]
                 }
             ],
-            "mermaid": "classDiagram\n    direction LR\n    class Channel {\n        +startThread() POST channels/:channel_id/threads\n    }\n    class Member {\n        +remove() DELETE channels/:channel_id/thread-members/:user_id\n    }\n    class MemberRepository {\n        +freshen() GET channels/:channel_id/thread-members\n        +fetch() GET channels/:channel_id/thread-members/:user_id\n    }\n    class Thread {\n        +join() PUT channels/:channel_id/thread-members/@me\n        +leave() DELETE channels/:channel_id/thread-members/@me\n        +addMember() PUT channels/:channel_id/thread-members/:user_id\n        +removeMember() DELETE channels/:channel_id/thread-members/:user_id\n        +search() GET channels/:channel_id/threads/search\n    }\n    class ThreadRepository {\n        +save() POST channels/:channel_id/threads\n        +archived() GET channels/:channel_id/threads/archived/private\n        +archived() GET channels/:channel_id/threads/archived/public\n        +archived() GET channels/:channel_id/users/@me/threads/archived/private\n    }\n    Channel *-- ThreadRepository : threads\n    Thread *-- MemberRepository : members"
+            "mermaid": "classDiagram\n    direction LR\n    class Channel {\n        +startThread() POST channels/:channel_id/threads\n    }\n    class Member {\n        +remove() DELETE channels/:channel_id/thread-members/:user_id\n    }\n    class MemberRepository {\n        +freshen() GET channels/:channel_id/thread-members\n        +fetch() GET channels/:channel_id/thread-members/:user_id\n    }\n    class Thread {\n        +join() PUT channels/:channel_id/thread-members/@me\n        +leave() DELETE channels/:channel_id/thread-members/@me\n        +addMember() PUT channels/:channel_id/thread-members/:user_id\n        +removeMember() DELETE channels/:channel_id/thread-members/:user_id\n        +search() GET channels/:channel_id/threads/search\n    }\n    class ThreadRepository {\n        +save() POST channels/:channel_id/threads\n        +archived() GET channels/:channel_id/threads/archived/private\n        +archived() GET channels/:channel_id/threads/archived/public\n        +archived() GET channels/:channel_id/users/@me/threads/archived/private\n    }\n    Thread *-- MemberRepository : members\n    Channel *-- ThreadRepository : threads"
         },
         {
             "name": "Gateway",
@@ -3779,7 +3779,7 @@
                     "sentBy": [
                         {
                             "class": "InviteRepository",
-                            "fqcn": "Discord\\Repository\\Channel\\InviteRepository",
+                            "fqcn": "Discord\\Repository\\Guild\\InviteRepository",
                             "member": "fetch()"
                         }
                     ]
@@ -3798,7 +3798,7 @@
                     "sentBy": [
                         {
                             "class": "InviteRepository",
-                            "fqcn": "Discord\\Repository\\Channel\\InviteRepository",
+                            "fqcn": "Discord\\Repository\\Guild\\InviteRepository",
                             "member": "delete()"
                         }
                     ]
