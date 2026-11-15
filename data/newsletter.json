@@ -1,6 +1,24 @@
 {
     "editions": [
         {
+            "key": "2026-11-15",
+            "date": "2026-11-15",
+            "headline": "New cultural mechanics and pixel-based vehicle movement in Civ13",
+            "intro": "I have merged the addition of Inca (Quechua) and Tupi peoples, along with administrative verbs for origin and language scores. I also merged a system that allows travelers to carry their people, language scores, default language, birthplace, and daily learning between lands. To support this, I have added a Peoples and Languages guide to the wiki.",
+            "sections": [
+                {
+                    "title": "Gameplay and movement updates",
+                    "body": "Work continues on a multi-phase overhaul of vehicle movement. Following the merger of a shared pixel-offset core, motorcycles and boats now drive by pixels. I am currently reviewing a pull request that aims to fix the driving pace for these vehicles and remove footstep sounds for riders.\n\nI also merged several adjustments to world survival and administration. Piranha swarms in jungle rivers have been reworked to be more survivable, with limb loss occurring only after sustained exposure in open water. I also modified flu spread to be slower and include sneezing, scaling infection rolls by traits and resistance. For staff, mentor and admin help messages are now visible within the Admin chat tab."
+                },
+                {
+                    "title": "Bot improvements",
+                    "body": "I have updated `Civilizationbot` with a feature to count and list players across every region of a shard group."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-11-15T23:02:08+00:00"
+        },
+        {
             "key": "2026-11-14",
             "date": "2026-11-14",
             "headline": "Expanded transport mechanics and mass-scale bug fixes in Civ13",
