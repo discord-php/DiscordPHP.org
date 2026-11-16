@@ -1,6 +1,24 @@
 {
     "editions": [
         {
+            "key": "2026-11-16",
+            "date": "2026-11-16",
+            "headline": "New mining methods and structural construction in Civ13",
+            "intro": "I have merged several new ways to extract and process minerals, including placer mining using pay dirt, sluice boxes, and rockers, as well as lode ore processing with quartz and silver ore, water stamp mills, and buddles. To expand building capabilities, I also merged a step-by-step process for constructing log walls.",
+            "sections": [
+                {
+                    "title": "Survival and environmental interaction",
+                    "body": "To refine how characters interact with their surroundings, I merged updates to hygiene and survival mechanics. Players can now wash specific body parts with clean water, and drinking now requires targeting the mouth. I also added floor drains that take spilt water, blood, and slops, and a feature that allows players to look up at the level above them.\n\nFor those working on fortifications, I merged the addition of arrow slits, gun loops, and one-sided battlements. I also added a notification to let players know when they can act again following a level save."
+                },
+                {
+                    "title": "Documentation and web updates",
+                    "body": "I performed maintenance on the Civ13 wiki, merging various updates and re-pinning help documentation for pottery and hygiene. Additionally, I merged several updates to the civ13.github.io website."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-11-16T23:07:56+00:00"
+        },
+        {
             "key": "2026-11-15",
             "date": "2026-11-15",
             "headline": "New cultural mechanics and pixel-based vehicle movement in Civ13",
