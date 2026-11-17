@@ -1,6 +1,24 @@
 {
     "editions": [
         {
+            "key": "2026-11-17",
+            "date": "2026-11-17",
+            "headline": "New locomotive stations and gas production in Civ13",
+            "intro": "I have merged new functionality for gas works, which allows for the filling of airship cells with hydrogen or helium. To support rail travel, I also added steam locomotive cab stations, and I merged improvements to building storey logic that governs how floors, lofts, and fire stops are handled.",
+            "sections": [
+                {
+                    "title": "Gameplay and interface improvements",
+                    "body": "To help players progress through technologies more efficiently, I merged a \"knowledge spreading\" system that aims to speed up subject reading and reduce research costs. I also added bilge pump mechanics for boats and implemented sun-based lighting and shadows for hills on Gaia.\n\nFor a better initial experience, I merged updates that provide configuration choices for movement and HUD styles when players first join. I also added a bottom-of-screen hover text option and addressed several player-reported issues regarding item interactions, bag fullness, and treetop looking."
+                },
+                {
+                    "title": "Documentation and web updates",
+                    "body": "I performed extensive updates to the wiki, which included merging new documentation for steam locomotive cab crews and re-pinning in-game help links to the wiki. Additionally, I merged several updates to the civ13.github.io website."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-11-17T23:01:33+00:00"
+        },
+        {
             "key": "2026-11-16",
             "date": "2026-11-16",
             "headline": "New mining methods and structural construction in Civ13",

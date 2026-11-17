@@ -1,11 +1,11 @@
 {
-    "generated": "2026-11-17T16:30:28Z",
+    "generated": "2026-11-17T23:02:17Z",
     "projects": {
         "civ13": {
             "release": {
-                "version": "launcher-v1.5.27",
-                "time": "2026-11-16T01:10:10Z",
-                "url": "https://github.com/Civ13/Civ13/releases/tag/launcher-v1.5.27"
+                "version": "launcher-v1.5.30",
+                "time": "2026-11-17T16:37:42Z",
+                "url": "https://github.com/Civ13/Civ13/releases/tag/launcher-v1.5.30"
             },
             "compatibility": {
                 "available": false
