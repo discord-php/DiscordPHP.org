@@ -1,6 +1,24 @@
 {
     "editions": [
         {
+            "key": "2026-11-18",
+            "date": "2026-11-18",
+            "headline": "New freight wagons and ship launching in Civ13",
+            "intro": "I have merged significant updates to rail logistics, adding tank cars with functional valves and liquid bulk handling, as well as hopper wagons and drop pits for bulk freight. To support these new transport options, I also added snow mechanics where accumulation on the tracks can slow trains, and a snowplough to clear the line.",
+            "sections": [
+                {
+                    "title": "Naval and environmental systems",
+                    "body": "Building on recent maritime work, players can now launch schooners and freighters from slipways as player-built hulls featuring functional holds. I have updated the wiki with new guides covering these boat mechanics and how to manage freighter holds.\n\nI also merged a system for outdoor temperatures to follow realistic climate normals, using a smooth curve that incorporates the time of day, weather, and seasonal shifts. To refine the visual environment, I merged changes to ensure deep water no longer affects the lighting behind ships and prepared storm ingress geometry to handle diagonal winds."
+                },
+                {
+                    "title": "Gameplay and interface refinements",
+                    "body": "I have expanded how players progress in Natural Science, as mining, smelting, and oven firing, as well as weather and water finds, now provide leveling opportunities. For the interface, I merged updates that give `TGUI` windows their own title bars.\n\nSeveral technical fixes were also merged, including resolving an issue where faction banners would error during world loads, fixing a rendering bug where people on upper levels were drawn twice while walking, and correcting a movement bug where held keys would only move a player one tile after a body change. Extensive new wiki guides were also added to cover various train components, ranging from conductor duties to boiler washouts."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-11-18T23:03:40+00:00"
+        },
+        {
             "key": "2026-11-17",
             "date": "2026-11-17",
             "headline": "New locomotive stations and gas production in Civ13",

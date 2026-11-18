@@ -1,5 +1,5 @@
 {
-    "generated": "2026-11-18T15:59:26Z",
+    "generated": "2026-11-18T23:04:40Z",
     "projects": {
         "civ13": {
             "release": {
@@ -28,8 +28,8 @@
         },
         "discordphp-http": {
             "release": {
-                "version": "v10.9.9",
-                "time": "2026-10-29T20:38:09+00:00",
+                "version": "v10.9.10",
+                "time": "2026-11-18T14:32:17+00:00",
                 "url": "https://packagist.org/packages/discord-php/http"
             },
             "compatibility": {
