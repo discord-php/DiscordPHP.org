@@ -1,6 +1,24 @@
 {
     "editions": [
         {
+            "key": "2026-11-19",
+            "date": "2026-11-19",
+            "headline": "Multi-depth mining foundations and player data improvements",
+            "intro": "I have implemented the first phase of a multi-depth mining system by merging a new floor registry schema and validator. This provides the structural groundwork needed to support mining operations that extend deeper into the earth.",
+            "sections": [
+                {
+                    "title": "Gameplay refinements and technical optimizations",
+                    "body": "The day's work included several fixes to ensure medical and combat mechanics behave as intended. I merged updates to prevent blood from being mislabeled during IV collection, corrected flashlight eye examinations so they report on the correct patient, and ensured that pill force-feeding fails if a patient moves away or covers their mouth. I also addressed a bug where incapacitated players could still fire lit flamethrowers.\n\nTo improve performance, I merged several code optimizations that allow the engine to reuse existing data for submarine flooding, human movement, and fishing ground lookups."
+                },
+                {
+                    "title": "Infrastructure and documentation",
+                    "body": "I am working on ways to improve how player data is handled across different regions, including work on a shared player records store and a hidden karma ledger. I also reviewed a proposal for implementing four-hour checkpoints within occupied persistence regions. In terms of communication, I have opened a pull request that aims to add recipient-side translation for both in-character and out-of-character chat.\n\nFinally, I have expanded the wiki with detailed new guides covering metallurgy—specifically steel grades and industrial steelworks—as well as combat mechanics like unarmed fighting and body part grabbing, and updated information on swimming HUDs and tool speeds."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-11-19T23:02:28+00:00"
+        },
+        {
             "key": "2026-11-18",
             "date": "2026-11-18",
             "headline": "New freight wagons and ship launching in Civ13",
