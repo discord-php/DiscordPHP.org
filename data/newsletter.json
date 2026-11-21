@@ -1,6 +1,24 @@
 {
     "editions": [
         {
+            "key": "2026-11-21",
+            "date": "2026-11-21",
+            "headline": "New maritime features and character biology updates",
+            "intro": "I have merged several updates that expand the maritime experience, adding ocean reefs, islets, and shipwrecks to the world alongside new mechanics to carry cars, trucks, and light planes across the sea on a ship's deck.",
+            "sections": [
+                {
+                    "title": "Biology and industrial processes",
+                    "body": "Character biology has undergone a significant change; a person's hair, eye, and skin color are now determined by the climate of their birthplace rather than their specific people. I also merged the addition of staff-only heteromorph forms (Dragonoid phase 1). In the realm of industrial production, I added bakelizer settings to support the creation of resin laminate and nylon cloth, and expanded the meteorology system to include crop frost and frost covers.\n\nMedical systems have also seen refinements, including new ways to refine substances like laudanum and heroin, as well as optimizations to how medical effect type lists are reused."
+                },
+                {
+                    "title": "Visuals and animations",
+                    "body": "To improve the visual atmosphere, I merged new sprites for dock gates, refit marks, yard offices, and keel blocks. I am also currently reviewing a large pull request aimed at animating whole-body movements, such as swimming, climbing, and combat."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-11-21T23:02:04+00:00"
+        },
+        {
             "key": "2026-11-20",
             "date": "2026-11-20",
             "headline": "Valithor's daily recap — Friday, November 20, 2026",
