@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-11-22",
+            "date": "2026-11-22",
+            "headline": "Ship planning tools and movement refinements",
+            "intro": "I have merged a new house planning system that allows you to draw storeys directly onto a ship's draught, including checks and a house designer window. To support this, I have updated the wiki with a new construction guide for planning houses on paper.",
+            "sections": [
+                {
+                    "title": "Gameplay and interface updates",
+                    "body": "Movement visuals have been refined by removing the per-step \"bounce\" during walking, running, and sprinting, as well as the per-step sink when moving through water, mud, and snow. I also rebuilt the \"Ask for Help\" window to include a single conversation view and merged updates to the chat panel to add a plain text switch and make OOC, LOOC, and examine names bold.\n\nOn the technical side, I merged optimizations to reduce sound listener type checks and implemented a simplified mob scheduler for the living guard. I also resolved an issue where loading heavy ammunition powder would use the container from the wrong hand.\n\nWork is currently in progress on several items, including pull requests aimed at improving sheep maturation logic, fixing group save/update/restart issues, and adding a shared smokable inventory overlay refresh."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-11-22T23:03:51+00:00"
+        },
+        {
             "key": "2026-11-21",
             "date": "2026-11-21",
             "headline": "New maritime features and character biology updates",
