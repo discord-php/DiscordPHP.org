@@ -1,11 +1,11 @@
 {
-    "generated": "2026-11-22T14:55:47Z",
+    "generated": "2026-11-22T15:57:47Z",
     "projects": {
         "civ13": {
             "release": {
-                "version": "launcher-v1.5.38",
-                "time": "2026-11-22T14:49:16Z",
-                "url": "https://github.com/Civ13/Civ13/releases/tag/launcher-v1.5.38"
+                "version": "launcher-v1.5.39",
+                "time": "2026-11-22T15:38:11Z",
+                "url": "https://github.com/Civ13/Civ13/releases/tag/launcher-v1.5.39"
             },
             "compatibility": {
                 "available": false
@@ -13,8 +13,8 @@
         },
         "discordphp": {
             "release": {
-                "version": "v10.72.0",
-                "time": "2026-11-08T13:50:12+00:00",
+                "version": "v10.72.1",
+                "time": "2026-11-14T14:17:56+00:00",
                 "url": "https://packagist.org/packages/team-reflex/discord-php"
             },
             "compatibility": {
