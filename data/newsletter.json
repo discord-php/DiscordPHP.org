@@ -1,6 +1,24 @@
 {
     "editions": [
         {
+            "key": "2026-11-23",
+            "date": "2026-11-23",
+            "headline": "Maritime navigation and timber growth updates",
+            "intro": "I have merged a mechanic that lets players grow timber trees from branch cuttings, alongside an update that allows a single sailor to take a ship on a voyage or over a map edge. To support these changes, I am reviewing a pull request aimed at syncing documentation for tree cuttings, hatchet heads, and foundering ships.",
+            "sections": [
+                {
+                    "title": "Gameplay and persistence progress",
+                    "body": "Work is heavily focused on the Persistence system. I have opened pull requests to add a character lobby and bed-sleep picker, a public World Overview to the Persistence gateway, and a private birth chart with houses, placements, and aspects, as well as a Star Chart with private astrological transits. I am also working on a fix to avoid empty cave zones after a persistence restore.\n\nIn terms of general gameplay, I merged a fix to keep foundering ships intact. I also merged a pull request to recover hatchet heads and track handle wear separately. I am currently working to resolve an issue where binoculars lose their range-check locks after restoring a save."
+                },
+                {
+                    "title": "Economy and technical refinements",
+                    "body": "I have identified several issues regarding the stock market, specifically concerning withdrawals, stale buy buttons, and fractional-silver errors. I am also investigating currency and filtering issues with factory arms. Additionally, I am addressing bugs related to item handling, such as weapons being deleted during equipment changes and items remaining in hands when stored in safes.\n\nOn the technical side, I merged a pull request to support bounded `typesof` during Civ13 startup. I also updated the project roadmap to include rockets docking at station ports."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-11-23T23:02:05+00:00"
+        },
+        {
             "key": "2026-11-22",
             "date": "2026-11-22",
             "headline": "Ship planning tools and movement refinements",
