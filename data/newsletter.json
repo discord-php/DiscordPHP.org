@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-11-24",
+            "date": "2026-11-24",
+            "headline": "Expanded astrological features and tutorial overhauls",
+            "intro": "I have merged several new components to the Persistence gateway, including a character lobby with a bed-sleep picker, a public World Overview, and a suite of astrological tools featuring private Birth Charts and Star Charts.",
+            "sections": [
+                {
+                    "title": "Tutorial and gameplay refinements",
+                    "body": "The tutorial experience has been redesigned with a rebuilt Tutorial region, now featuring an open camp and a draught workshop. To make this more interactive, I am reviewing pull requests that aim to make workshops more hands-on, specifically focusing on teaching players how to handle writing and printing tasks.\n\nI have also been addressing various gameplay issues, such as errors with fuel pumps, ship helm reporting, and the behavior of siege ladders. On the administrative side, I am working on a pull request to link BYOND profiles to the admin player panel. Additionally, I have merged several updates to the wiki to ensure player documentation and help guides remain current."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-11-24T23:01:56+00:00"
+        },
+        {
             "key": "2026-11-23",
             "date": "2026-11-23",
             "headline": "Maritime navigation and timber growth updates",
