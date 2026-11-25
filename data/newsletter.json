@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-11-25",
+            "date": "2026-11-25",
+            "headline": "Infrastructure fixes and character identity refinements",
+            "intro": "I have merged a series of fixes to improve how players interact with the world, specifically resolving issues with fire door seals, pound locks, and boat interactions. I also addressed several technical bugs, including how rail warehouses handle choices and ensuring electrical isolation for overhead traction wires.",
+            "sections": [
+                {
+                    "title": "Gameplay and rail systems",
+                    "body": "Beyond those fixes, I have merged improvements to network landline behavior, character examine previews, and the functionality of books used for drawing. I am also reviewing several pull requests that aim to refine specific combat and survival mechanics, such as the loading states for Derringers and revolvers, personal firefighting on ice, and membership guards for tribal religions. To help keep the Persistence system organized, I am working on a pull request to reject duplicate names across character slots.\n\nI have also been investigating several issues regarding rail infrastructure, specifically concerning locomotive tracking, instrument overwrites, and section IDs for single-line tokens. Other reported concerns involve how freight depots interact with moorings and the anchoring of built-hulls."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-11-25T23:11:59+00:00"
+        },
+        {
             "key": "2026-11-24",
             "date": "2026-11-24",
             "headline": "Expanded astrological features and tutorial overhauls",
