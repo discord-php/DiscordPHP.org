@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-11-26",
+            "date": "2026-11-26",
+            "headline": "Launcher updates and canal development",
+            "intro": "I have merged a new dark mode for the Windows launcher. I am also reviewing a pull request that aims to let players deepen and line trenches for navigable canals.",
+            "sections": [
+                {
+                    "title": "Gameplay and environmental refinements",
+                    "body": "I have been identifying various gameplay issues, including bugs with wearable tethers, item handoffs, voyage navigation, hydraulic fracturing, and medical splints. I also noted inconsistencies regarding faction laws and clay crocks; to address the latter, I am reviewing a pull request to restart clay crock work intervals when they are resealed.\n\nI am also investigating potential additions to the meteorology system, specifically a pull request to add severe storm gusts and land tornadoes. On the technical side, I merged an optimization to short-circuit certain regular-file inventory lookups."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-11-26T23:03:39+00:00"
+        },
+        {
             "key": "2026-11-25",
             "date": "2026-11-25",
             "headline": "Infrastructure fixes and character identity refinements",
