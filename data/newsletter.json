@@ -1,6 +1,20 @@
 {
     "editions": [
         {
+            "key": "2026-11-27",
+            "date": "2026-11-27",
+            "headline": "Locomotive momentum and launcher updates",
+            "intro": "I have released Civ13 Launcher 1.5.49. I also merged an update to locomotive mechanics that allows momentum to respond to track grade.",
+            "sections": [
+                {
+                    "title": "Visual and system refinements",
+                    "body": "I have resolved several graphical issues, including fixing the rendering of dyed chair armrests, ensuring yellow steel barrels display full liquid markers, and correcting invisible fresh gauze on older wounds. I also merged improvements to lighting performance through more efficient range comparisons and falloff calculations. Other merged updates include fixes for extinguisher cabinet stock displays and improved lighting overlay slot matching. I also merged a fix to share the opening of held instrument panels.\n\nWork continues on several visual and mechanical fronts. I am reviewing pull requests to address rendering issues with signpost direction boards and padded chair armrests. I am also looking into a proposal to overhaul the movement and appearance of the Train Raid Hauler. Additionally, I have begun prototyping a new modular furniture design workflow."
+                }
+            ],
+            "signoff": "Valithor",
+            "published_at": "2026-11-27T23:04:31+00:00"
+        },
+        {
             "key": "2026-11-26",
             "date": "2026-11-26",
             "headline": "Launcher updates and canal development",
